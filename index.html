@@ -1,9 +1,1740 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>api-doc</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="images/favicon.ico">
+<title>iPayroll | API Reference</title>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Mallanna' rel='stylesheet' type='text/css'>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/theme.developer.css" rel="stylesheet">
+<!--[if lt IE 9]>
+        	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
 </head>
 <body>
-test
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2">
+
+			
+			<table width="100%">			
+<!-- Overview | START -->				
+				<tr>
+					<td class="content-header" width="50%"><a id="overview" name="overview" class="anchor"></a><h1>API Reference</h1></td>
+					<td class="content-header-example" width="50%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="content-text">
+						<p>The iPayroll REST API allows you to query and manipulate data held by iPayroll about organisations and their employees. It uses predictable, resource-oriented URLs, and communicates API errors using HTTP resoonse codes.</p>
+						<p>The iPayroll API uses standard HTTP Verbs, <a href="http://www.json.org" target="_blank">JSON</a> and <a href="http://tools.ietf.org/html/rfc6749" target="_blank">Oauth2</a>.</p>
+						<p>The API can be used directly by clients developing their own applications. Third party applications can also be authorised by clients to access information on their behalf.</p>		
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>					
+<!-- Overview | END -->
+<!-- Base URL | START -->
+				<tr>
+					<td class="content-header" width="50%"><a id="base" name="base" class="anchor"></a><h2>Base URL</h2></td>
+					<td class="content-header-example" width="50%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="content-text">
+						<p>All URLs referenced in the documentation have the following base:<br />https://secure2.ipayroll.co.nz/api/v1</p>
+						<p>The iPayroll REST API is served over HTTPS. Plain HTTP is not supported.</p>
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>	
+<!-- Base URL | START -->
+<!-- Functionality | START -->
+				<tr>
+					<td class="content-header" width="50%"><a id="functionality" name="functionality" class="anchor"></a><h2>Functionality</h2></td>
+					<td class="content-header-example" width="50%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="content-text">
+						<p>The iPayroll API supports the following actions:</p>
+						<ul>
+							<li>List employees</li>
+							<li>Create employees</li>
+							<li>Get pay rates for an employee</li>
+							<li>Get timesheets associated with the latest payroll</li>
+							<li>List cost centres</li>
+							<li>Create cost centres</li>
+						</ul>
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>	
+<!-- Functionality | END --> 
+<!-- Scopes | START -->
+				<tr>
+					<td class="content-header" width="50%"><a id="scopes" name="scopes" class="anchor"></a><h2>Scopes</h2></td>
+					<td class="content-header-example" width="50%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="content-text">
+						<p>Data available via The iPayroll API is grouped into scopes.</p>
+						<p>Scopes allow an organisation to expose only a particular section of their data to a third party application. For example, permission can be granted only to access employee details, but not their timesheets.</p>
+						<p>The iPayroll API supports the following scopes:</p>
+						<ul>
+							<li>Employees</li>
+							<li>Timesheets</li>
+							<li>Payrates</li>
+							<li>Costcentres</li>
+						</ul>
+						<p>Your application will have to request access for the scopes it is interested in, and the user will have to grant that access.</p>
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>	
+<!-- Scopes | END --> 
+<!-- Getting Started | START -->
+				<tr>
+					<td class="content-header" width="50%"><a id="getting-started" name="getting-started" class="anchor"></a><h2>Getting Started</h2></td>
+					<td class="content-header-example" width="50%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="content-text">
+						<p>To begin using the API, you first need to register a developer account by emailing <a href="mailto:api@ipayroll.co.nz">api@ipayroll.co.nz</a><a mailto="api@ipayroll.co.nz"></a> with your request. We will then provide you with the following on our sandbox:</p>
+						<p><strong>application-account:</strong> This is the account your application can use to make API calls.</p>
+						<p><strong>developer-account:</strong> You may use this account to login to your application's dashboard where you can obtain your client id and secret, and also configure your application.</p>
+						<p><strong>organisation-account (client):</strong> The developer and application accounts are not associated with a specific organisation, therefore, you can not access any data that belongs to a particular organisation if you login with your developer account.</p>
+						<p>In order to make any productive API calls, you'll need access to an organisation in the system. So you can use one of the organisation's user accounts to grant permission to your application to access organisation's data.</p>
+						<p>Whether you are an existing iPayroll customer or a third party developer who wants to integrate with iPayroll, a new organisation would be created in the demo environment, along with a user account with full access rights to the organisation. You can use this account to set data up for your organisation to test API calls or verify information uploaded through the API.</p>
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>
+<!-- Getting Started | END --> 
+<!-- Developer Overview | START -->
+				<tr>
+					<td class="content-header" width="50%"><a id="developer" name="developer" class="anchor"></a><h2>Developer Overview</h2></td>
+					<td class="content-header-example" width="50%">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="content-text">
+						<a id="developer-technologies" class="anchor" name="developer-technologies"></a><h3>Technologies used</h3>
+						<p>The iPayroll API comprises a set of REST services. It accepts JSON formatted payloads where applicable, and always returns JSON data along with HATEOAS style links indicating further actions that can be performed on data elements. OAuth 2 is used for authorisation.</p>
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>
+				<tr>
+					<td class="content-text">
+						<a id="developer-environments" name="developer-environments" class="anchor"></a><h3>Environments</h3>
+						<p>iPayroll provides two API environments.<p>
+						<p>https://sandbox.ipayroll.co.nz - This is the test environement used when developing and testing your applications.</p>
+						<p>https://secure2.ipayroll.co.nz - This is the live production system.</p>
+						<p>Remember: Those environments require use of HTTPS.</p>
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>				
+				<tr>
+					<td class="content-text">
+						<a id="developer-requests" name="developer-requests" class="anchor"></a><h3>Requests</h3>
+						<p>All requests to iPayroll API end-points require your application to authenticate. Authentication is token based. This means that a valid access token must be attached to every API request, either as a HTTP header or as a request parameter.</p>
+						<p>We provide a detailed authentication and authorisation guide in the <a href="authorisation.html">Authorisation</a> How to.</p>
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>					
+				<tr>
+					<td class="content-text">
+						<a id="developer-retrieving" name="developer-retrieving" class="anchor"></a><h3>Retrieving Resources with HTTP GET</h3>
+						<p>Your application may retrieve a representation of a resource by GETting the correct URLs. Successful GET requests return HTTP code 200.</p>
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>					
+				<tr>
+					<td class="content-text">
+						<a id="developer-format" name="developer-format" class="anchor"></a><h3>Response Format</h3>				
+						<p>All of the responses from iPayroll's API are in JSON format.</p>
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>					
+				<tr>
+					<td class="content-text">
+						<a id="developer-links" name="developer-links" class="anchor"></a><h3>Links</h3>				
+						<p>Elements in the response may contain HATEOAS style links indicating further, related actions.</p>
+						<p>For example, a response containing an employee element, may contain links for the employee's payrate and timeshseet endpoints.</p>
+
+<pre>
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://sandbox.ipayroll.co.nz/api/v1/employees/1"
+    },
+    {
+      "rel": "payrate",
+      "href": "https://sandbox.ipayroll.co.nz/api/v1/employees/1/payrates"
+    },
+    {
+      "rel": "timesheet",
+      "href": "https://sandbox.ipayroll.co.nz/api/v1/timesheets/1"
+    }
+  ],
+  "surname": "White",
+  "firstNames": "Jason",
+  "employeeId": "1",
+  ...rest of the properties...
+}
+ </pre>					
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>					
+				<tr>
+					<td class="content-text">
+						<a id="developer-pagination" name="developer-pagination" class="anchor"></a><h3>Pagination</h3>				
+						<p>Some of the end points provided by the iPayroll API return multiple elements. These would typically be 'get all' requests such as 'list employees' or 'list cost centres'.</p>
+						<p>To avoid large payloads, the iPayroll API supports pagination for this type of requests, and will default to returning maximum 20 elements.</p>
+<pre>
+{ 
+  "content": [
+    {element 1},
+    {element 2},
+    {element 3},
+    {element 4},
+  ],
+  "page": {
+    "size": 20,
+    "totalElements": 4,
+    "totalPages": 1,
+    "number": 0
+  }
+}
+</pre>
+ 
+						<p>The iPayroll API lets you control page data by using the <strong>page</strong> and <strong>size</strong> request parameters:</p>
+<pre>
+http://sandbox.ipayroll.co.nz/api/v1/employees?size=5
+http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
+</pre>
+
+						<ul>
+							<li><strong>size</strong>: an integer denoting how many elements to return per page</li>
+							<li><strong>page</strong>: an integer denoting the page number (zero based) required.</li>
+						</ul>
+						<p>When paging is applicable, the response will contain links to navigate through pages:</p>
+<pre>
+{
+  "content": [
+    ...elements of this page...
+  ],
+  "page": {
+    "size": 5,
+    "totalElements": 23,
+    "totalPages": 5,
+    "number": 0
+  },
+  "links": [
+    {
+      "rel": "first",
+      "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?page=0&size=5"
+    },
+    {
+      "rel": "self",
+      "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?size=5"
+    },
+    {
+    "rel": "next",
+    "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?page=1&size=5"
+    },
+    {
+      "rel": "last",
+      "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?page=4&size=5"
+    }
+  ]
+}
+</pre>					
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>					
+				<tr>
+					<td class="content-text">
+						<a id="developer-error" name="developer-error" class="anchor"></a><h3>Error handling</h3>
+						<p>When an error occurs, The iPayroll API returns an error response formatted as a JSON object. The HTTP status code of the response is set as well.</p>
+						<table class="table">
+							<thead>
+								<tr class="header">
+									<th>Status code</th> 
+									<th>Status description</th>
+									<th>Reason</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>400</td> 
+									<td>BAD_REQUEST</td>
+									<td>Invalid request or request syntax</td>
+								</tr>
+								<tr>
+									<td>401</td> <td>UNAUTHORIZED</td> <td>User is not authenticated</td>
+								</tr>
+								<tr>
+									<td>403</td> <td>FORBIDDEN</td> <td>User is authenticated but not authorized to view the data</td>
+								</tr>
+								<tr>
+									<td>404</td> <td>NOT_FOUND</td> <td>Invalid URL</td>
+								</tr>
+								<tr>
+									<td>412</td> <td>PRECONDITION_FAILED</td> <td>Expected condition did not match</td>
+								</tr>
+								<tr>
+									<td>422</td> <td>UNPROCESSABLE_ENTITY</td> <td>Failed to process the request</td>
+								</tr>
+								<tr>
+									<td>500</td> <td>INTERNAL_SERVER_ERROR</td> <td>Server error</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+					<td class="content-example">
+			
+					</td>
+				</tr>	
+<!-- Developer Overview | END --> 
+<!-- Resources | START -->
+				<tr>
+					<td class="content-header"><a id="resources" class="anchor" name="resources"></a><h2>Resources</h2></td>
+					<td class="content-header-example content-example-border">&nbsp;</td>
+				</tr>
+<!-- Resources | END -->
+<!-- Cost Centre | START -->
+				<tr>
+					<td class="content-text">
+						<a id="resources-costcentre" class="anchor" name="resources-costcentre"></a><h3>Cost Centres</h3>	
+						<p>&nbsp;</p>	
+						<table class="table table-bordered">
+							<tr class="header">
+								<th colspan="3">Attributes</th>
+							</tr>
+							<tr>
+								<td class="col-lg-2"><strong>Name</strong></td>								
+								<td class="col-lg-2"><strong>Type</strong></td>
+								<td class="col-lg-8"><strong>Description</strong></td> 								
+							</tr>
+							<tr>
+								<td>costCentreId</td>								
+								<td>Long</td>
+								<td>Unique system generated id</td> 
+							</tr>
+							<tr>
+								<td>code</td>								
+								<td>String</td>
+								<td>A short-form of the cost centre, created by the organisation</td>
+							</tr>
+							<tr>
+								<td>description</td>								
+								<td>String</td>
+								<td>Cost centre description</td>
+							</tr>																	
+						</table>				
+					</td> 
+					<td class="content-example content-example-border"></td>
+				<tr>
+					<td class="content-text">
+					<a id="costcentre-all" class="anchor" name="costcentre-all"></a>
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/costcentres</p>
+					<h4>List All Cost Centres</h4>
+					<p>Returns all the cost centres of an organisation.</p>
+					</td>
+					<td class="content-example content-example-border">
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/costcentres</p>
+					<h4>Response Example</h4>
+<pre>
+{
+  "content": [
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/0"
+        }
+      ],
+      "costCentreId": 0,
+      "code": "Software",
+      "description": "Software Developers Department"
+    },
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/1"
+        }
+      ],
+      "costCentreId": 1,
+      "code": "Marketing",
+      "description": "The Marketing Team"
+    },
+    ...
+  ]
+}
+</pre>
+					</td>
+				</tr>				
+				<tr>
+					<td class="content-text">
+						<a id="costcentre-create" class="anchor" name="costcentre-create"></a>
+						<p class="lead"><span class="badge bg-post">POST</span>&nbsp;/api/v1/costcentres</p>
+						<h4>Create One Or More Cost Centres</h4>
+						<p>Create one or more cost centres in an organisation.</p>
+						<p>&nbsp;</p>
+						<table class="table table-bordered">
+							<tr class="header">
+								<th colspan="4">Parameters</th>
+							</tr>
+							<tr>
+								<td class="col-lg-2"><strong>Name</strong></td>
+								<td class="col-lg-1"><strong>Required</strong></td>
+								<td class="col-lg-2"><strong>Type</strong></td>
+								<td class="col-lg-7"><strong>Description</strong></td>
+							</tr>
+							<tr>
+								<td><a role="button" data-toggle="collapse" data-parent="#accordion" href=".costcentres" aria-expanded="true" aria-controls="costcentres">costCentres <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
+								<td>Required</td>
+								<td>JSON Object</td>
+								<td>A list of costCentres to be created. This end point takes a single cost centre or an array of cost centres</td>
+							</tr>
+							<tr class="panel-collapse collapse costcentres bg-level2" role="tabpanel">
+								<td>code</td>
+								<td>Required</td>
+								<td>String</td>
+								<td>A short-form of the cost centre, created by the organisation</td>
+							</tr>
+							<tr class="panel-collapse collapse costcentres bg-level2" role="tabpanel">
+								<td>description</td>
+								<td>Required</td>
+								<td>String</td>
+								<td>Cost centre description</td>
+							</tr>												
+						</table>
+					</td>
+					<td class="content-example content-example-border">
+					<p class="lead"><span class="badge bg-post">POST</span>&nbsp;/api/v1/costcentres</p>
+					<h4>Request Body Example</h4>
+<pre>
+[
+  {          
+    "code": "Software",
+    "description": "Software Developers Department"
+   },
+   {
+     "code": "Marketing",
+     "description": "The Marketing Team"
+   }
+  ...more cost centres...
+]
+</pre>
+					<h4>Response Example</h4>
+<pre>
+[
+  {    
+    "code": "Developer",
+    "description": "Software Developers Department"
+    "links": [
+        {
+          "rel": "self",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/0"
+        }
+    ]
+  }, 
+  {    
+    "code": "Marketing",
+    "description": "The Marketing Team"
+    "links": [
+        {
+          "rel": "self",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/1"
+        }
+    ]
+  }, 
+  ...
+]
+</pre>
+					</td>
+				</tr>				
+				<tr>
+					<td class="content-text">
+					<a id="costcentre-retrieve" class="anchor" name="costcentre-retrieve"></a>
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/costcentres/{costcentreId}</p>
+					<h4>Retrieve A Cost Centre</h4>
+					<p>Returns a particular cost centre of the organisation, identified by cost centre id.</p>
+					<p>&nbsp;</p>
+					</td>
+					<td class="content-example content-example-border">
+<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/costcentres/{costcentreId}</p>					
+<h4>Response Example</h4>
+<pre>
+[
+  {
+    "code": "Software",
+    "description": "Software Developers Department",    
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/0"
+      }
+    ]
+  }, 
+  ...
+]
+</pre>
+					</td>
+				</tr>				
+<!-- Cost Centre | END -->			
+<!-- Employees | START -->
+				<tr>
+					<td class="content-text">
+						<a id="resources-employee" class="anchor" name="resources-employee"></a><h3>Employees</h3>
+						<p>&nbsp;</p>							
+						<table class="table table-bordered">	
+							<tr class="header">
+								<th colspan="3">Attributes</th>
+							</tr>
+							<tr>
+								<td><strong>Name</strong></td>
+								<td><strong>Type</strong></td>
+								<td><strong>Description</strong></td>
+							</tr>			
+							<tr>
+								<td>employeeId</td>								
+								<td>String</td>
+								<td>Unique ID to identify an employee</td>
+							</tr>								
+							<tr>
+								<td>birthDate</td>								
+								<td>String</td>
+								<td>Date of birth of employee (multiple date format supported, dd/mm/yyyy preferred)</td>
+							</tr>
+							<tr>
+								<td>defaultCostCentre</td>								
+								<td>String</td>
+								<td>Default cost centre for the employee - value expected is one of the cost centre codes defined for the organisation</td>
+							</tr>						
+							<tr>
+								<td>email</td>								
+								<td>String</td>
+								<td>Email address of employee</td>
+							</tr>							
+							<tr>
+								<td>firstNames</td>								
+								<td>String</td>
+								<td>All first names</td>
+							</tr>	
+							<tr>
+								<td>fullTimeHoursWeek</td>								
+								<td>Double</td>
+								<td>Number of hours expected to work - numeric value with up to 4 decimal points</td>
+							</tr>	
+							<tr>
+								<td>gender</td>								
+								<td>String</td>
+								<td>Gender of employee - Male or Female</td>
+							</tr>											
+							<tr>
+								<td>organisation</td>								
+								<td>Integer</td>
+								<td>Unique identification of the organisation that the employee belongs to</td>
+							</tr>											
+							<tr>
+								<td>paidToDate</td>
+								<td>String</td>
+								<td>Date up to which the employee has been paid (multiple date format supported, dd/mm/yyyy preferred)</td>
+							</tr>						
+							<tr>
+								<td>payFrequency</td>
+								<td>String</td>
+								<td>Frequency of payroll - both short and long codes supported:Weekly or WFortnightly or FMonthly or MBi-Monthly or B</td>
+							</tr>												
+							<tr>
+								<td>phone</td>
+								<td>String</td>
+								<td>Phone number of employee</td>
+							</tr>						
+							<tr>
+								<td>startDate</td>
+								<td>String</td>
+								<td>Date on which the employee joined the organisation (multiple date format supported, dd/mm/yyyy preferred)</td>
+							</tr>						
+						
+							<tr>
+								<td>state</td>
+								<td>String</td>
+								<td>State in which the employee works - only applicable to Australian organisations (refer address state for possible values)</td>
+							</tr>						
+						
+							<tr>
+								<td>surname</td>
+								<td>String</td>
+								<td>Surname of the employee</td>
+							</tr>						
+						
+							<tr>
+								<td>title</td>
+								<td>String</td>
+								<td>Job title of employee</td>
+							</tr>
+							<tr>
+								<td><a role="button" data-toggle="collapse" href=".employees-address-intro" aria-expanded="true" aria-controls="employees-address">address <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
+								<td>JSON Object</td>
+								<td>A JSON object representing the address of employee.</td>
+							</tr>										
+							<tr class="panel-collapse collapse employees-address-intro bg-level2" role="tabpanel">
+								<td class="col-lg-2">addressLine1</td>
+								<td class="col-lg-2">String</td>
+								<td class="col-lg-8">Address line 1</td>
+							</tr>							
+							<tr class="panel-collapse collapse employees-address-intro bg-level2" role="tabpanel">
+								<td>addressLine2</td>
+								<td>String</td>
+								<td>Address line 2</td>
+							</tr>						
+							<tr class="panel-collapse collapse employees-address-intro bg-level2" role="tabpanel">
+								<td>city</td>
+								<td>String</td>
+								<td>City</td>
+							</tr>						
+							<tr class="panel-collapse collapse employees-address-intro bg-level2" role="tabpanel">
+								<td>country </td>
+								<td>String</td>
+								<td>Country</td>
+							</tr>						
+							<tr class="panel-collapse collapse employees-address-intro bg-level2" role="tabpanel">
+								<td>postCode</td>
+								<td>String</td>
+								<td>Post Code</td>
+							</tr>						
+							<tr class="panel-collapse collapse employees-address-intro bg-level2" role="tabpanel">
+								<td>state</td>
+								<td>String</td>
+								<td>State</td>
+							</tr>						
+							<tr class="panel-collapse collapse employees-address-intro bg-level2" role="tabpanel">
+								<td>suburb</td>
+								<td>String</td>
+								<td>Suburb</td>
+							</tr>															
+						</table>
+					</td>
+					<td class="content-example content-example-border">
+										
+					</td>
+				</tr>
+				<tr>
+					<td class="content-text">
+					<a id="employees-all" class="anchor" name="employees-all"></a>
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees</p>
+					<h4>List All Employees</h4>
+					<p>Returns all the active employees of an organisation</p>
+					</td>
+					<td class="content-example content-example-border">
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees</p>
+					<h4>Response Example</h4>
+					
+<pre>
+{
+  "content": [
+  {      
+    "surname": "iPayroll",
+    "firstNames": "Jack",
+    "employeeId": "1111",
+    "address": {
+      "country": "New Zealand"
+    },
+    "startDate": "1-May-2014",
+    "email": "email@email.com",
+    "gender": "Female",
+    "payFrequency": "Fortnightly",
+    "fullTimeHoursWeek": 33,
+    "organisation": 10000,
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111"
+      },
+      {
+        "rel": "payrate",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates"
+      },
+      {
+        "rel": "timesheet",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/1111"
+      }
+    ]
+   },
+   ...
+  ],    
+   "links": [
+    {
+      "rel": "first",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=0&size=20"
+    },
+    {
+      "rel": "self",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees"
+    },
+    {
+      "rel": "next",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=1&size=20"
+    },
+    {
+      "rel": "last",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=9&size=20"
+    }
+  ],
+  "page": {
+    "size": 20,
+    "totalElements": 184,
+    "totalPages": 10,
+    "number": 0
+  }
+}
+</pre>
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="employees-create" class="anchor" name="employees-create"></a>
+					<p class="lead"><span class="badge bg-post">POST</span>&nbsp;/api/v1/employees</p>
+					<h4>Create one or more employees</h4>
+					<p>Create one or more employees in an organisation. This cannot be used to update details of an existing employee.</p>
+					<p>&nbsp;</p>
+					<table class="table table-bordered">
+						<tr class="header">
+							<th colspan="4">Parameters</th>
+						</tr>			
+						<tr>
+							<td class="col-lg-2"><strong>Name</strong></td>
+							<td class="col-lg-1"><strong>Required</strong></td>
+							<td class="col-lg-2"><strong>Type</strong></td>
+							<td class="col-lg-7"><strong>Description</strong></td>
+						</tr>
+						<tr>
+							<td>employeeId</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>Unique ID to identify an employee</td>
+						</tr>					
+						<tr>
+							<td>birthDate</td>
+							<td>No</td>
+							<td>String</td>
+							<td>Date of birth of employee (multiple date format supported, dd/mm/yyyy preferred)</td>
+						</tr>
+						<tr>
+							<td>defaultCostCentre</td>
+							<td>No</td>
+							<td>String</td>
+							<td>Default cost centre for the employee - value expected is one of the cost centre codes defined for the organisation</td>
+						</tr>						
+						<tr>
+							<td>email</td>
+							<td>No</td>
+							<td>String</td>
+							<td>Email address of employee</td>
+						</tr>						
+						<tr>
+							<td>firstNames</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>All first names</td>
+						</tr>	
+						<tr>
+							<td>surname</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>Surname of the employee</td>
+						</tr>		
+						<tr>
+							<td>fullTimeHoursWeek</td>
+							<td>Yes</td>
+							<td>Double</td>
+							<td>Number of hours expected to work - numeric value with up to 4 decimal points</td>
+						</tr>	
+						<tr>
+							<td>gender</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>Gender of employee - Male or Female</td>
+						</tr>											
+						<tr>
+							<td>organisation</td>
+							<td>Yes</td>
+							<td>Integer</td>
+							<td>Unique identification of the organisation that the employee belongs to</td>
+						</tr>											
+						<tr>
+							<td>paidToDate</td>
+							<td>No</td>
+							<td>String</td>
+							<td>Date up to which the employee has been paid (multiple date format supported, dd/mm/yyyy preferred)</td>
+						</tr>						
+						<tr>
+							<td>payFrequency</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>Frequency of payroll - both short and long codes supported:Weekly or WFortnightly or FMonthly or MBi-Monthly or B</td>
+						</tr>												
+						<tr>
+							<td>phone</td>
+							<td>No</td>
+							<td>String</td>
+							<td>Phone number of employee</td>
+						</tr>						
+						<tr>
+							<td>startDate</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>Date on which the employee joined the organisation (multiple date format supported, dd/mm/yyyy preferred)</td>
+						</tr>						
+					
+						<tr>
+							<td>state</td>
+							<td>No</td>
+							<td>String</td>
+							<td>State in which the employee works \u2013only applicable to Australian organisations (refer address state for possible values)</td>
+						</tr>										
+					
+						<tr class="panel-collapse collapse employees bg-level2" role="tabpanel">
+							<td>title</td>
+							<td>No</td>
+							<td>String</td>
+							<td>Job title of employee</td>
+						</tr>
+						<tr id="employees-address-group" class="panel-collapse" role="tabpanel">
+							<td><a role="button" data-toggle="collapse" href=".employees-address" aria-expanded="true" aria-controls="employees-address">address <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
+							<td>No</td>
+							<td nowrap>JSON Object</td>
+							<td>A JSON object representing the address of employee.</td>
+						</tr>										
+						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
+							<td>addressLine1</td>
+							<td>No</td>
+							<td>String</td>
+							<td>Address line 1</td>
+						</tr>							
+						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
+							<td>addressLine2</td>
+							<td>No</td>
+							<td>String</td>
+							<td>Address line 2</td>
+						</tr>						
+						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
+							<td>city</td>
+							<td>No</td>
+							<td>String</td>
+							<td>City</td>
+						</tr>						
+						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
+							<td>country </td>
+							<td>No</td>
+							<td>String</td>
+							<td>Country</td>
+						</tr>						
+						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
+							<td>postCode</td>
+							<td>No</td>
+							<td>String</td>
+							<td>Post Code</td>
+						</tr>						
+						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
+							<td>state</td>
+							<td>No</td>
+							<td>String</td>
+							<td>State</td>
+						</tr>						
+						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
+							<td>suburb</td>
+							<td>No</td>
+							<td>String</td>
+							<td>Suburb</td>
+						</tr>												
+					</table>
+					</td>
+					<td class="content-example content-example-border">
+					<p class="lead"><span class="badge bg-post">POST</span>&nbsp;/api/v1/employees</p>
+					<h4>Request Body Example</h4>
+<pre>
+[
+  {    
+    "surname": "iPayroll",
+    "firstNames": "Jack",
+    "employeeId": "1111",
+    "address": {
+      "country": "New Zealand"
+    },
+    "startDate": "1-May-2014",
+    "email": "email@email.com",
+    "gender": "Female",
+    "payFrequency": "Fortnightly",
+    "fullTimeHoursWeek": 33,
+    "organisation": 10000
+  }
+  ...
+]
+</pre>
+					<h4>Response Example</h4>
+<pre>
+[
+  {    
+    "firstNames": "Jack",
+      "employeeId": "1111",
+    "address": {
+      "country": "New Zealand"      
+    },
+    "startDate": "1-May-2014",
+    "email": "email@email.com",
+    "gender": "Female",
+    "payFrequency": "Fortnightly",
+    "fullTimeHoursWeek": 33,
+    "organisation": 10000,
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111"
+      },      
+      {
+        "rel": "payrate",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates"
+      },
+      {
+        "rel": "timesheet",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/1111"
+      }
+    ]
+  }
+]
+</pre>
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="employees-retrieve" class="anchor" name="employees-retrieve"></a>
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}</p>
+					<h4>Retrieve an employee's details</h4>
+					<p>Returns an employee, identified by employee's internal id of the organisation.</p>
+					<p>&nbsp;</p>
+					<table class="table table-bordered">
+						<tr class="header">
+							<th colspan="4">Parameters</th>
+						</tr>			
+						<tr>
+							<td class="col-lg-2"><strong>Name</strong></td>
+							<td class="col-lg-1"><strong>Required</strong></td>
+							<td class="col-lg-2"><strong>Type</strong></td>
+							<td class="col-lg-7"><strong>Description</strong></td>
+						</tr>											
+					</table>
+					</td>
+					<td class="content-example content-example-border">
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}</p>
+					<h4>Response Example</h4>
+<pre>
+{
+  "address": {
+    "addressLine1": "Apartment 212",
+    "addressLine2": "123 Main Street",
+    "city": "Wellington",
+    "country": "New Zealand",
+    "postCode": "6011",
+    "suburb": "CBD"
+  },
+  "birthDate": "1-Feb-1980",
+  "defaultCostCentre": "Software",
+  "email": "email@email.com",
+  "employeeId": "1111",
+  "firstNames": "Jack",
+  "fullTimeHoursWeek": 33,
+  "gender": "Female",
+  "links": [
+    {
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111",
+      "rel": "self",
+      "templated": true
+    }
+  ],
+  "organisation": 10000,
+  "paidToDate": "1-Aug-2016",
+  "payFrequency": "Fortnightly",
+  "phone": "021 123 4567",
+  "startDate": "1-May-2014",
+  "surname": "Smith",
+  "title": "Mrs"
+}
+</pre>
+					</td>
+				</tr>	
+<!-- Employees | END -->		
+<!-- Payrates | START -->
+		
+				<tr>
+					<td class="content-text">
+						<table class="table table-bordered">
+						<a id="resources-payrate" class="anchor" name="resources-payrate"></a><h3>Payrates</h3>
+						<p>&nbsp;</p>
+							<tr class="header">
+								<th colspan="3">Attributes</th>
+							</tr>
+							<tr>
+								<td class="col-lg-2"><strong>Name</strong></td>								
+								<td class="col-lg-2"><strong>Type</strong></td>
+								<td class="col-lg-8"><strong>Description</strong></td>
+							</tr>								
+							<tr>
+								<td>payrateId</td>								
+								<td>Long</td>
+								<td>Unique ID generated by the server for a payrate</td>
+							</tr>												
+							<tr>
+								<td>code</td>								
+								<td>String</td>
+								<td>A short-form of pay rate, created by the organisation</td>
+							</tr>							
+							<tr>
+								<td>annualRate</td>								
+								<td>Number</td>
+								<td>An amount occurring once every year. (The value is converted from rate)</td>
+							</tr>	
+
+							<tr>
+								<td>dailyRate</td>								
+								<td>Number</td>
+								<td>An amount occurring once every day. (The value is converted from rate)</td>
+
+							</tr>
+							<tr>
+								<td>hourlyRate</td>								
+								<td>Number</td>
+								<td>An amount occurring once every hour. (The value is converted from rate)</td>
+							</tr>							
+							<tr>
+								<td>rate</td>								
+								<td>Number</td>
+								<td>The raw amount for Payrate rate, used to calculate the annual rate, daily rate, hourly rate depend on the divisor or special diviso</td>
+							</tr>							
+							<tr>
+								<td>divisor</td>								
+								<td>String</td>
+								<td>A global divisor for pay rate, e.g. "per hour", "per annum", "pa (Govt: 14/365th's)", "pa (Aust: 12/313th's)" or "special"</td>
+							</tr>
+
+
+							<tr>
+								<td>special divisor</td>								
+								<td>String</td>
+								<td>A divisor specific to an organisation. e.g. "Fifty days of Summer"</td>
+							</tr>												
+						</table>
+					</td>
+					<td class="content-example content-example-border"></td>
+				<tr>
+					<td class="content-text">
+					<a id="payrate-all" class="anchor" name="payrate-all"></a>
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/payrates</p>
+					<h4>Retrieve all of an employee’s payrates</h4>
+					<p>Returns details of all payrates associated with an employee, identified by employee's internal id of the organisation.</p>
+					<p>&nbsp;</p>
+					<table class="table table-bordered">
+						<tr class="header">
+							<th colspan="4">Parameters</th>
+						</tr>
+						<tr>
+							<td class="col-lg-2"><strong>Name</strong></td>
+							<td class="col-lg-1"><strong>Required</strong></td>
+							<td class="col-lg-2"><strong>Type</strong></td>
+							<td class="col-lg-7"><strong>Description</strong></td>
+						</tr>															
+						<tr>
+							<td>employeeId</td>
+							<td>Required</td>
+							<td>String</td>
+							<td>Unique ID to identify an employee</td>
+						</tr>												
+					</table>
+					</td>
+					<td class="content-example content-example-border">
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/payrates</p>
+					<h4>Response Example</h4>
+<pre>
+{
+ "content": [
+ {      
+ "hourlyRate": 14.25,
+ "dailyRate": 114,
+ "annualRate": 29640,
+ "rate": 14.25,
+ "code": "commission",
+ "divisor": "per hour",
+ "links": [
+ {
+ "rel":"self",
+ "href":"http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates/210901"
+  },
+ {
+ "rel":"employee",
+ "href":"http://secure2.ipayroll.co.nz/api/v1/employees/1111"
+ }
+ ]
+  },
+   ...
+ ],
+ "links": [
+   {
+     "rel": "self",
+     "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates"
+   }
+ ],
+ "page": {
+   "size": 20,
+   "totalElements": 5,
+   "totalPages": 1,
+   "number": 0
+ }
+} 
+</pre>
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="payrate-rate" class="anchor" name="payrate-rate"></a>
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/payrates/{payratesId}</p>
+					<h4>Retrieve a specific payrate for an employee</h4>
+					<p>Returns details of a particular payrate of an employee, identified by employee's internal id of the organisation.</p>
+					<p>&nbsp;</p>
+					<table class="table table-bordered">
+						<tr class="header">
+							<th colspan="4">Parameters</th>
+						</tr>
+						<tr>
+							<td class="col-lg-2"><strong>Name</strong></td>
+							<td class="col-lg-1"><strong>Required</strong></td>
+							<td class="col-lg-2"><strong>Type</strong></td>
+							<td class="col-lg-7"><strong>Description</strong></td>
+						</tr>															
+						<tr>
+							<td>employeeId</td>
+							<td>Required</td>
+							<td>String</td>
+							<td>Unique ID to identify an employee</td>
+						</tr>						
+						<tr>
+							<td>payrateId</td>
+							<td>Required</td>
+							<td>Integer</td>
+							<td>ID of the pay rate details to return</td>
+						</tr>
+					</table>
+					</td>
+					<td class="content-example content-example-border">
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/payrates/{payratesId}</p>
+					<h4>Response Example</h4>
+<pre>
+{   
+ "hourlyRate": 14.25,
+ "dailyRate": 114,
+ "annualRate": 29640,
+ "rate": 14.25,
+ "code": "1",
+ "divisor": "per hour",
+ "links": [
+ {
+ "rel":"self",
+ "href":"http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates/210901"
+ },
+ {
+  "rel": "employee",
+  "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111"
+ }
+ ]
+}
+</pre>
+					</td>
+				</tr>	
+<!-- Payrates | END -->			
+<!-- Timesheets | START -->
+				<tr>
+					<td class="content-text">
+						<a id="resources-timesheet" class="anchor" name="resources-timesheet"></a><h3>Timesheets</h3>
+						<p>A timesheet is a collection of all payments and deductions for a person paid in a single pay.</p>
+						<table class="table table-bordered">
+							<tr class="header">
+								<th colspan="3">Attributes</th>
+							</tr>														
+							<tr>
+								<td class="col-lg-2"><strong>Name</strong></td>
+								<td class="col-lg-2"><strong>Type</strong></td>
+								<td class="col-lg-8"><strong>Description</strong></td>
+							</tr>	
+							<tr>
+								<td>employeeId</td>
+								<td>String</td>
+								<td>Unique ID to identify an employee</td>
+							</tr>								
+							<tr>
+								<td>daysInPeriod</td>
+								<td>Double</td>
+								<td>It is only relevant for organisations that have "record day on timesheet" option on</td>
+							</tr>										
+							<tr>
+								<td>totalHours</td>
+								<td>Double</td>
+								<td>Total hours inside a timesheet</td>
+							</tr>					
+						<tr>
+							<td><a role="button" data-toggle="collapse" href=".timesheet-transactions-intro" aria-expanded="true" aria-controls="timesheet-transactions">transactions <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
+							<td>Array</td>
+							<td>List of timesheet transactions for the employee</td>
+						</tr>											
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>timesheetTransactionId</td>
+							<td>Long</td>
+							<td>Unique Id generated by server for timesheet transaction</td>
+						</tr>							
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>amount</td>
+							<td>Double</td>
+							<td>The amount of the transaction</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>costCentre</td>
+							<td>String</td>
+							<td>An override cost centre name to the default cost centre. The new cost centre must be a pre-existing cost centre in the server</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>description</td>
+							<td>String</td>
+							<td>Description of transaction</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>leaveDays</td>
+							<td>String</td>
+							<td>Only used for leave balances held in days. Otherwise ignored</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>leaveFrom</td>
+							<td>String</td>
+							<td>"From" date of leave (multiple date format supported, dd/mm/yyyy preferred)</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>leaveInDays</td>
+							<td>Boolean</td>
+							<td>A flag used to define if leave is display in day, e.g. "true": leaveDays will be used</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>leaveTo</td>
+							<td>Double</td>
+							<td>"To" date of leave (multiple date format supported, dd/mm/yyyy preferred).</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>message</td>
+							<td>String</td>
+							<td>A message to be appended to the message of employee payslip</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>payElement</td>
+							<td>String</td>
+							<td>Code for the relevant pay element of this transaction. Must be existing in the system</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>quantity</td>
+							<td>Double</td>
+							<td>Quantity (can be days, or units, depends on the type of transaction)</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>rate</td>
+							<td>Double</td>
+							<td>The amount of the transaction</td>
+						</tr>							
+						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
+							<td>reason</td>
+							<td>String</td>
+							<td>Leave reason (only relevant for leave transactions)</td>
+						</tr>	
+						</table>
+					</td>
+					<td class="content-example content-example-border"></td>
+				<tr>
+					<td class="content-text">
+					<a id="timesheets-all" class="anchor" name="timesheets-all"></a>
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets</p>
+					<h4>List all of timesheets in the latest payroll</h4>
+					<p>Returns all timesheets associated with the latest payroll of an organisation.</p>
+					<p>&nbsp;</p>
+					</td>
+					<td class="content-example content-example-border">
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets</p>
+					<h4>Response Example</h4>
+<pre>
+{
+  "content":[
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
+        },
+        {
+          "rel": "employee",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
+        }
+      ],
+      "employeeId": "123456",
+      "totalHours": 40,
+      "transactions": [
+        {
+          "links": [],
+          "timesheetTransactionId": 993590,
+          "amount": 0,
+          "quantity": 1,
+          "rate": 0,
+          "description": "BANK - Take Home Pay to BANK_NUMBER",
+          "costCentre": "",
+          "leaveInDays": false,
+          "payElement": "BANK"
+        },
+        {
+          "links": [],
+          "timesheetTransactionId": 993589,
+          "amount": 0,
+          "quantity": 1,
+          "rate": 0,
+          "description": "WT - Withholding Tax to TAX_NUMBER",
+          "costCentre": "",
+          "leaveInDays": false,
+          "payElement": "WT"
+        },
+        ...
+      ]
+    }
+  ],
+  "links": [
+    {
+      "rel": "first",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets?page=0&size=20"
+    },
+    {
+      "rel": "self",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets"
+    },
+    {
+      "rel": "next",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets?page=1&size=20"
+    },
+    {
+      "rel": "last",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets?page=3&size=20"
+    }
+  ],
+  "page": {
+    "size": 20,
+    "totalElements": 75,
+    "totalPages": 4,
+    "number": 0
+  }
+}
+</pre>
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="timesheets-create" class="anchor" name="timesheets-create"></a>
+					<p class="lead"><span class="badge bg-post">POST</span>&nbsp;/api/v1/timesheets</p>
+					<h4>Create one or more timesheets</h4>
+					<p>Create one or more timesheets in the current payroll of an organisation. If there's no open payroll found for the organisation, system will open a new payroll provided that all pre-conditiions for opening a payroll are met.</p>
+					<p>&nbsp;</p>
+					<table class="table table-bordered">
+						<tr class="header">
+							<th colspan="4">Parameters</th>
+						</tr>
+						<tr>
+							<td class="col-lg-2"><strong>Name</strong></td>
+							<td class="col-lg-1"><strong>Required</strong></td>
+							<td class="col-lg-2"><strong>Type</strong></td>
+							<td class="col-lg-7"><strong>Description</strong></td>
+						</tr>												
+						<tr>
+							<td><a role="button" data-toggle="collapse" href=".timesheets" aria-expanded="true" aria-controls="timesheets">timesheets <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>
+							<td>Required</td>
+							<td>JSON Object</td>
+							<td>Internal id of the employee that pay rate belongs to</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
+							<td>daysInPeriod</td>
+							<td>Optional</td>
+							<td>Double</td>
+							<td>It is only relevant for organisations that have "record day on timesheet" option on</td>
+						</tr>					
+						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
+							<td>employeeId</td>
+							<td>Required</td>
+							<td>String</td>
+							<td>Unique ID to identify an employee</td>
+						</tr>						
+						<!-- <tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
+							<td><a href="#overview-response-links">links</a></td>
+							<td>Optional</td>
+							<td>Array</td>
+							<td></td>
+						</tr>					 -->
+						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
+							<td>totalHours</td>
+							<td>Optional</td>
+							<td>Double</td>
+							<td>Total hours inside a timesheet</td>
+						</tr>					
+						<tr id="timesheet-transactions-group" class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
+							<td><a role="button" data-toggle="collapse" href=".timesheet-transactions" aria-expanded="true" aria-controls="timesheet-transactions">transactions <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
+							<td>Optional</td>
+							<td>Array</td>
+							<td>List of timesheet transactions for the employee</td>
+						</tr>											
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>amount</td>
+							<td>Optional</td>
+							<td>Double</td>
+							<td>The amount of the transaction</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>costCentre</td>
+							<td>Optional</td>
+							<td>String</td>
+							<td>If a value is supplied, it will serve as an override to the default cost centre. This must be a pre-existing cost centre in the system.</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>description</td>
+							<td>Optional</td>
+							<td>String</td>
+							<td>Description of transaction</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>leaveDays</td>
+							<td>Optional</td>
+							<td>String</td>
+							<td>Only used for leave balances held in days. Otherwise ignored</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>leaveFrom</td>
+							<td>Optional</td>
+							<td>String</td>
+							<td>"From" date of leave (multiple date format supported, dd/mm/yyyy preferred)</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>leaveInDays</td>
+							<td>Optional</td>
+							<td>Boolean</td>
+							<td>Defined if leave is display in day. If true leaveDays can be used</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>leaveTo</td>
+							<td>Optional</td>
+							<td>Double</td>
+							<td>"To" date of leave (multiple date format supported, dd/mm/yyyy preferred)</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>message</td>
+							<td>Optional</td>
+							<td>String</td>
+							<td>If supplied, the message will be appended to the person's payslip message</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>payElement</td>
+							<td>Optional</td>
+							<td>String</td>
+							<td>Code for the relevant pay element of this transaction. Must be existing in the system</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>quantity</td>
+							<td>Optional</td>
+							<td>Double</td>
+							<td>Quantity (can be days, or units, depends on the type of transaction)</td>
+						</tr>						
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>rate</td>
+							<td>Optional</td>
+							<td>Double</td>
+							<td>The amount of the transaction</td>
+						</tr>							
+						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
+							<td>reason</td>
+							<td>Optional</td>
+							<td>String</td>
+							<td>Leave reason (only relevant for leave transactions)</td>
+						</tr>						
+					</table>
+					</td>
+					<td class="content-example content-example-border">
+					<p class="lead"><span class="badge bg-post">POST</span>&nbsp;/api/v1/timesheets</p>
+					<h4>Request Body Example</h4>
+<pre>
+[
+  {    
+    "employeeId": "123456",
+    "totalHours": 40,
+    "transactions": [
+      {
+        "links": [],
+        "timesheetTransactionId": 993590,
+        "amount": 0,
+        "quantity": 1,
+        "rate": 0,
+        "description": "BANK - Take Home Pay to BANK_NUMBER",
+        "costCentre": "",
+        "leaveInDays": false,
+        "payElement": "BANK"
+      },
+      {
+        "links": [],
+        "timesheetTransactionId": 993589,
+        "amount": 0,
+        "quantity": 1,
+        "rate": 0,
+        "description": "WT - Withholding Tax to TAX_NUMBER",
+        "costCentre": "",
+        "leaveInDays": false,
+        "payElement": "WT"
+      },
+      ...
+    ],
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
+      },
+      {
+        "rel": "employee",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
+      }
+    ]
+  }
+  ...
+]
+</pre>
+					<h4>Response Example</h4>
+<pre>
+[
+  {
+    "employeeId": "123456",
+    "totalHours": 40,
+    "transactions": [
+      {
+        "links": [],
+        "timesheetTransactionId": 993590,
+        "amount": 0,
+        "quantity": 1,
+        "rate": 0,
+        "description": "BANK - Take Home Pay to BANK_NUMBER",
+        "costCentre": "",
+        "leaveInDays": false,
+        "payElement": "BANK"
+      },
+      {
+        "links": [],
+        "timesheetTransactionId": 993589,
+        "amount": 0,
+        "quantity": 1,
+        "rate": 0,
+        "description": "WT - Withholding Tax to TAX_NUMBER",
+        "costCentre": "",
+        "leaveInDays": false,
+        "payElement": "WT"
+      },
+      ...
+    ],
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
+      },
+      {
+        "rel": "employee",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
+      }
+    ]
+  }
+  ...
+]
+</pre>
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="timesheets-retrieve" class="anchor" name="timesheets-retrieve"></a>
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets/{employeeId}</p>
+					<h4>Retrieve an employee latest timesheet</h4>
+					<p>Returns the latest timesheet of an employee, identified by employee's internal id of the organisation.</p>
+					<p>&nbsp;</p>
+					<table class="table table-bordered">
+						<tr class="header">
+							<th colspan="4">Parameters</th>
+						</tr>						
+						<tr>
+							<td class="col-lg-2">employeeId</td>
+							<td class="col-lg-2">Required</td>
+							<td class="col-lg-1">String</td>
+							<td class="col-lg-7">Unique ID to identify an employee</td>
+						</tr>						
+					</table>
+					</td>
+					<td class="content-example content-example-border">
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets/{employeeId}</p>
+					<h4>Response Example</h4>
+<pre>
+{
+  {
+    "employeeId": "123456",
+    "totalHours": 40,
+    "transactions": [
+      {
+        "links": [],
+        "timesheetTransactionId": 993590,
+        "amount": 0,
+        "quantity": 1,
+        "rate": 0,
+        "description": "BANK - Take Home Pay to BANK_NUMBER",
+        "costCentre": "",
+        "leaveInDays": false,
+        "payElement": "BANK"
+      },
+      {
+        "links": [],
+        "timesheetTransactionId": 993589,
+        "amount": 0,
+        "quantity": 1,
+        "rate": 0,
+        "description": "WT - Withholding Tax to TAX_NUMBER",
+        "costCentre": "",
+        "leaveInDays": false,
+        "payElement": "WT"
+      }
+    ],
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
+      },
+      {
+        "rel": "employee",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
+      }
+    ]
+  }
+  ...
+}
+</pre>
+					</td>
+				</tr>			
+<!-- Timesheets | END -->			
+
+</table>	
+		
+		
+		
+		
+		</div>
+		<div id="header" class="row">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+				<a href="https://www.ipayroll.co.nz"><img src="images/iPayroll-sm.png" width="80" height="50"></a>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<div class="header-title">
+					<a href="#overview">Developer's Guide</a>
+				</div>
+			</div>
+			<div id="topmenu" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				<div class="pull-right" style="padding-top: 12px;">
+					<p><a href="index.html" class="active">API Reference</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<a href="authorisation.html">Authorisation</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<a href="uploading.html">Uploading Timesheets</a></p>
+				</div>
+			</div>
+		</div>		
+		<div id="sidemenu" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+			<nav class="sidebar nav">
+				<ul class="nav">
+					<li><a href="#overview">API Reference</a></li>
+					<li><a href="#base">Base URL</a></li>
+					<li><a href="#functionality">Functionality</a></li>
+					<li><a href="#scopes">Scopes</a></li>
+					<li><a href="#getting-started">Getting Started</a></li>
+					
+					<li><a href="#developer">Developer Overview</a>
+						<ul class="nav">
+							<li><a href="#developer-technologies">Technologies used</a></li>
+							<li><a href="#developer-environments">Environments</a></li>
+							<li><a href="#developer-requests">Requests</a></li>
+							<li><a href="#developer-retrieving">Retrieving Resources with HTTP GET</a></li>
+							<li><a href="#developer-format">Response Format</a></li>
+							<li><a href="#developer-links">Links</a></li>
+							<li><a href="#developer-pagination">Pagination</a></li>
+							<li><a href="#developer-error">Error handling</a></li>
+						</ul>
+					</li>
+					<li><a href="#resources">Resources</a>
+						<ul class="nav">
+							<li><a href="#resources-costcentre">Cost Centres</a></li>
+							<li><a href="#resources-employee">Employees</a></li>
+							<li><a href="#resources-payrate">Payrates</a></li>
+							<li><a href="#resources-timesheet">Timesheets</a></li>
+						</ul>					
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<div id="disclaimer" class="container-wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2 text-center">
+				Copyright &copy;2000-2016 iPayroll<sup>&reg;</sup> Ltd. All rights reserved. iPayroll<sup>&reg;</sup> is a Registered Trade Mark of iPayroll<sup>&reg;</sup>Ltd
+			</div>
+		</div>
+	</div>
+</div>
+<script src="js/jquery.min.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script>
+	$('body').scrollspy({ target: '.sidebar', offset: 68 })
+	
+	$('#timesheet-transactions-group').on('hidden.bs.collapse', function () {
+	  $('.timesheet-transactions').collapse('hide');
+	})	
+	
+	$('#employees-address-group').on('hidden.bs.collapse', function () {
+	  $('.employees-address').collapse('hide');
+	})
+	
+	//$( "[data-toggle='collapse']" ).click(function() {
+	//	$(this).parent().find("span").toggleClass( 'glyphicon-minus', 'glyphicon-plus' );
+	//});
+
+</script>
 </body>
 </html>
