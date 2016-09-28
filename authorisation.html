@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="images/favicon.ico">
+<title>iPayroll | Authorisation</title>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Mallanna' rel='stylesheet' type='text/css'>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/theme.developer.css" rel="stylesheet">
+<!--[if lt IE 9]>
+        	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2">
+
+			
+			<table width="100%">			
+
+<!-- Authorisation | START -->
+				<tr>
+					<td class="content-header"><a id="authorisation" class="anchor" name="authorisation"></a><h1>Authorisation</h1></td>
+					<td class="content-header-example">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="content-text">
+						<!--
+						<p>Of the multiple types of authorisation mechanisms in OAuth 2 specification, iPayroll uses <a href="http://tools.ietf.org/html/rfc6749#section-4.1" target="_blank">OAUTH2 Authorisation Code Grant</a>, which is best suited to the business scenario.</p>
+						-->
+						<p>iPayroll uses <a href="http://tools.ietf.org/html/rfc6749#section-4.1" target="_blank">OAUTH2 Authorisation Code Grant</a>.</p>
+						<p>The following sequence diagram illustrates how the authorisation process works:</p>
+						<img src="images/API-AuthSequence.png" class="img-responsive"/>						
+					</td>
+					<td class="content-example">
+					
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="authorisation-request" class="anchor" name="authorisation-request"></a><h3>Request Permission</h3>
+					<p>Before a third party application can make any API call, it needs the permission of a resource owner. Depending on types of data that the application is planning to access, it may request permission to access one or more scopes.</p>
+					<p>This is achieved by redirecting the browser that initiated the request (UserAgent) to iPayroll's authorisation endpoint.</p>
+					<p>
+<pre>
+https://&lt;SERVER-DOMAIN&gt;&#47;oauth/authorize?response_type=code&client_id=&lt;CLIENT_ID&gt;
+&scope=&lt;LIST_OF_SCOPES&gt;&redirect_uri=&lt;CALLBACK_URL&gt;&state=&lt;STATE&gt;
+</pre>
+</p>
+					<p><strong>Response type</strong> should always be code. It is an OAuth 2 specific parameter.</p>
+					<p><strong>Client id</strong> is the unique identification of your application.</p>
+					<p><strong>List of scopes</strong> that the application needs the resource owner to grant permission to. If multiple scopes are specified, separate them by a space.</p>
+					<p><strong>Redirect URI</strong> is used for returning the control back (callback) to the application once authentication process completes.</p>
+					<p><strong>State</strong> is an optional parameter that can be used to maintain a state, and is a reference to the request instance. The value passed would be returned back to the redirect URI when the callback is made.</p>
+					</td>
+					<td class="content-example">
+					
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="authorisation-authorisation" class="anchor" name="authorisation-authorisation"></a><h3>Authorisation</h3>
+					<p>The resource owner is required to authenticate itself to iPayroll in order to grant permission to an application. Therefore, https://&lt;SERVER-DOMAIN&gt;&#47;oauth/authorize is a protected endpoint.</p>
+					<p>If the resource owner is not already logged in, iPayroll would redirect the user agent to the standard login page. But if already logged in, this step is skipped.</p>
+					<p>Once successfully authenticated, the following page is displayed asking for the resource owner's permission to grant access.</p>
+					<img src="images/authentication.png" class="img-responsive"/>
+					<p>If the resource owner grants permission, the client application is notified via the callback URI.</p>
+					</td>
+					<td class="content-example">
+					
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="authorisation-code" class="anchor" name="authorisation-code"></a><h3>Authorisation Code</h3>
+					<p>Once resource owner's permission is granted, the redirect URI of the application is called passing authorisation code as a parameter:</p>
+					<p>
+<pre>
+https://&lt;SERVER-DOMAIN&gt;&#47;oauth/authorize?response_type=code&client_id=&lt;CLIENT_ID>
+&scope=&lt;LIST_OF_SCOPES&gt;&redirect_uri=&lt;CALLBACK_URL&gt;&state=&lt;STATE&gt;
+</pre>
+					</p>
+					<p>The request would also contain state, with the value originally passed on when making the authorisation request.</p>
+					<p>As HTTP redirect is used for making the callback, the redirect URI does not have to be a globally accessible one.</p>
+					</td>
+					<td class="content-example">
+					
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="authorisation-reauthorisation" class="anchor" name="authorisation-reauthorisation"></a><h3>Re-authorisation</h3>
+					<p>When a resource owner authorises an application, it is valid forever, unless the resource owner manually revokes the grant. Therefore, ideally, an application would only have to request for permission once.</p>
+					<p>However, if an application would want to request for scopes that are not already permitted, it could initialise another authentication request any time.</p>
+					</td>
+					<td class="content-example">
+					
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="authorisation-tokens" class="anchor" name="authorisation-tokens"></a><h3>Request Tokens</h3>
+      <p>Once the application receives the authentication code, it should request for tokens that could be used for making subsequent API calls by making the following HTTP POST request:</p>
+<pre>
+	Request type: POST
+	URL: https://&lt;SERVER-DOMAIN&gt;&#47;oauth/token
+	Parameters:
+	grant_type=authorization_code
+	client_id=&lt;CLIENT_ID_OF_THE_APPLICATION&gt;
+	client_secret=&lt;CLIENT_SECRET&gt;
+	code=&lt;AUTH_CODE_RECEIVED&gt;
+	redirect_uri=&lt;CALLBACK_URL_USED_FOR_THE_AUTH_REQUEST&gt;
+</pre>
+      <p><strong>Grant type</strong> is an OAuth 2 specific parameter and it should always be set to authorization_code.</p>
+      <p><strong>Client id</strong> and <strong>client secret</strong> are application specific properties and they are used for authenticating the application to iPayroll.</p>
+      <p><strong>Code</strong> is the authentication code received in the callback. This identifies a particular authentication that is being made by a resource owner.</p>
+      <p><strong>Redirect URI</strong> is the same URI that was passed when making the authorisation call. It is passed on for verification purposes and part of OAuth 2 specification.</p>
+      <p>If successful, the server would respond with the following:</p>
+<pre>
+  {
+	"access_token":"&lt;ACCESS_TOKEN&gt;",
+	"token_type":"bearer",
+	"refresh_token":"&lt;REFRESH_TOKEN&gt;",
+	"expires_in":&lt;NUMBER_OF_SECONDS_THE_ACCESS_TOKEN_EXPIRES_IN&gt;,
+	"scope":"&lt;LIST_OF_SCOPES_AUTHORISED&gt;"
+  }
+</pre>
+      <p>Once an application acquires tokens by passing an authorisation code, that code would be deleted. Subsequent calls with the same authorisation code would not return tokens. Therefore, it is client application's responsibility to hold onto tokens.</p>
+					</td>
+					<td class="content-example">
+					
+					</td>
+				</tr>
+				<tr>
+					<td class="content-text">
+					<a id="authorisation-access" class="anchor" name="authorisation-access"></a><h3>Access Token Expiry</h3>
+  					<p>The received access token can be used for making API calls till it expires. The system will return the following error when it expires:</p>
+<pre>
+{
+	"error": "invalid_token",
+	"error_description": "Invalid access token: &lt;ACCESS_TOKEN&gt;"
+}
+</pre>
+					<p>The following request can be made to get a new access token using the refresh token:</p>
+<pre>
+	Request type: POST
+	URL: https://&lt;SERVER-DOMAIN&gt;&#47;oauth/token
+	Parameters:
+	grant_type=refresh_token
+	client_id=&lt;CLIENT_ID_OF_THE_APPLICATION&gt;
+	client_secret=&lt;CLIENT_SECRET&gt;
+	refresh_token=&lt;REFRESH_TOKEN&gt;
+</pre>
+					<p>The server would reply with the same response as the request tokens method.</p>
+					</td>
+					<td class="content-example">
+					
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="authorisation-refresh" class="anchor" name="authorisation-refresh"></a><h3>Refresh Token Expiry</h3>
+					<p>By default, refresh token is valid for 10 years. The value can be further increased if required. However, if the validity period of the refresh tokens is decreased, the application should handle expired refresh tokens.</p>
+					<p>When a new access token is requested passing a refresh token, server would reply back with the following error message if the refresh token is expired:</p>
+<pre>
+  {
+	"error": "invalid_token",
+	"error_description": "Invalid refresh token (expired): &lt;REFRESH_TOKEN&gt;"
+  }
+</pre>
+					<p>The client application should initiate a request tokens method to get a new refresh token. As this method expects a new authorisation code, the client application should first initiate a request permission call to get an authorisation code. Since a resource owner has already authorised the application, the grant permission page would be bypassed in this scenario.</p>
+					</td>
+					<td class="content-example">
+					
+					</td>
+				</tr>
+
+<!-- Authorisation | END -->
+</table>	
+		
+		
+		
+		
+		</div>
+		<div id="header" class="row">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+				<a href="https://www.ipayroll.co.nz"><img src="images/iPayroll-sm.png" width="80" height="50"></a>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<div class="header-title">
+					<a href="#about">Developer's Guide</a>
+				</div>
+			</div>
+			<div id="topmenu" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				<div class="pull-right" style="padding-top: 12px;">
+					<p><a href="index.html">API Reference</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<a href="authorisation.html" class="active">Authorisation</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<a href="uploading.html">Uploading Timesheets</a></p>
+				</div>
+			</div>
+		</div>		
+		<div id="sidemenu" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+			<nav class="sidebar nav">
+				<ul class="nav">
+					<li><a href="#authorisation">Authorisation</a>
+						<ul class="nav">
+							<li><a href="#authorisation-request">Request Permission</a></li>
+							<li><a href="#authorisation-authorisation">Authorisation</a></li>
+							<li><a href="#authorisation-code">Authorisation Code</a></li>
+							<li><a href="#authorisation-reauthorisation">Re-authorisation</a></li>
+							<li><a href="#authorisation-tokens">Request Tokens</a></li>
+							<li><a href="#authorisation-access">Access Token Expiry</a></li>
+							<li><a href="#authorisation-refresh">Refresh Token Expiry</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<div id="disclaimer" class="container-wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2 text-center">
+				Copyright &copy;2000-2016 iPayroll<sup>&reg;</sup> Ltd. All rights reserved. iPayroll<sup>&reg;</sup> is a Registered Trade Mark of iPayroll<sup>&reg;</sup>Ltd
+			</div>
+		</div>
+	</div>
+</div>
+<script src="js/jquery.min.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script>
+	$('body').scrollspy({ target: '.sidebar', offset: 70 })
+	
+	$('#timesheet-transactions-group').on('hidden.bs.collapse', function () {
+	  $('.timesheet-transactions').collapse('hide');
+	})	
+	
+	$('#employees-address-group').on('hidden.bs.collapse', function () {
+	  $('.employees-address').collapse('hide');
+	})		
+</script>
+</body>
+</html>

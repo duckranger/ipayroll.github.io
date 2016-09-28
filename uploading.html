@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="images/favicon.ico">
+<title>iPayroll | Uploading Timesheets</title>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Mallanna' rel='stylesheet' type='text/css'>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/theme.developer.css" rel="stylesheet">
+<!--[if lt IE 9]>
+        	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2">
+
+			
+			<table width="100%">			
+<!-- Uploading Timesheet | START -->
+				<tr>
+					<td class="content-header"><a id="timesheetupload" class="anchor" name="timesheetupload"></a><h1>Uploading Timesheets</h1></td>
+					<td class="content-header-example">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="content-text">
+					<a id="timesheetupload-format" class="anchor" name="timesheetupload-format"></a><h3>Timesheet Uploads File Format</h3>
+<p>iPayroll's system allows an authorised user to upload transactions (timesheets) into an open payroll. This option caters for integrating   software packages that can not use&nbsp;iPayroll's REST API, The following formats are available for use by developers:</p>
+					<ul>
+						<li>Spreadsheet (Multiple transactions) Format</li>
+						<li>Standard (SIngle Transactions)Format</li>
+					</ul>
+					<h4>Spreadsheet Format</h4>
+					<p>The spreadsheet (Multiple Transactions) format allows uploading of multiple transactions in each row.</p>
+					<p>The following rules apply to the file:</p>
+					<ol>
+						<li> The file must be a comma delimited, ASCII file</li>
+						<li> Each person starts on a new line.</li>
+						<li> The first line is a header record containing (all on one line):-<br>
+						id, name, T1, T1.5, BON, other, quantity, sickDays, from, to, reason, costCentre, message, Days in Period</li>
+						<li> Names are optional and must not contain commas. (They are ignored - the id identifies the person).</li>
+						<li> The columns "T1", "T1.5" and BON" can be replaced with any other elements, in any order.</li>
+						<li> There may be any number of columns with payment or deduction ids, so for example, some Organisations pay their ordinary time day by day and would have columns for elements "MON", "TUE, "WED", "THU" etc. as well as other payments and deductions</li>
+						<li>A row can contain several transactions.</li>
+						<li> A person can have many transactions, split across several rows.</li>
+						<li> Empty fields are acceptable.</li>
+						<li> Leave Days are only applicable to leave balances that are held in days (generally Sick, Bereavement and Alternative Leave)Leave dates may be in dd/mm/yy or dd-mmm-yy format e.g. 15/1/13 or 15-Jan-13 (Year may be 2 or 4 digits e.g. 13 or 2013)</li>
+						<li>Reasons only apply to leave transactions.</li>
+						<li> If leave dates are not entered, then leave history is recorded as at period end date</li>
+						<li> Blank lines in the file are ignored, as are lines beginning with #.</li>
+						<li>A line starting with 'End of File' indicates remaining lines are ignored.</li>
+						<li>Spaces between comma's, and at the beginning and end of each line are ignored.</li>
+						<li>Quantities can have up to 2 decimal places, rates up to 4. (eg. quantity 40, 40.0 or 40.00).</li>
+						<li>If a column starts with a dollar sign ($) it is interpreted as a rate override and paid with a quantity of 1.00.</li>
+						<li>Text in the message column is appended to the person's payslip message.</li>
+						<li>The costCentre, reason and message columns are optional.</li>
+						<li>If a value is entered in 'costCentre' this overrides the default cost centre for every transaction in the line (e.g. if T1 AND AL were in the same line, and there was a cost centre override on that line, both T1 and AL would use the override cost centre)</li>
+						<li>Any override cost centre on the timesheet upload file must exist in the Cost Centre setup for the Organisation</li>
+						<li> For element ids in the "other" column, the qty may not be preceded by a $ value. If it is, display error message for line: "Quantity for element id should be number of hours, NOT a rate override" (e.g. "Quantity for AL-ADJ should be number of hours, NOT a rate override")</li>
+						<li>If Organisation has ADP "Record Days on Timesheet" activated:
+							<ol type="a">
+								<li>  if the value in the "Days" column is not blank, replace the existing value in the "Days in period" field in current timesheet</li>
+								<li> if value in the "Days" column is blank, do not update the "Days for period" field in current timesheet (i.e. leave existing value)</li>
+							</ol>
+						</li>
+					</ol>
+					<p>e.g.</p>
+					<table class="table text-sm table-bordered">
+						<thead>
+							<tr class="header">
+								<th>#</th>
+								<th>A</th>
+								<th>B</th>
+								<th>C</th>
+								<th>D</th>
+								<th>E</th>
+								<th>F</th>
+								<th>G</th>
+								<th>H</th>
+								<th>I</th>
+								<th>J</th>
+								<th>K</th>
+								<th>L</th>
+								<th>M</th>
+								<th>N</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1
+								</td><td>id</td>
+								<td>name</td>
+								<td>T1</td>
+								<td>T1.5</td>
+								<td>MEAL</td>
+								<td>other</td>
+								<td>quantity</td>
+								<td>leaveDays</td>
+								<td>from</td>
+								<td>to</td>
+								<td>reason</td>
+								<td>cost centre</td>
+								<td>message</td>
+								<td>days in Period</td>
+							</tr>
+							<tr>
+								<td>2
+								</td><td>boss</td>
+								<td>MATTHEWS John</td>
+								<td>24</td>
+								<td>3</td>
+								<td>$10.20</td>
+								<td>AL</td>
+								<td>16</td>
+								<td></td>
+								<td>15-Jan-2013</td>
+								<td>16-Jan-2013</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>3
+								</td><td>boss</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td>SICK</td>
+								<td>8</td>
+								<td>1</td>
+								<td>17-Jan-2013</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+<pre>	id,name,T1,T1.5,MEAL,other,quantity,leaveDays,from,to,reason,costCentre,message,Days in Period
+	boss,MATTHEWS John,24,3,$10.20,AL,,16,15-Jan-2013,16-Jan-2013
+	boss,,,,,SICK,8,1,17-Jan-2013
+</pre>
+      			
+      				<p>This pays the person who has the id 'boss' 24 hours Ordinary Time (T1), 3 hours Overtime (T1.5), 1 Meal Allowance (MEAL) at a rate of $10.20, 16 hours Annual Leave (AL) for 15 to 16 Jan 2013 and 8 hours (1 day) Sick Leave (SICK) for 17-Jan-2013</p>					
+					<h4>Standard Format</h4>
+ 					<p>The File must be in the following format:
+        			</p><ul>
+						<li>The file must be a comma delimited, ASCII file. </li>
+						<li>Each transaction starts on a new line. </li>
+						<li>Each line contains the following fields: personId, elementId, quantity. </li>
+						<li>Each line can also, optionally, contain one to six additional fields:costCentre, rate, leaveFrom, leaveTo, reason and leaveDays. </li>
+						<li>The cost centre field must be included if the rate field is present.(An empty cost centre is acceptable -e.g. boss,1,MEAL,,10.20). </li>
+						<li>Empty fields are acceptable, e.g.boss,T1,40,,is the same asboss,T1,40 </li>
+						<li>Leave dates may be in dd/mm/yy or dd-mmm-yy format e.g.15/1/13 or15-Jan-13 (Year may be 2 or 4 digits e.g. 13 or 2013) </li>
+						<li>If leave dates are not entered, then leave history is recorded as at period end date </li>
+						<li>Leave days are used if sick, alternative holiday and bereavement leave is recorded in days </li>
+						<li>Blank lines in the file are ignored, as are lines beginning with #. </li>
+						<li>A line starting with 'End of File' indicates remaining lines are ignored. </li>
+						<li>Spaces between comma's, and at the beginning and end of each line are ignored. </li>
+						<li>Quantities can have up to 2 decimal places, rates up to 4.(eg. quantity 40, 40.0 or 40.00). </li>
+					</ul>
+      				<p></p>
+      				<p>e.g.</p>
+<pre>	boss,T1,40
+	boss, T1.5, 3, 2000
+
+	boss,MEAL,1,,10.20
+	#Here is the timesheet for Chris
+	chris,T1.5,0.5
+	chris,AL,8,,,15-Jan-2013
+</pre>
+					<p>This pays the person who has the id 'boss' 40 hours Ordinary Time (T1), 3 hours Overtime (T1.5) costed to cost centre '2000', and 1 Meal Allowance (MEAL) at a rate of $10.20. It also pays the person who has the id 'chris', 1/2 hour Overtime (T1.5) and 8 hours Annual Leave (AL).</p>
+
+					</td>
+					<td class="content-example">
+					
+					</td>
+				</tr>		
+<!-- Uploading Timesheet | END -->
+		
+		
+</table>	
+		
+		
+		
+		
+		</div>
+		<div id="header" class="row">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+				<a href="https://www.ipayroll.co.nz"><img src="images/iPayroll-sm.png" width="80" height="50"></a>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<div class="header-title">
+					<a href="#about">Developer's Guide</a>
+				</div>
+			</div>
+			<div id="topmenu" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+				<div class="pull-right" style="padding-top: 12px;">
+					<p><a href="index.html">API Reference</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<a href="authorisation.html">Authorisation</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+						<a href="uploading.html" class="active">Uploading Timesheets</a></p>
+				</div>
+			</div>		
+			
+			
+		</div>		
+		<div id="sidemenu" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+			<nav class="sidebar nav">
+				<ul class="nav">
+					<li><a href="#timesheetupload">Uploading Timesheets</a>
+						<!--
+						<ul class="nav">
+							<li><a href="#timesheetupload-format">Timesheet Uploads File Format</a></li>
+						</ul>
+						-->
+					</li>					
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<div id="disclaimer" class="container-wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2 col-xs-10 col-xs-offset-2 text-center">
+				Copyright &copy;2000-2016 iPayroll<sup>&reg;</sup> Ltd. All rights reserved. iPayroll<sup>&reg;</sup> is a Registered Trade Mark of iPayroll<sup>&reg;</sup>Ltd
+			</div>
+		</div>
+	</div>
+</div>
+<script src="js/jquery.min.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+<script>
+	$('body').scrollspy({ target: '.sidebar', offset: 70 })
+	
+	$('#timesheet-transactions-group').on('hidden.bs.collapse', function () {
+	  $('.timesheet-transactions').collapse('hide');
+	})	
+	
+	$('#employees-address-group').on('hidden.bs.collapse', function () {
+	  $('.employees-address').collapse('hide');
+	})		
+</script>
+</body>
+</html>
