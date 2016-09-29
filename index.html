@@ -180,28 +180,28 @@
 						<p>Elements in the response may contain HATEOAS style links indicating further, related actions.</p>
 						<p>For example, a response containing an employee element, may contain links for the employee's payrate and timeshseet endpoints.</p>
 
-<pre>
-{
-  "links": [
-    {
-      "rel": "self",
-      "href": "https://sandbox.ipayroll.co.nz/api/v1/employees/1"
-    },
-    {
-      "rel": "payrate",
-      "href": "https://sandbox.ipayroll.co.nz/api/v1/employees/1/payrates"
-    },
-    {
-      "rel": "timesheet",
-      "href": "https://sandbox.ipayroll.co.nz/api/v1/timesheets/1"
-    }
-  ],
-  "surname": "White",
-  "firstNames": "Jason",
-  "employeeId": "1",
-  ...rest of the properties...
-}
- </pre>					
+						<pre>
+						{
+						  "links": [
+						    {
+						      "rel": "self",
+						      "href": "https://sandbox.ipayroll.co.nz/api/v1/employees/1"
+						    },
+						    {
+						      "rel": "payrate",
+						      "href": "https://sandbox.ipayroll.co.nz/api/v1/employees/1/payrates"
+						    },
+						    {
+						      "rel": "timesheet",
+						      "href": "https://sandbox.ipayroll.co.nz/api/v1/timesheets/1"
+						    }
+						  ],
+						  "surname": "White",
+						  "firstNames": "Jason",
+						  "employeeId": "1",
+						  ...rest of the properties...
+						}
+						 </pre>					
 					</td>
 					<td class="content-example">
 			
@@ -212,65 +212,65 @@
 						<a id="developer-pagination" name="developer-pagination" class="anchor"></a><h3>Pagination</h3>				
 						<p>Some of the end points provided by the iPayroll API return multiple elements. These would typically be 'get all' requests such as 'list employees' or 'list cost centres'.</p>
 						<p>To avoid large payloads, the iPayroll API supports pagination for this type of requests, and will default to returning maximum 20 elements.</p>
-<pre>
-{ 
-  "content": [
-    {element 1},
-    {element 2},
-    {element 3},
-    {element 4},
-  ],
-  "page": {
-    "size": 20,
-    "totalElements": 4,
-    "totalPages": 1,
-    "number": 0
-  }
-}
-</pre>
+						<pre>
+						{ 
+						  "content": [
+						    {element 1},
+						    {element 2},
+						    {element 3},
+						    {element 4},
+						  ],
+						  "page": {
+						    "size": 20,
+						    "totalElements": 4,
+						    "totalPages": 1,
+						    "number": 0
+						  }
+						}
+						</pre>
  
 						<p>The iPayroll API lets you control page data by using the <strong>page</strong> and <strong>size</strong> request parameters:</p>
-<pre>
-http://sandbox.ipayroll.co.nz/api/v1/employees?size=5
-http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
-</pre>
+						<pre>
+						http://sandbox.ipayroll.co.nz/api/v1/employees?size=5
+						http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
+						</pre>
 
 						<ul>
 							<li><strong>size</strong>: an integer denoting how many elements to return per page</li>
 							<li><strong>page</strong>: an integer denoting the page number (zero based) required.</li>
 						</ul>
 						<p>When paging is applicable, the response will contain links to navigate through pages:</p>
-<pre>
-{
-  "content": [
-    ...elements of this page...
-  ],
-  "page": {
-    "size": 5,
-    "totalElements": 23,
-    "totalPages": 5,
-    "number": 0
-  },
-  "links": [
-    {
-      "rel": "first",
-      "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?page=0&size=5"
-    },
-    {
-      "rel": "self",
-      "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?size=5"
-    },
-    {
-    "rel": "next",
-    "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?page=1&size=5"
-    },
-    {
-      "rel": "last",
-      "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?page=4&size=5"
-    }
-  ]
-}
-</pre>					
+						<pre>
+						{
+						  "content": [
+						    ...elements of this page...
+						  ],
+						  "page": {
+						    "size": 5,
+						    "totalElements": 23,
+						    "totalPages": 5,
+						    "number": 0
+						  },
+						  "links": [
+						    {
+						      "rel": "first",
+						      "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?page=0&size=5"
+						    },
+						    {
+						      "rel": "self",
+						      "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?size=5"
+						    },
+						    {
+						    "rel": "next",
+						    "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?page=1&size=5"
+						    },
+						    {
+						      "rel": "last",
+						      "href": "http://sandbox.ipayroll.co.nz/api/v1/employees?page=4&size=5"
+						    }
+						  ]
+						}
+						</pre>					
 					</td>
 					<td class="content-example">
 			
@@ -366,37 +366,37 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<p>Returns all the cost centres of an organisation.</p>
 					</td>
 					<td class="content-example content-example-border">
-					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/costcentres</p>
-					<h4>Response Example</h4>
-<pre>
-{
-  "content": [
-    {
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/0"
-        }
-      ],
-      "costCentreId": 0,
-      "code": "Software",
-      "description": "Software Developers Department"
-    },
-    {
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/1"
-        }
-      ],
-      "costCentreId": 1,
-      "code": "Marketing",
-      "description": "The Marketing Team"
-    },
-    ...
-  ]
-}
-</pre>
+						<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/costcentres</p>
+						<h4>Response Example</h4>
+						<pre>
+						{
+						  "content": [
+						    {
+						      "links": [
+						        {
+						          "rel": "self",
+						          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/0"
+						        }
+						      ],
+						      "costCentreId": 0,
+						      "code": "Software",
+						      "description": "Software Developers Department"
+						    },
+						    {
+						      "links": [
+						        {
+						          "rel": "self",
+						          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/1"
+						        }
+						      ],
+						      "costCentreId": 1,
+						      "code": "Marketing",
+						      "description": "The Marketing Team"
+						    },
+						    ...
+						  ]
+						}
+						</pre>
 					</td>
 				</tr>				
 				<tr>
@@ -437,75 +437,75 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</table>
 					</td>
 					<td class="content-example content-example-border">
-					<p class="lead"><span class="badge bg-post">POST</span>&nbsp;/api/v1/costcentres</p>
-					<h4>Request Body Example</h4>
-<pre>
-[
-  {          
-    "code": "Software",
-    "description": "Software Developers Department"
-   },
-   {
-     "code": "Marketing",
-     "description": "The Marketing Team"
-   }
-  ...more cost centres...
-]
-</pre>
-					<h4>Response Example</h4>
-<pre>
-[
-  {    
-    "code": "Developer",
-    "description": "Software Developers Department"
-    "links": [
-        {
-          "rel": "self",
-          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/0"
-        }
-    ]
-  }, 
-  {    
-    "code": "Marketing",
-    "description": "The Marketing Team"
-    "links": [
-        {
-          "rel": "self",
-          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/1"
-        }
-    ]
-  }, 
-  ...
-]
-</pre>
+						<p class="lead"><span class="badge bg-post">POST</span>&nbsp;/api/v1/costcentres</p>
+						<h4>Request Body Example</h4>
+						<pre>
+						[
+						  {          
+						    "code": "Software",
+						    "description": "Software Developers Department"
+						   },
+						   {
+						     "code": "Marketing",
+						     "description": "The Marketing Team"
+						   }
+						  ...more cost centres...
+						]
+						</pre>
+											<h4>Response Example</h4>
+						<pre>
+						[
+						  {    
+						    "code": "Developer",
+						    "description": "Software Developers Department"
+						    "links": [
+						        {
+						          "rel": "self",
+						          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/0"
+						        }
+						    ]
+						  }, 
+						  {    
+						    "code": "Marketing",
+						    "description": "The Marketing Team"
+						    "links": [
+						        {
+						          "rel": "self",
+						          "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/1"
+						        }
+						    ]
+						  }, 
+						  ...
+						]
+						</pre>
 					</td>
 				</tr>				
 				<tr>
 					<td class="content-text">
-					<a id="costcentre-retrieve" class="anchor" name="costcentre-retrieve"></a>
-					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/costcentres/{costcentreId}</p>
-					<h4>Retrieve A Cost Centre</h4>
-					<p>Returns a particular cost centre of the organisation, identified by cost centre id.</p>
-					<p>&nbsp;</p>
-					</td>
-					<td class="content-example content-example-border">
-<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/costcentres/{costcentreId}</p>					
-<h4>Response Example</h4>
-<pre>
-[
-  {
-    "code": "Software",
-    "description": "Software Developers Department",    
-    "links": [
-      {
-        "rel": "self",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/0"
-      }
-    ]
-  }, 
-  ...
-]
-</pre>
+						<a id="costcentre-retrieve" class="anchor" name="costcentre-retrieve"></a>
+						<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/costcentres/{costcentreId}</p>
+						<h4>Retrieve A Cost Centre</h4>
+						<p>Returns a particular cost centre of the organisation, identified by cost centre id.</p>
+						<p>&nbsp;</p>
+						</td>
+						<td class="content-example content-example-border">
+						<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/costcentres/{costcentreId}</p>					
+						<h4>Response Example</h4>
+						<pre>
+						[
+						  {
+						    "code": "Software",
+						    "description": "Software Developers Department",    
+						    "links": [
+						      {
+						        "rel": "self",
+						        "href": "http://secure2.ipayroll.co.nz/api/v1/costcentres/0"
+						      }
+						    ]
+						  }, 
+						  ...
+						]
+						</pre>
 					</td>
 				</tr>				
 <!-- Cost Centre | END -->			
@@ -656,67 +656,66 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					</td>
 					<td class="content-example content-example-border">
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees</p>
-					<h4>Response Example</h4>
-					
-<pre>
-{
-  "content": [
-  {      
-    "surname": "iPayroll",
-    "firstNames": "Jack",
-    "employeeId": "1111",
-    "address": {
-      "country": "New Zealand"
-    },
-    "startDate": "1-May-2014",
-    "email": "email@email.com",
-    "gender": "Female",
-    "payFrequency": "Fortnightly",
-    "fullTimeHoursWeek": 33,
-    "organisation": 10000,
-    "links": [
-      {
-        "rel": "self",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111"
-      },
-      {
-        "rel": "payrate",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates"
-      },
-      {
-        "rel": "timesheet",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/1111"
-      }
-    ]
-   },
-   ...
-  ],    
-   "links": [
-    {
-      "rel": "first",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=0&size=20"
-    },
-    {
-      "rel": "self",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees"
-    },
-    {
-      "rel": "next",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=1&size=20"
-    },
-    {
-      "rel": "last",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=9&size=20"
-    }
-  ],
-  "page": {
-    "size": 20,
-    "totalElements": 184,
-    "totalPages": 10,
-    "number": 0
-  }
-}
-</pre>
+					<h4>Response Example</h4>					
+					<pre>
+					{
+					  "content": [
+					  {      
+					    "surname": "iPayroll",
+					    "firstNames": "Jack",
+					    "employeeId": "1111",
+					    "address": {
+					      "country": "New Zealand"
+					    },
+					    "startDate": "1-May-2014",
+					    "email": "email@email.com",
+					    "gender": "Female",
+					    "payFrequency": "Fortnightly",
+					    "fullTimeHoursWeek": 33,
+					    "organisation": 10000,
+					    "links": [
+					      {
+					        "rel": "self",
+					        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111"
+					      },
+					      {
+					        "rel": "payrate",
+					        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates"
+					      },
+					      {
+					        "rel": "timesheet",
+					        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/1111"
+					      }
+					    ]
+					   },
+					   ...
+					  ],    
+					   "links": [
+					    {
+					      "rel": "first",
+					      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=0&size=20"
+					    },
+					    {
+					      "rel": "self",
+					      "href": "http://secure2.ipayroll.co.nz/api/v1/employees"
+					    },
+					    {
+					      "rel": "next",
+					      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=1&size=20"
+					    },
+					    {
+					      "rel": "last",
+					      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=9&size=20"
+					    }
+					  ],
+					  "page": {
+					    "size": 20,
+					    "totalElements": 184,
+					    "totalPages": 10,
+					    "number": 0
+					  }
+					}
+					</pre>
 					</td>
 				</tr>	
 				<tr>
@@ -879,59 +878,59 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					</table>
 					</td>
 					<td class="content-example content-example-border">
-					<p class="lead"><span class="badge bg-post">POST</span>&nbsp;/api/v1/employees</p>
-					<h4>Request Body Example</h4>
-<pre>
-[
-  {    
-    "surname": "iPayroll",
-    "firstNames": "Jack",
-    "employeeId": "1111",
-    "address": {
-      "country": "New Zealand"
-    },
-    "startDate": "1-May-2014",
-    "email": "email@email.com",
-    "gender": "Female",
-    "payFrequency": "Fortnightly",
-    "fullTimeHoursWeek": 33,
-    "organisation": 10000
-  }
-  ...
-]
-</pre>
-					<h4>Response Example</h4>
-<pre>
-[
-  {    
-    "firstNames": "Jack",
-      "employeeId": "1111",
-    "address": {
-      "country": "New Zealand"      
-    },
-    "startDate": "1-May-2014",
-    "email": "email@email.com",
-    "gender": "Female",
-    "payFrequency": "Fortnightly",
-    "fullTimeHoursWeek": 33,
-    "organisation": 10000,
-    "links": [
-      {
-        "rel": "self",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111"
-      },      
-      {
-        "rel": "payrate",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates"
-      },
-      {
-        "rel": "timesheet",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/1111"
-      }
-    ]
-  }
-]
-</pre>
+						<p class="lead"><span class="badge bg-post">POST</span>&nbsp;/api/v1/employees</p>
+						<h4>Request Body Example</h4>
+						<pre>
+						[
+						  {    
+						    "surname": "iPayroll",
+						    "firstNames": "Jack",
+						    "employeeId": "1111",
+						    "address": {
+						      "country": "New Zealand"
+						    },
+						    "startDate": "1-May-2014",
+						    "email": "email@email.com",
+						    "gender": "Female",
+						    "payFrequency": "Fortnightly",
+						    "fullTimeHoursWeek": 33,
+						    "organisation": 10000
+						  }
+						  ...
+						]
+						</pre>
+						<h4>Response Example</h4>
+						<pre>
+						[
+						  {    
+						    "firstNames": "Jack",
+						      "employeeId": "1111",
+						    "address": {
+						      "country": "New Zealand"      
+						    },
+						    "startDate": "1-May-2014",
+						    "email": "email@email.com",
+						    "gender": "Female",
+						    "payFrequency": "Fortnightly",
+						    "fullTimeHoursWeek": 33,
+						    "organisation": 10000,
+						    "links": [
+						      {
+						        "rel": "self",
+						        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111"
+						      },      
+						      {
+						        "rel": "payrate",
+						        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates"
+						      },
+						      {
+						        "rel": "timesheet",
+						        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/1111"
+						      }
+						    ]
+						  }
+						]
+						</pre>
 					</td>
 				</tr>	
 				<tr>
@@ -954,41 +953,41 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					</table>
 					</td>
 					<td class="content-example content-example-border">
-					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}</p>
-					<h4>Response Example</h4>
-<pre>
-{
-  "address": {
-    "addressLine1": "Apartment 212",
-    "addressLine2": "123 Main Street",
-    "city": "Wellington",
-    "country": "New Zealand",
-    "postCode": "6011",
-    "suburb": "CBD"
-  },
-  "birthDate": "1-Feb-1980",
-  "defaultCostCentre": "Software",
-  "email": "email@email.com",
-  "employeeId": "1111",
-  "firstNames": "Jack",
-  "fullTimeHoursWeek": 33,
-  "gender": "Female",
-  "links": [
-    {
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111",
-      "rel": "self",
-      "templated": true
-    }
-  ],
-  "organisation": 10000,
-  "paidToDate": "1-Aug-2016",
-  "payFrequency": "Fortnightly",
-  "phone": "021 123 4567",
-  "startDate": "1-May-2014",
-  "surname": "Smith",
-  "title": "Mrs"
-}
-</pre>
+						<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}</p>
+						<h4>Response Example</h4>
+						<pre>
+						{
+						  "address": {
+						    "addressLine1": "Apartment 212",
+						    "addressLine2": "123 Main Street",
+						    "city": "Wellington",
+						    "country": "New Zealand",
+						    "postCode": "6011",
+						    "suburb": "CBD"
+						  },
+						  "birthDate": "1-Feb-1980",
+						  "defaultCostCentre": "Software",
+						  "email": "email@email.com",
+						  "employeeId": "1111",
+						  "firstNames": "Jack",
+						  "fullTimeHoursWeek": 33,
+						  "gender": "Female",
+						  "links": [
+						    {
+						      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111",
+						      "rel": "self",
+						      "templated": true
+						    }
+						  ],
+						  "organisation": 10000,
+						  "paidToDate": "1-Aug-2016",
+						  "payFrequency": "Fortnightly",
+						  "phone": "021 123 4567",
+						  "startDate": "1-May-2014",
+						  "surname": "Smith",
+						  "title": "Mrs"
+						}
+						</pre>
 					</td>
 				</tr>	
 <!-- Employees | END -->		
@@ -1080,45 +1079,45 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					</table>
 					</td>
 					<td class="content-example content-example-border">
-					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/payrates</p>
-					<h4>Response Example</h4>
-<pre>
-{
- "content": [
- {      
- "hourlyRate": 14.25,
- "dailyRate": 114,
- "annualRate": 29640,
- "rate": 14.25,
- "code": "commission",
- "divisor": "per hour",
- "links": [
- {
- "rel":"self",
- "href":"http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates/210901"
-  },
- {
- "rel":"employee",
- "href":"http://secure2.ipayroll.co.nz/api/v1/employees/1111"
- }
- ]
-  },
-   ...
- ],
- "links": [
-   {
-     "rel": "self",
-     "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates"
-   }
- ],
- "page": {
-   "size": 20,
-   "totalElements": 5,
-   "totalPages": 1,
-   "number": 0
- }
-} 
-</pre>
+						<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/payrates</p>
+						<h4>Response Example</h4>
+						<pre>
+						{
+						 "content": [
+						 {      
+						 "hourlyRate": 14.25,
+						 "dailyRate": 114,
+						 "annualRate": 29640,
+						 "rate": 14.25,
+						 "code": "commission",
+						 "divisor": "per hour",
+						 "links": [
+						 {
+						 "rel":"self",
+						 "href":"http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates/210901"
+						  },
+						 {
+						 "rel":"employee",
+						 "href":"http://secure2.ipayroll.co.nz/api/v1/employees/1111"
+						 }
+						 ]
+						  },
+						   ...
+						 ],
+						 "links": [
+						   {
+						     "rel": "self",
+						     "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates"
+						   }
+						 ],
+						 "page": {
+						   "size": 20,
+						   "totalElements": 5,
+						   "totalPages": 1,
+						   "number": 0
+						 }
+						} 
+						</pre>
 					</td>
 				</tr>	
 				<tr>
@@ -1155,26 +1154,26 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<td class="content-example content-example-border">
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/payrates/{payratesId}</p>
 					<h4>Response Example</h4>
-<pre>
-{   
- "hourlyRate": 14.25,
- "dailyRate": 114,
- "annualRate": 29640,
- "rate": 14.25,
- "code": "1",
- "divisor": "per hour",
- "links": [
- {
- "rel":"self",
- "href":"http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates/210901"
- },
- {
-  "rel": "employee",
-  "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111"
- }
- ]
-}
-</pre>
+						<pre>
+						{   
+						 "hourlyRate": 14.25,
+						 "dailyRate": 114,
+						 "annualRate": 29640,
+						 "rate": 14.25,
+						 "code": "1",
+						 "divisor": "per hour",
+						 "links": [
+						 {
+						 "rel":"self",
+						 "href":"http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates/210901"
+						 },
+						 {
+						  "rel": "employee",
+						  "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111"
+						 }
+						 ]
+						}
+						</pre>
 					</td>
 				</tr>	
 <!-- Payrates | END -->			
@@ -1200,7 +1199,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 								<td>daysInPeriod</td>
 								<td>Double</td>
-								<td>It is only relevant for organisations that have "record day on timesheet" option on</td>
+								<td>Number of days an employee has worked within the period of the timsheet. May be omitted, it is only relevant for organisations that have "record day on timesheet" option on</td>
 							</tr>										
 							<tr>
 								<td>totalHours</td>
@@ -1209,7 +1208,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							</tr>					
 						<tr>
 							<td><a role="button" data-toggle="collapse" href=".timesheet-transactions-intro" aria-expanded="true" aria-controls="timesheet-transactions">transactions <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
-							<td>Array</td>
+							<td>JSON Object</td>
 							<td>List of timesheet transactions for the employee</td>
 						</tr>											
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
@@ -1245,7 +1244,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>leaveInDays</td>
 							<td>Boolean</td>
-							<td>A flag used to define if leave is display in day, e.g. "true": leaveDays will be used</td>
+							<td>true: the leaveDays field will be used. false the leaveDays field will be omitted.</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>leaveTo</td>
@@ -1255,7 +1254,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>message</td>
 							<td>String</td>
-							<td>A message to be appended to the message of employee payslip</td>
+							<td>A message to be appended to the employee payslip</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>payElement</td>
@@ -1289,77 +1288,77 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<p>&nbsp;</p>
 					</td>
 					<td class="content-example content-example-border">
-					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets</p>
-					<h4>Response Example</h4>
-<pre>
-{
-  "content":[
-    {
-      "links": [
-        {
-          "rel": "self",
-          "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
-        },
-        {
-          "rel": "employee",
-          "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
-        }
-      ],
-      "employeeId": "123456",
-      "totalHours": 40,
-      "transactions": [
-        {
-          "links": [],
-          "timesheetTransactionId": 993590,
-          "amount": 0,
-          "quantity": 1,
-          "rate": 0,
-          "description": "BANK - Take Home Pay to BANK_NUMBER",
-          "costCentre": "",
-          "leaveInDays": false,
-          "payElement": "BANK"
-        },
-        {
-          "links": [],
-          "timesheetTransactionId": 993589,
-          "amount": 0,
-          "quantity": 1,
-          "rate": 0,
-          "description": "WT - Withholding Tax to TAX_NUMBER",
-          "costCentre": "",
-          "leaveInDays": false,
-          "payElement": "WT"
-        },
-        ...
-      ]
-    }
-  ],
-  "links": [
-    {
-      "rel": "first",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets?page=0&size=20"
-    },
-    {
-      "rel": "self",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets"
-    },
-    {
-      "rel": "next",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets?page=1&size=20"
-    },
-    {
-      "rel": "last",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets?page=3&size=20"
-    }
-  ],
-  "page": {
-    "size": 20,
-    "totalElements": 75,
-    "totalPages": 4,
-    "number": 0
-  }
-}
-</pre>
+						<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets</p>
+						<h4>Response Example</h4>
+						<pre>
+						{
+						  "content":[
+						    {
+						      "links": [
+						        {
+						          "rel": "self",
+						          "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
+						        },
+						        {
+						          "rel": "employee",
+						          "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
+						        }
+						      ],
+						      "employeeId": "123456",
+						      "totalHours": 40,
+						      "transactions": [
+						        {
+						          "links": [],
+						          "timesheetTransactionId": 993590,
+						          "amount": 0,
+						          "quantity": 1,
+						          "rate": 0,
+						          "description": "BANK - Take Home Pay to BANK_NUMBER",
+						          "costCentre": "",
+						          "leaveInDays": false,
+						          "payElement": "BANK"
+						        },
+						        {
+						          "links": [],
+						          "timesheetTransactionId": 993589,
+						          "amount": 0,
+						          "quantity": 1,
+						          "rate": 0,
+						          "description": "WT - Withholding Tax to TAX_NUMBER",
+						          "costCentre": "",
+						          "leaveInDays": false,
+						          "payElement": "WT"
+						        },
+						        ...
+						      ]
+						    }
+						  ],
+						  "links": [
+						    {
+						      "rel": "first",
+						      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets?page=0&size=20"
+						    },
+						    {
+						      "rel": "self",
+						      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets"
+						    },
+						    {
+						      "rel": "next",
+						      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets?page=1&size=20"
+						    },
+						    {
+						      "rel": "last",
+						      "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets?page=3&size=20"
+						    }
+						  ],
+						  "page": {
+						    "size": 20,
+						    "totalElements": 75,
+						    "totalPages": 4,
+						    "number": 0
+						  }
+						}
+						</pre>
 					</td>
 				</tr>	
 				<tr>
@@ -1389,7 +1388,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>daysInPeriod</td>
 							<td>Optional</td>
 							<td>Double</td>
-							<td>It is only relevant for organisations that have "record day on timesheet" option on</td>
+							<td>Number of days an employee has worked within the period of the timsheet. May be omitted, it is only relevant for organisations that have "record day on timesheet" option on</td>
 						</tr>					
 						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
 							<td>employeeId</td>
@@ -1449,7 +1448,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>leaveInDays</td>
 							<td>Optional</td>
 							<td>Boolean</td>
-							<td>Defined if leave is display in day. If true leaveDays can be used</td>
+							<td>true: the leaveDays field will be used. false the leaveDays field will be omitted.</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>leaveTo</td>
@@ -1492,95 +1491,95 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<td class="content-example content-example-border">
 					<p class="lead"><span class="badge bg-post">POST</span>&nbsp;/api/v1/timesheets</p>
 					<h4>Request Body Example</h4>
-<pre>
-[
-  {    
-    "employeeId": "123456",
-    "totalHours": 40,
-    "transactions": [
-      {
-        "links": [],
-        "timesheetTransactionId": 993590,
-        "amount": 0,
-        "quantity": 1,
-        "rate": 0,
-        "description": "BANK - Take Home Pay to BANK_NUMBER",
-        "costCentre": "",
-        "leaveInDays": false,
-        "payElement": "BANK"
-      },
-      {
-        "links": [],
-        "timesheetTransactionId": 993589,
-        "amount": 0,
-        "quantity": 1,
-        "rate": 0,
-        "description": "WT - Withholding Tax to TAX_NUMBER",
-        "costCentre": "",
-        "leaveInDays": false,
-        "payElement": "WT"
-      },
-      ...
-    ],
-    "links": [
-      {
-        "rel": "self",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
-      },
-      {
-        "rel": "employee",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
-      }
-    ]
-  }
-  ...
-]
-</pre>
+					<pre>
+					[
+					  {    
+					    "employeeId": "123456",
+					    "totalHours": 40,
+					    "transactions": [
+					      {
+					        "links": [],
+					        "timesheetTransactionId": 993590,
+					        "amount": 0,
+					        "quantity": 1,
+					        "rate": 0,
+					        "description": "BANK - Take Home Pay to BANK_NUMBER",
+					        "costCentre": "",
+					        "leaveInDays": false,
+					        "payElement": "BANK"
+					      },
+					      {
+					        "links": [],
+					        "timesheetTransactionId": 993589,
+					        "amount": 0,
+					        "quantity": 1,
+					        "rate": 0,
+					        "description": "WT - Withholding Tax to TAX_NUMBER",
+					        "costCentre": "",
+					        "leaveInDays": false,
+					        "payElement": "WT"
+					      },
+					      ...
+					    ],
+					    "links": [
+					      {
+					        "rel": "self",
+					        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
+					      },
+					      {
+					        "rel": "employee",
+					        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
+					      }
+					    ]
+					  }
+					  ...
+					]
+					</pre>
 					<h4>Response Example</h4>
-<pre>
-[
-  {
-    "employeeId": "123456",
-    "totalHours": 40,
-    "transactions": [
-      {
-        "links": [],
-        "timesheetTransactionId": 993590,
-        "amount": 0,
-        "quantity": 1,
-        "rate": 0,
-        "description": "BANK - Take Home Pay to BANK_NUMBER",
-        "costCentre": "",
-        "leaveInDays": false,
-        "payElement": "BANK"
-      },
-      {
-        "links": [],
-        "timesheetTransactionId": 993589,
-        "amount": 0,
-        "quantity": 1,
-        "rate": 0,
-        "description": "WT - Withholding Tax to TAX_NUMBER",
-        "costCentre": "",
-        "leaveInDays": false,
-        "payElement": "WT"
-      },
-      ...
-    ],
-    "links": [
-      {
-        "rel": "self",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
-      },
-      {
-        "rel": "employee",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
-      }
-    ]
-  }
-  ...
-]
-</pre>
+						<pre>
+						[
+						  {
+						    "employeeId": "123456",
+						    "totalHours": 40,
+						    "transactions": [
+						      {
+						        "links": [],
+						        "timesheetTransactionId": 993590,
+						        "amount": 0,
+						        "quantity": 1,
+						        "rate": 0,
+						        "description": "BANK - Take Home Pay to BANK_NUMBER",
+						        "costCentre": "",
+						        "leaveInDays": false,
+						        "payElement": "BANK"
+						      },
+						      {
+						        "links": [],
+						        "timesheetTransactionId": 993589,
+						        "amount": 0,
+						        "quantity": 1,
+						        "rate": 0,
+						        "description": "WT - Withholding Tax to TAX_NUMBER",
+						        "costCentre": "",
+						        "leaveInDays": false,
+						        "payElement": "WT"
+						      },
+						      ...
+						    ],
+						    "links": [
+						      {
+						        "rel": "self",
+						        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
+						      },
+						      {
+						        "rel": "employee",
+						        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
+						      }
+						    ]
+						  }
+						  ...
+						]
+						</pre>
 					</td>
 				</tr>	
 				<tr>
@@ -1603,51 +1602,51 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					</table>
 					</td>
 					<td class="content-example content-example-border">
-					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets/{employeeId}</p>
-					<h4>Response Example</h4>
-<pre>
-{
-  {
-    "employeeId": "123456",
-    "totalHours": 40,
-    "transactions": [
-      {
-        "links": [],
-        "timesheetTransactionId": 993590,
-        "amount": 0,
-        "quantity": 1,
-        "rate": 0,
-        "description": "BANK - Take Home Pay to BANK_NUMBER",
-        "costCentre": "",
-        "leaveInDays": false,
-        "payElement": "BANK"
-      },
-      {
-        "links": [],
-        "timesheetTransactionId": 993589,
-        "amount": 0,
-        "quantity": 1,
-        "rate": 0,
-        "description": "WT - Withholding Tax to TAX_NUMBER",
-        "costCentre": "",
-        "leaveInDays": false,
-        "payElement": "WT"
-      }
-    ],
-    "links": [
-      {
-        "rel": "self",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
-      },
-      {
-        "rel": "employee",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
-      }
-    ]
-  }
-  ...
-}
-</pre>
+						<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets/{employeeId}</p>
+						<h4>Response Example</h4>
+						<pre>
+						{
+						  {
+						    "employeeId": "123456",
+						    "totalHours": 40,
+						    "transactions": [
+						      {
+						        "links": [],
+						        "timesheetTransactionId": 993590,
+						        "amount": 0,
+						        "quantity": 1,
+						        "rate": 0,
+						        "description": "BANK - Take Home Pay to BANK_NUMBER",
+						        "costCentre": "",
+						        "leaveInDays": false,
+						        "payElement": "BANK"
+						      },
+						      {
+						        "links": [],
+						        "timesheetTransactionId": 993589,
+						        "amount": 0,
+						        "quantity": 1,
+						        "rate": 0,
+						        "description": "WT - Withholding Tax to TAX_NUMBER",
+						        "costCentre": "",
+						        "leaveInDays": false,
+						        "payElement": "WT"
+						      }
+						    ],
+						    "links": [
+						      {
+						        "rel": "self",
+						        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/123456"
+						      },
+						      {
+						        "rel": "employee",
+						        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/123456"
+						      }
+						    ]
+						  }
+						  ...
+						}
+						</pre>
 					</td>
 				</tr>			
 <!-- Timesheets | END -->			
