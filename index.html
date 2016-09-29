@@ -531,7 +531,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 								<td>birthDate</td>								
 								<td>String</td>
-								<td>Date of birth of employee (multiple date format supported, dd/mm/yyyy preferred)</td>
+								<td>Date of birth of employee (multiple date formats supported, dd/mm/yyyy preferred)</td>
 							</tr>
 							<tr>
 								<td>defaultCostCentre</td>								
@@ -566,7 +566,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 								<td>paidToDate</td>
 								<td>String</td>
-								<td>Date up to which the employee has been paid (multiple date format supported, dd/mm/yyyy preferred)</td>
+								<td>Date up to which the employee has been paid (multiple date formats supported, dd/mm/yyyy preferred)</td>
 							</tr>						
 							<tr>
 								<td>payFrequency</td>
@@ -581,7 +581,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 								<td>startDate</td>
 								<td>String</td>
-								<td>Date on which the employee joined the organisation (multiple date format supported, dd/mm/yyyy preferred)</td>
+								<td>Date on which the employee joined the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td>
 							</tr>						
 						
 							<tr>
@@ -745,7 +745,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>birthDate</td>
 							<td>No</td>
 							<td>String</td>
-							<td>Date of birth of employee (multiple date format supported, dd/mm/yyyy preferred)</td>
+							<td>Date of birth of employee (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>
 						<tr>
 							<td>defaultCostCentre</td>
@@ -793,7 +793,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>paidToDate</td>
 							<td>No</td>
 							<td>String</td>
-							<td>Date up to which the employee has been paid (multiple date format supported, dd/mm/yyyy preferred)</td>
+							<td>Date up to which the employee has been paid (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>						
 						<tr>
 							<td>payFrequency</td>
@@ -811,7 +811,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>startDate</td>
 							<td>Yes</td>
 							<td>String</td>
-							<td>Date on which the employee joined the organisation (multiple date format supported, dd/mm/yyyy preferred)</td>
+							<td>Date on which the employee joined the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>						
 					
 						<tr>
@@ -938,7 +938,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<a id="employees-retrieve" class="anchor" name="employees-retrieve"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}</p>
 					<h4>Retrieve an employee's details</h4>
-					<p>Returns an employee, identified by employee's internal id of the organisation.</p>
+					<p>Returns an employee.</p>
 					<p>&nbsp;</p>
 					<table class="table table-bordered">
 						<tr class="header">
@@ -1058,7 +1058,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<a id="payrate-all" class="anchor" name="payrate-all"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/payrates</p>
 					<h4>Retrieve all of an employee’s payrates</h4>
-					<p>Returns details of all payrates associated with an employee, identified by employee's internal id of the organisation.</p>
+					<p>Returns details of all payrates associated with an employee.</p>
 					<p>&nbsp;</p>
 					<table class="table table-bordered">
 						<tr class="header">
@@ -1125,7 +1125,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<a id="payrate-rate" class="anchor" name="payrate-rate"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/payrates/{payratesId}</p>
 					<h4>Retrieve a specific payrate for an employee</h4>
-					<p>Returns details of a particular payrate of an employee, identified by employee's internal id of the organisation.</p>
+					<p>Returns details of a particular payrate of an employee.</p>
 					<p>&nbsp;</p>
 					<table class="table table-bordered">
 						<tr class="header">
@@ -1239,17 +1239,12 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>leaveFrom</td>
 							<td>String</td>
-							<td>"From" date of leave (multiple date format supported, dd/mm/yyyy preferred)</td>
-						</tr>						
-						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
-							<td>leaveInDays</td>
-							<td>Boolean</td>
-							<td>true: the leaveDays field will be used. false the leaveDays field will be omitted.</td>
+							<td>"From" date of leave (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>leaveTo</td>
 							<td>Double</td>
-							<td>"To" date of leave (multiple date format supported, dd/mm/yyyy preferred).</td>
+							<td>"To" date of leave (multiple date formats supported, dd/mm/yyyy preferred).</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>message</td>
@@ -1314,8 +1309,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
           "quantity": 1,
           "rate": 0,
           "description": "BANK - Take Home Pay to BANK_NUMBER",
-          "costCentre": "",
-          "leaveInDays": false,
+          "costCentre": "",          
           "payElement": "BANK"
         },
         {
@@ -1325,8 +1319,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
           "quantity": 1,
           "rate": 0,
           "description": "WT - Withholding Tax to TAX_NUMBER",
-          "costCentre": "",
-          "leaveInDays": false,
+          "costCentre": "",          
           "payElement": "WT"
         },
         ...
@@ -1442,19 +1435,13 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>leaveFrom</td>
 							<td>Optional</td>
 							<td>String</td>
-							<td>"From" date of leave (multiple date format supported, dd/mm/yyyy preferred)</td>
-						</tr>						
-						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
-							<td>leaveInDays</td>
-							<td>Optional</td>
-							<td>Boolean</td>
-							<td>true: the leaveDays field will be used. false the leaveDays field will be omitted.</td>
-						</tr>						
+							<td>"From" date of leave (multiple date formats supported, dd/mm/yyyy preferred)</td>
+						</tr>												
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>leaveTo</td>
 							<td>Optional</td>
 							<td>Double</td>
-							<td>"To" date of leave (multiple date format supported, dd/mm/yyyy preferred)</td>
+							<td>"To" date of leave (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>message</td>
@@ -1505,7 +1492,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
         "rate": 0,
         "description": "BANK - Take Home Pay to BANK_NUMBER",
         "costCentre": "",
-        "leaveInDays": false,
         "payElement": "BANK"
       },
       {
@@ -1516,7 +1502,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
         "rate": 0,
         "description": "WT - Withholding Tax to TAX_NUMBER",
         "costCentre": "",
-        "leaveInDays": false,
         "payElement": "WT"
       },
       ...
@@ -1550,7 +1535,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
         "rate": 0,
         "description": "BANK - Take Home Pay to BANK_NUMBER",
         "costCentre": "",
-        "leaveInDays": false,
         "payElement": "BANK"
       },
       {
@@ -1561,7 +1545,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
         "rate": 0,
         "description": "WT - Withholding Tax to TAX_NUMBER",
         "costCentre": "",
-        "leaveInDays": false,
         "payElement": "WT"
       },
       ...
@@ -1587,7 +1570,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<a id="timesheets-retrieve" class="anchor" name="timesheets-retrieve"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets/{employeeId}</p>
 					<h4>Retrieve an employee latest timesheet</h4>
-					<p>Returns the latest timesheet of an employee, identified by employee's internal id of the organisation.</p>
+					<p>Returns the latest timesheet of an employee.</p>
 					<p>&nbsp;</p>
 					<table class="table table-bordered">
 						<tr class="header">
@@ -1618,7 +1601,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
         "rate": 0,
         "description": "BANK - Take Home Pay to BANK_NUMBER",
         "costCentre": "",
-        "leaveInDays": false,
         "payElement": "BANK"
       },
       {
@@ -1629,7 +1611,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
         "rate": 0,
         "description": "WT - Withholding Tax to TAX_NUMBER",
         "costCentre": "",
-        "leaveInDays": false,
         "payElement": "WT"
       }
     ],
