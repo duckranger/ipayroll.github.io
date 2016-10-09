@@ -1015,7 +1015,22 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								<td>code</td>								
 								<td>String</td>
 								<td>A short-form of pay rate, created by the organisation</td>
+							</tr>														
+							<tr>
+								<td>rate</td>								
+								<td>Number</td>
+								<td>The raw amount for Payrate rate, used to calculate the annual rate, daily rate, hourly rate depend on the divisor or special diviso</td>
 							</tr>							
+							<tr>
+								<td>divisor</td>								
+								<td>String</td>
+								<td>A global divisor for pay rate, e.g. "per hour", "per annum", "pa (Govt: 14/365th's)", "pa (Aust: 12/313th's)" or "special"</td>
+							</tr>
+							<tr>
+								<td>special divisor</td>								
+								<td>String</td>
+								<td>A divisor specific to an organisation. e.g. "Fifty days of Summer"</td>
+							</tr>
 							<tr>
 								<td>annualRate</td>								
 								<td>Number</td>
@@ -1032,24 +1047,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								<td>hourlyRate</td>								
 								<td>Number</td>
 								<td>An amount occurring once every hour. (The value is converted from rate)</td>
-							</tr>							
-							<tr>
-								<td>rate</td>								
-								<td>Number</td>
-								<td>The raw amount for Payrate rate, used to calculate the annual rate, daily rate, hourly rate depend on the divisor or special diviso</td>
-							</tr>							
-							<tr>
-								<td>divisor</td>								
-								<td>String</td>
-								<td>A global divisor for pay rate, e.g. "per hour", "per annum", "pa (Govt: 14/365th's)", "pa (Aust: 12/313th's)" or "special"</td>
-							</tr>
-
-
-							<tr>
-								<td>special divisor</td>								
-								<td>String</td>
-								<td>A divisor specific to an organisation. e.g. "Fifty days of Summer"</td>
-							</tr>												
+							</tr>																			
 						</table>
 					</td>
 					<td class="content-example content-example-border"></td>
