@@ -7,15 +7,10 @@ h1, h2, h3, h4, h5, h6 { color: #333; font-family: "Open Sans Condensed",sans-se
 h1, h2{ font-size: 30px; color: #666;}
 h3{ font-size: 24px; color:#039be5;}
 h4{ font-size: 20px; margin-top: 20px; color:#666;}
-strong {
-font-weight: 700 !important;
-}
+strong {font-weight: 700 !important;}
 
 .glyphicon{ font-size:12px;}
-.collapsing {
-	display: none; 
-	visibility: hidden; 
-}
+.collapsing { display: none; visibility: hidden; }
 
 .table.text-sm{ font-size: 14px;}
 .table.text-sm th, .table.text-sm td{ padding-left: 2px; padding-right: 2px;}
@@ -23,6 +18,7 @@ font-weight: 700 !important;
 a.anchor { display: block; position: relative; top: -98px; visibility: hidden;}
 a.anchor-inpage { display: block; position: relative; top: -80px; visibility: hidden;}
 
+#topmenu p{ white-space: nowrap;}
 
 .header-title{ font-size: 25px; padding: 8px 25px; font-family: "Open Sans Condensed",sans-serif; color: #CCC; font-weight: bold;}
 .header-title a{ color: #000;}
