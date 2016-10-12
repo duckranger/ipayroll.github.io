@@ -33,7 +33,7 @@
 				<tr>
 					<td class="content-text">
 						<p>The iPayroll REST API allows you to query and manipulate data held by iPayroll about organisations and their employees. It uses predictable, resource-oriented URLs, and communicates API errors using HTTP resoonse codes.</p>
-						<p>The iPayroll API uses standard HTTP Verbs, <a href="http://www.json.org" target="_blank">JSON</a> and <a href="http://tools.ietf.org/html/rfc6749" target="_blank">Oauth2</a>.</p>
+						<p>The iPayroll API uses standard HTTP Verbs, <a href="http://www.json.org" target="_blank">JSON</a> and <a href="http://tools.ietf.org/html/rfc6749" target="_blank">Oauth2</a>.</p>
 						<p>The API can be used directly by clients developing their own applications. Third party applications can also be authorised by clients to access information on their behalf.</p>		
 					</td>
 					<td class="content-example">
@@ -526,7 +526,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 								<td>employeeId</td>								
 								<td>String</td>
-								<td>Unique ID to identify an employee</td>
+								<td>Unique ID to identify an employee within an organisation</td>
 							</tr>								
 							<tr>
 								<td>birthDate</td>								
@@ -739,7 +739,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>employeeId</td>
 							<td>Yes</td>
 							<td>String</td>
-							<td>Unique ID to identify an employee</td>
+							<td>Unique ID to identify an employee within an organisation</td>
 						</tr>					
 						<tr>
 							<td>birthDate</td>
@@ -1067,7 +1067,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>employeeId</td>
 							<td>Required</td>
 							<td>String</td>
-							<td>Unique ID to identify an employee</td>
+							<td>Unique ID to identify an employee within an organisation</td>
 						</tr>												
 					</table>
 					</td>
@@ -1134,7 +1134,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>employeeId</td>
 							<td>Required</td>
 							<td>String</td>
-							<td>Unique ID to identify an employee</td>
+							<td>Unique ID to identify an employee within an organisation</td>
 						</tr>						
 						<tr>
 							<td>code</td>
@@ -1183,7 +1183,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 								<td>employeeId</td>
 								<td>String</td>
-								<td>Unique ID to identify an employee</td>
+								<td>Unique ID to identify an employee within an organisation</td>
 							</tr>								
 							<tr>
 								<td>daysInPeriod</td>
@@ -1372,7 +1372,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>employeeId</td>
 							<td>Required</td>
 							<td>String</td>
-							<td>Unique ID to identify an employee</td>
+							<td>Unique ID to identify an employee within an organisation</td>
 						</tr>						
 						<!-- <tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
 							<td><a href="#overview-response-links">links</a></td>
@@ -1565,7 +1565,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td class="col-lg-2">employeeId</td>
 							<td class="col-lg-2">Required</td>
 							<td class="col-lg-1">String</td>
-							<td class="col-lg-7">Unique ID to identify an employee</td>
+							<td class="col-lg-7">Unique ID to identify an employee within an organisation</td>
 						</tr>						
 					</table>
 					</td>
