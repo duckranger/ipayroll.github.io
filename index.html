@@ -854,67 +854,67 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>
 						<tr>
 							<td>employeeId</td>
-							<td>Yes</td>
+							<td>Required</td>
 							<td>String</td>
 							<td>Unique ID to identify an employee within an organisation</td>
 						</tr>					
 						<tr>
 							<td>birthDate</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>Date of birth (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>
 						<tr>
 							<td>defaultCostCentre</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>Default cost centre for the employee - value expected is one of the cost centre codes defined for the organisation</td>
 						</tr>						
 						<tr>
 							<td>email</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>Email address</td>
 						</tr>						
 						<tr>
 							<td>firstNames</td>
-							<td>Yes</td>
+							<td>Required</td>
 							<td>String</td>
 							<td>All first names</td>
 						</tr>	
 						<tr>
 							<td>surname</td>
-							<td>Yes</td>
+							<td>Required</td>
 							<td>String</td>
 							<td>Surname of the employee</td>
 						</tr>		
 						<tr>
 							<td>fullTimeHoursWeek</td>
-							<td>Yes</td>
+							<td>Required</td>
 							<td>Double</td>
 							<td>Number of hours expected to work - numeric value with up to 4 decimal points</td>
 						</tr>	
 						<tr>
 							<td>gender</td>
-							<td>Yes</td>
+							<td>Required</td>
 							<td>String</td>
 							<td>Male or Female</td>
 						</tr>											
 						<tr>
 							<td>organisation</td>
-							<td>Yes</td>
+							<td>Required</td>
 							<td>Integer</td>
 							<td>Unique identification of the organisation that the employee belongs to</td>
 						</tr>											
 						<tr>
 							<td>paidToDate</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>Date up to which the employee has been paid (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>						
 						<tr>
 							<td>payFrequency</td>
-							<td>Yes</td>
+							<td>Required</td>
 							<td>String</td>
 							<td>Frequency of payroll - pay frequency name, code and description are supported: <br/><br/>
 
@@ -985,75 +985,75 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>												
 						<tr>
 							<td>phone</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>Phone number</td>
 						</tr>						
 						<tr>
 							<td>startDate</td>
-							<td>Yes</td>
+							<td>Required</td>
 							<td>String</td>
 							<td>Date on which the employee joined the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>						
 					
 						<tr>
 							<td>workState</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>State in which the employee works \u2013only applicable to Australian organisations (refer address state for possible values)</td>
 						</tr>										
 					
 						<tr class="panel-collapse collapse employees bg-level2" role="tabpanel">
 							<td>title</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>Job title</td>
 						</tr>
 						<tr id="employees-address-group" class="panel-collapse" role="tabpanel">
 							<td><a role="button" data-toggle="collapse" href=".employees-address" aria-expanded="true" aria-controls="employees-address">address <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
-							<td>No</td>
+							<td>Optional</td>
 							<td nowrap>JSON Object</td>
 							<td>A JSON object representing the address</td>
 						</tr>										
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>addressLine1</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>Address line 1</td>
 						</tr>							
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>addressLine2</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>Address line 2</td>
 						</tr>									
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>suburb</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>Suburb</td>
 						</tr>												
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>state</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>State</td>
 						</tr>						
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>city</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>City</td>
 						</tr>							
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>postCode</td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>Post Code</td>
 						</tr>						
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>country </td>
-							<td>No</td>
+							<td>Optional</td>
 							<td>String</td>
 							<td>Country</td>
 						</tr>														
