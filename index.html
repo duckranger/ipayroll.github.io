@@ -471,19 +471,19 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							</tr>
 							<tr>
 								<td><a role="button" data-toggle="collapse" data-parent="#accordion" href=".costcentres" aria-expanded="true" aria-controls="costcentres">costCentres <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
-								<td>Required</td>
+								<td>Yes</td>
 								<td>JSON Object</td>
 								<td>A list of costCentres to be created. This end point takes a single cost centre or an array of cost centres</td>
 							</tr>
 							<tr class="panel-collapse collapse costcentres bg-level2" role="tabpanel">
 								<td>code</td>
-								<td>Required</td>
+								<td>Yes</td>
 								<td>String</td>
 								<td>A short-form of the cost centre, created by the organisation</td>
 							</tr>
 							<tr class="panel-collapse collapse costcentres bg-level2" role="tabpanel">
 								<td>description</td>
-								<td>Required</td>
+								<td>Yes</td>
 								<td>String</td>
 								<td>Cost centre description</td>
 							</tr>												
@@ -777,53 +777,56 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 <pre>
 {
   "content": [
-  {      
-    "surname": "iPayroll",
-    "firstNames": "Jackie",
-    "employeeId": "1111",
-    "address": {
-      "country": "New Zealand"
+    {
+      "address": {
+        "addressLine1": "Apartment 212",
+        "addressLine2": "123 Main Street",
+        "city": "Wellington",
+        "country": "New Zealand",
+        "postCode": "6011",
+        "suburb": "CBD"
+      },
+      "birthDate": "1-Feb-1980",
+      "defaultCostCentre": "Software",
+      "email": "email@email.com",
+      "employeeId": "1111",
+      "firstNames": "Jackie",
+      "fullTimeHoursWeek": 33,
+      "gender": "Female",
+      "links": [
+        {
+          "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111",
+          "rel": "self",
+          "templated": true
+        }
+      ],
+      "organisation": 10000,
+      "paidToDate": "1-Aug-2016",
+      "payFrequency": "Fortnightly",
+      "phone": "021 123 4567",
+      "startDate": "1-May-2014",
+      "surname": "Smith",
+      "title": "Mrs"
     },
-    "startDate": "1-May-2014",
-    "email": "email@email.com",
-    "gender": "Female",
-    "payFrequency": "Fortnightly",
-    "fullTimeHoursWeek": 33,
-    "organisation": 10000,
-    "links": [
-      {
-        "rel": "self",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111"
-      },
-      {
-        "rel": "payrate",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111/payrates"
-      },
-      {
-        "rel": "timesheet",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/1111"
-      }
-    ]
-   },
    ...
   ],    
-   "links": [
-    {
-      "rel": "first",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=0&size=20"
-    },
-    {
-      "rel": "self",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees"
-    },
-    {
-      "rel": "next",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=1&size=20"
-    },
-    {
-      "rel": "last",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=9&size=20"
-    }
+  "links": [
+   {
+     "rel": "first",
+     "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=0&size=20"
+   },
+   {
+     "rel": "self",
+     "href": "http://secure2.ipayroll.co.nz/api/v1/employees"
+   },
+   {
+     "rel": "next",
+     "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=1&size=20"
+   },
+   {
+     "rel": "last",
+     "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=9&size=20"
+   }
   ],
   "page": {
     "size": 20,
@@ -854,67 +857,67 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>
 						<tr>
 							<td>employeeId</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>String</td>
 							<td>Unique ID to identify an employee within an organisation</td>
 						</tr>					
 						<tr>
 							<td>birthDate</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Date of birth (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>
 						<tr>
 							<td>defaultCostCentre</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Default cost centre for the employee - value expected is one of the cost centre codes defined for the organisation</td>
 						</tr>						
 						<tr>
 							<td>email</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Email address</td>
 						</tr>						
 						<tr>
 							<td>firstNames</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>String</td>
 							<td>All first names</td>
 						</tr>	
 						<tr>
 							<td>surname</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>String</td>
 							<td>Surname of the employee</td>
 						</tr>		
 						<tr>
 							<td>fullTimeHoursWeek</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>Double</td>
 							<td>Describes the number of hours the person would work in a week for their position, if they were employed full time. Is used to help convert salary into hourly rate</td>
 						</tr>	
 						<tr>
 							<td>gender</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>String</td>
 							<td>Male or Female</td>
 						</tr>											
 						<tr>
 							<td>organisation</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>Integer</td>
 							<td>Unique identification of the organisation that the employee belongs to</td>
 						</tr>											
 						<tr>
 							<td>paidToDate</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Date up to which the employee has been paid (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>						
 						<tr>
 							<td>payFrequency</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>String</td>
 							<td>Frequency of payroll - pay frequency name, code and description are supported: <br/><br/>
 
@@ -985,75 +988,75 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>												
 						<tr>
 							<td>phone</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Phone number</td>
 						</tr>						
 						<tr>
 							<td>startDate</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>String</td>
 							<td>Date on which the employee joined the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>						
 					
 						<tr>
 							<td>workState</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>State in which the employee works \u2013only applicable to Australian organisations (refer address state for possible values)</td>
 						</tr>										
 					
 						<tr class="panel-collapse collapse employees bg-level2" role="tabpanel">
 							<td>title</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Job title</td>
 						</tr>
 						<tr id="employees-address-group" class="panel-collapse" role="tabpanel">
 							<td><a role="button" data-toggle="collapse" href=".employees-address" aria-expanded="true" aria-controls="employees-address">address <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
-							<td>Optional</td>
+							<td>No</td>
 							<td nowrap>JSON Object</td>
 							<td>A JSON object representing the address</td>
 						</tr>										
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>addressLine1</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Address line 1</td>
 						</tr>							
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>addressLine2</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Address line 2</td>
 						</tr>									
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>suburb</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Suburb</td>
 						</tr>												
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>state</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>State</td>
 						</tr>						
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>city</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>City</td>
 						</tr>							
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>postCode</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Post Code</td>
 						</tr>						
 						<tr class="panel-collapse collapse employees-address bg-level2" role="tabpanel">
 							<td>country </td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Country</td>
 						</tr>														
@@ -1134,7 +1137,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>
 						<tr>
 							<td>employeeId</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>String</td>
 							<td>Unique ID to identify an employee within an organisation</td>
 						</tr>																	
@@ -1253,7 +1256,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>															
 						<tr>
 							<td>employeeId</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>String</td>
 							<td>Unique ID to identify an employee within an organisation</td>
 						</tr>												
@@ -1320,13 +1323,13 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>															
 						<tr>
 							<td>employeeId</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>String</td>
 							<td>Unique ID to identify an employee within an organisation</td>
 						</tr>						
 						<tr>
 							<td>code</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>String</td>
 							<td>A short-form of pay rate, created by the organisation</td>
 						</tr>
@@ -1546,103 +1549,103 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>												
 						<tr>
 							<td><a role="button" data-toggle="collapse" href=".timesheets" aria-expanded="true" aria-controls="timesheets">timesheets <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>JSON Object</td>
 							<td>List of timesheets to be created</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
 							<td>daysInPeriod</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>Double</td>
 							<td>Number of days an employee has worked within the period of the timsheet. May be omitted, it is only relevant for organisations that have "record day on timesheet" option on</td>
 						</tr>					
 						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
 							<td>employeeId</td>
-							<td>Required</td>
+							<td>Yes</td>
 							<td>String</td>
 							<td>Unique ID to identify an employee within an organisation</td>
 						</tr>						
 						<!-- <tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
 							<td><a href="#overview-response-links">links</a></td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>Array</td>
 							<td></td>
 						</tr>					 -->
 						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
 							<td>totalHours</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>Double</td>
 							<td>Total hours inside a timesheet</td>
 						</tr>					
 						<tr id="timesheet-transactions-group" class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
 							<td><a role="button" data-toggle="collapse" href=".timesheet-transactions" aria-expanded="true" aria-controls="timesheet-transactions">transactions <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>Array</td>
 							<td>List of timesheet transactions for the employee</td>
 						</tr>											
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>amount</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>Double</td>
 							<td>The amount of the transaction</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>costCentre</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>If a value is supplied, it will serve as an override to the default cost centre. This must be a pre-existing cost centre in the system.</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>description</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Description of transaction</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>leaveDays</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Only used for leave balances held in days. Otherwise ignored</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>leaveFrom</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>"From" date of leave (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>												
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>leaveTo</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>Double</td>
 							<td>"To" date of leave (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>message</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>If supplied, the message will be appended to the person's payslip message</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>payElement</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Code for the relevant pay element of this transaction. Must be existing in the system</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>quantity</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>Double</td>
 							<td>Quantity (can be days, or units, depends on the type of transaction)</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>rate</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>Double</td>
 							<td>The amount of the transaction</td>
 						</tr>							
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>reason</td>
-							<td>Optional</td>
+							<td>No</td>
 							<td>String</td>
 							<td>Leave reason (only relevant for leave transactions)</td>
 						</tr>						
@@ -1748,12 +1751,18 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<table class="table table-bordered">
 						<tr class="header">
 							<th colspan="4">Parameters</th>
+						</tr>	
+						<tr>
+							<td class="col-lg-2"><strong>Name</strong></td>
+							<td class="col-lg-1"><strong>Required</strong></td>
+							<td class="col-lg-2"><strong>Type</strong></td>
+							<td class="col-lg-7"><strong>Description</strong></td>
 						</tr>						
 						<tr>
-							<td class="col-lg-2">employeeId</td>
-							<td class="col-lg-2">Required</td>
-							<td class="col-lg-1">String</td>
-							<td class="col-lg-7">Unique ID to identify an employee within an organisation</td>
+							<td>employeeId</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>Unique ID to identify an employee within an organisation</td>
 						</tr>						
 					</table>
 					</td>
