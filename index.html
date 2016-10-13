@@ -151,6 +151,38 @@
 						<a id="developer-requests" name="developer-requests" class="anchor"></a><h3>Requests</h3>
 						<p>All requests to iPayroll API end-points require your application to authenticate. Authentication is token based. This means that a valid access token must be attached to every API request, either as a HTTP header or as a request parameter.</p>
 						<p>We provide a detailed authentication and authorisation guide in the <a href="authorisation.html">Authorisation</a> How to.</p>
+						<p>The parameter types in the document are described in the following table:</p>
+						<table class="table">
+							<thead>
+								<tr class="header">
+									<th>Type</th> 
+									<th>Description</th>
+									<th>Examples</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>String</td> 
+									<td>A sequence of characters</td>
+									<td>"This is a String"</td>
+								</tr>
+								<tr>
+									<td>Integer</td> 
+									<td>A number without a fractional component</td> 
+									<td>1000</td>
+								</tr>
+								<tr>
+									<td>Number</td>
+									<td>A number with up to 4 fractional component</td>		
+									<td>1.1234</td>
+								</tr>
+								<tr>
+									<td>JSON Object</td>
+									<td>JavaScript Object Notation</td>		
+									<td>{"foo" : "bar"}</td>
+								</tr>
+							</tbody>
+						</table>
 					</td>
 					<td class="content-example">
 			
