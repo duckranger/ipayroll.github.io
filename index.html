@@ -173,6 +173,58 @@
 					<td class="content-example">
 			
 					</td>
+				</tr>	
+								<tr>
+					<td class="content-text">
+						<a id="developer-error" name="developer-error" class="anchor"></a><h3>Date Format</h3>
+						<p>However, when posting data, all the endpoints are flexible enough to accept date values formatted in any of the following formats:</p>
+						<ul>
+							<li>dd-MM-yyyy</li>
+							<li>dd-MMM-yyyy</li>
+							<li>yyyy-MM-dd</li>
+							<li>yyyy-MMM-dd</li>
+							<li>dd/MM/yy</li>
+							<li>dd/MM/yyyy</li>
+							<li>dd/MMM/yy</li>
+							<li>dd/MMM/yyyy</li>
+							<li>MM/dd/yy</li>
+							<li>MM/dd/yyyy</li>
+							<li>dd/MM</li>
+							<li>dd/MMM</li>
+						</ul>
+
+						<p>Definition of letters used:</p>
+						<table class="table">
+							<thead>
+								<tr class="header">
+									<th>Letter</th> 
+									<th>Represented component</th>
+									<th>Examples</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>d</td> 
+									<td>Day in month</td>
+									<td>10</td>
+								</tr>
+								<tr>
+									<td>M</td> 
+									<td>Month in year</td> 
+									<td>Jul; 07</td>
+								</tr>
+								<tr>
+									<td>y</td>
+									<td>Year</td>		
+									<td>1996; 96</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</td>
+					<td class="content-example">
+			
+					</td>
 				</tr>					
 				<tr>
 					<td class="content-text">
@@ -319,6 +371,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 			
 					</td>
 				</tr>	
+
 <!-- Developer Overview | END --> 
 <!-- Resources | START -->
 				<tr>
@@ -649,7 +702,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							</tr>						
 						
 							<tr>
-								<td>state</td>
+								<td>workState</td>
 								<td>String</td>
 								<td>State in which the employee works - only applicable to Australian organisations (refer address state for possible values)</td>
 							</tr>						
@@ -944,7 +997,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>						
 					
 						<tr>
-							<td>state</td>
+							<td>workState</td>
 							<td>No</td>
 							<td>String</td>
 							<td>State in which the employee works \u2013only applicable to Australian organisations (refer address state for possible values)</td>
