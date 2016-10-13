@@ -603,7 +603,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							</tr>	
 							<tr>
 								<td>fullTimeHoursWeek</td>								
-								<td>Double</td>
+								<td>Number</td>
 								<td>Describes the number of hours the person would work in a week for their position, if they were employed full time. Is used to help convert salary into hourly rate</td>
 							</tr>	
 							<tr>
@@ -894,7 +894,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<tr>
 							<td>fullTimeHoursWeek</td>
 							<td>Yes</td>
-							<td>Double</td>
+							<td>Number</td>
 							<td>Describes the number of hours the person would work in a week for their position, if they were employed full time. Is used to help convert salary into hourly rate</td>
 						</tr>	
 						<tr>
@@ -1364,12 +1364,12 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							</tr>								
 							<tr>
 								<td>daysInPeriod</td>
-								<td>Double</td>
+								<td>Number</td>
 								<td>Number of days an employee has worked within the period of the timsheet. May be omitted, it is only relevant for organisations that have "record day on timesheet" option on</td>
 							</tr>										
 							<tr>
 								<td>totalHours</td>
-								<td>Double</td>
+								<td>Number</td>
 								<td>Total hours inside a timesheet</td>
 							</tr>					
 						<tr>
@@ -1384,7 +1384,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>							
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>amount</td>
-							<td>Double</td>
+							<td>Number</td>
 							<td>The amount of the transaction</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
@@ -1409,7 +1409,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>leaveTo</td>
-							<td>Double</td>
+							<td>Number</td>
 							<td>"To" date of leave (multiple date formats supported, dd/mm/yyyy preferred).</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
@@ -1424,12 +1424,12 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>quantity</td>
-							<td>Double</td>
+							<td>Number</td>
 							<td>Quantity (can be days, or units, depends on the type of transaction)</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>rate</td>
-							<td>Double</td>
+							<td>Number</td>
 							<td>The amount of the transaction</td>
 						</tr>							
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
@@ -1542,7 +1542,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
 							<td>daysInPeriod</td>
 							<td>No</td>
-							<td>Double</td>
+							<td>Number</td>
 							<td>Number of days an employee has worked within the period of the timsheet. May be omitted, it is only relevant for organisations that have "record day on timesheet" option on</td>
 						</tr>					
 						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
@@ -1560,7 +1560,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
 							<td>totalHours</td>
 							<td>No</td>
-							<td>Double</td>
+							<td>Number</td>
 							<td>Total hours inside a timesheet</td>
 						</tr>					
 						<tr id="timesheet-transactions-group" class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
@@ -1572,7 +1572,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>amount</td>
 							<td>No</td>
-							<td>Double</td>
+							<td>Number</td>
 							<td>The amount of the transaction</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
@@ -1602,7 +1602,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>leaveTo</td>
 							<td>No</td>
-							<td>Double</td>
+							<td>Number</td>
 							<td>"To" date of leave (multiple date formats supported, dd/mm/yyyy preferred)</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
@@ -1620,13 +1620,13 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>quantity</td>
 							<td>No</td>
-							<td>Double</td>
+							<td>Number</td>
 							<td>Quantity (can be days, or units, depends on the type of transaction)</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>rate</td>
 							<td>No</td>
-							<td>Double</td>
+							<td>Number</td>
 							<td>The amount of the transaction</td>
 						</tr>							
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
