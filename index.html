@@ -1211,28 +1211,16 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								<td>divisor</td>								
 								<td>String</td>
 								<td>Description of the type of “rate” entered e.g. “Annual”</td>
-							</tr>
-							<tr>
-								<td>special divisor</td>								
-								<td>String</td>
-								<td>A divisor specific to the organisation which describes the method to convert a rate to an hourly rate e.g. "1/220 per day"</td>
-							</tr>
+							</tr>							
 							<tr>
 								<td>annualRate</td>								
 								<td>Number</td>
 								<td>Conversion of “rate” to an annualised rate using rules in divisor, e.g. 25 * 2080 = 52,000</td>
-							</tr>	
-
-							<tr>
-								<td>dailyRate</td>								
-								<td>Number</td>
-								<td>An amount occurring once every day. (The value is converted from rate)</td>
-
-							</tr>
+							</tr>								
 							<tr>
 								<td>hourlyRate</td>								
 								<td>Number</td>
-								<td>Conversion of “rate” to an hourly rate using rules in divisor or special divisor e.g. 52,000 / 2080 = $25</td>
+								<td>Conversion of “rate” to an hourly rate using rules in divisor e.g. 52,000 / 2080 = $25</td>
 							</tr>																			
 						</table>
 					</td>
@@ -1270,8 +1258,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
  "content": [
  {
  "code": "1",
- "hourlyRate": 14.25,
- "dailyRate": 114,
+ "hourlyRate": 14.25, 
  "annualRate": 29640,
  "rate": 14.25, 
  "divisor": "per hour",
@@ -1342,7 +1329,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 {
  "code": "1",
  "hourlyRate": 14.25,
- "dailyRate": 114,
  "annualRate": 29640,
  "rate": 14.25, 
  "divisor": "per hour",
