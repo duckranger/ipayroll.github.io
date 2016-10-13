@@ -1197,27 +1197,27 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 								<td>code</td>								
 								<td>String</td>
-								<td>A short-form of pay rate, created by the organisation</td>
+								<td>Code for pay scale as defined in Organisation. Often used for Collective Agreements with fixed pay rate “steps”</td>
 							</tr>														
 							<tr>
 								<td>rate</td>								
 								<td>Number</td>
-								<td>The raw amount for Payrate rate, used to calculate the annual rate, daily rate, hourly rate depend on the divisor or special divisor</td>
+								<td>Value of pay rate as entered in iPayroll</td>
 							</tr>							
 							<tr>
 								<td>divisor</td>								
 								<td>String</td>
-								<td>A global divisor for pay rate, e.g. "per hour", "per annum", "pa (Govt: 14/365th's)", "pa (Aust: 12/313th's)" or "special"</td>
+								<td>Description of the type of “rate” entered e.g. “Annual”</td>
 							</tr>
 							<tr>
 								<td>special divisor</td>								
 								<td>String</td>
-								<td>A divisor specific to an organisation. e.g. "Fifty days of Summer"</td>
+								<td>A divisor specific to the organisation which describes the method to convert a rate to an hourly rate e.g. "1/220 per day"</td>
 							</tr>
 							<tr>
 								<td>annualRate</td>								
 								<td>Number</td>
-								<td>An amount occurring once every year. (The value is converted from rate)</td>
+								<td>Conversion of “rate” to an annualised rate using rules in divisor, e.g. 25 * 2080 = 52,000</td>
 							</tr>	
 
 							<tr>
@@ -1229,7 +1229,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 								<td>hourlyRate</td>								
 								<td>Number</td>
-								<td>An amount occurring once every hour. (The value is converted from rate)</td>
+								<td>Conversion of “rate” to an hourly rate using rules in divisor or special divisor e.g. 52,000 / 2080 = $25</td>
 							</tr>																			
 						</table>
 					</td>
