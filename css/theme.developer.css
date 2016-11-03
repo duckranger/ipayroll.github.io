@@ -64,6 +64,11 @@ a.anchor-inpage { display: block; position: relative; top: -80px; visibility: hi
 	
 	.sidebar .nav>.active>ul {display:block}
 	
+	.table.soon tr.header th { background-color:#CCC; }
+	.soon{ color: #CCC;}
+	.soon a{ color: #CCC;}
+	.soon code { background-color: #f4f4f4; color: #CCC;}
+	
 
 
 
