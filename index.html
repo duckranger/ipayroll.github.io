@@ -68,7 +68,8 @@
 							<li>List employees</li>
 							<li>Create employees</li>
 							<li>Get pay rates for an employee</li>
-							<li>Get timesheets associated with the latest payroll</li>
+							<li>Get leave balances for an employee</li>							
+							<li>Get timesheets associated with the latest payroll</li>							
 							<li>List cost centres</li>
 							<li>Create cost centres</li>
 						</ul>
@@ -93,6 +94,7 @@
 							<li>Timesheets</li>
 							<li>Pay Rates</li>
 							<li>Costcentres</li>
+							<li>leavebalances</li>
 						</ul>
 						<p>Your application will have to request access for the scopes it is interested in, and the user will have to grant that access.</p>
 					</td>
@@ -1847,7 +1849,214 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 </pre>
 					</td>
 				</tr>			
-<!-- Timesheets | END -->			
+<!-- Timesheets | END -->
+<!-- Leave | START -->		
+				<tr>
+					<td class="content-text">
+						<table class="table table-bordered">
+						<a id="resources-leave" class="anchor" name="resources-payrate"></a><h3>Leave Balances</h3>
+						<p></p>
+							<tr class="header">
+								<th colspan="3">Attributes</th>
+							</tr>
+							<tr>
+								<td class="col-lg-3"><strong>Name</strong></td>								
+								<td class="col-lg-2"><strong>Type</strong></td>
+								<td class="col-lg-7"><strong>Description</strong></td>
+							</tr>																		
+							<tr>
+								<td>employeeId</td>								
+								<td>String</td>
+								<td>Unique ID to identify an employee within an organisation</td>
+							</tr>														
+							<tr>
+								<td>entitled</td>								
+								<td>Number</td>
+								<td>The number of units given since records started</td>
+							</tr>
+							<tr>
+								<td>accrued</td>								
+								<td>Number</td>
+								<td>Number of units accrued since last anniversary</td>
+							</tr>							
+							<tr>
+								<td>taken</td>								
+								<td>Number</td>
+								<td>The total number of units taken from the leave balance</td>
+							</tr>							
+							<tr>
+								<td>balance</td>								
+								<td>Number</td>
+								<td>The number of leave units remaining for an employee based on the following equation: <br/><code>Entitled + Accrued - Taken</code></td>
+							</tr>
+							<tr>
+								<td><a role="button" data-toggle="collapse" href=".leave" aria-expanded="true" aria-controls="leave">leaveBalanceType <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>						
+								<td>JSON Object</td>
+								<td></td>
+							</tr>						
+							<tr class="panel-collapse collapse leave bg-level2" role="tabpanel">
+								<td>leaveType</td>								
+								<td>String</td>
+								<td>The type of the leave taken by employee. All leave type can be found in the following:
+								<ul>
+									<li>Annual</li>
+									<li>Sick</li>
+									<li>Lieu</li>
+									<li>ACC First Week</li>
+									<li>ACC Other Week</li>
+									<li>RDO</li>
+									<li>Holiday Pay</li>
+									<li>Other (including Unpaid)</li>
+									<li>Long Service</li>
+									<li>Alternative Holiday</li>
+								</ul>
+								</td>
+							</tr>
+							<tr class="panel-collapse collapse leave bg-level2" role="tabpanel">
+								<td>name</td>
+								<td>String</td>
+								<td>The name used to identify the leave balance type. The name may be defined by the user or the system</td>
+							</tr>																			
+							<tr class="panel-collapse collapse leave bg-level2" role="tabpanel">
+								<td>unit</td>
+								<td>String</td>
+								<td>The unit used for accrued, taken and balance. e.g. "days", "hours" and "$"</td>
+							</tr>
+						</table>
+					</td>
+					<td class="content-example content-example-border"></td>
+				<tr>
+					<td class="content-text">
+					<a id="payrate-all" class="anchor" name="payrate-all"></a>
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves</p>
+					<h4>Retrieve all of an employee’s leave balances</h4>
+					<p>Returns details of all leave balances associated with an employee.</p>
+					<p>&nbsp;</p>
+					<table class="table table-bordered">
+						<tr class="header">
+							<th colspan="4">Parameters</th>
+						</tr>
+						<tr>
+							<td class="col-lg-2"><strong>Name</strong></td>
+							<td class="col-lg-1"><strong>Required</strong></td>
+							<td class="col-lg-2"><strong>Type</strong></td>
+							<td class="col-lg-7"><strong>Description</strong></td>
+						</tr>															
+						<tr>
+							<td>employeeId</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>Unique ID to identify an employee within an organisation</td>
+						</tr>												
+					</table>
+					</td>
+					<td class="content-example content-example-border">
+						<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves</p>
+						<h4>Response Example</h4>
+<pre>
+{
+ "content": [
+ {
+  "links": [
+    {
+      "rel": "self",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/12345/leaves/ACC%20Leave"
+    },
+    {
+      "rel": "employee",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/12345"
+    }
+  ],
+  "employeeId": "12345",
+  "entitled": 0,
+  "accrued": 0,
+  "taken": 8,
+  "balance": -8,
+  "leaveBalanceType": {
+    "leaveType": "ACC First Week",
+    "name": "ACC Leave",
+    "unit": "hours"
+  }
+},
+   ...
+ ],
+ "links": [
+   {
+     "rel": "self",
+     "href": "http://secure2.ipayroll.co.nz/api/v1/employees/12345/leaves"
+   }
+ ],
+ "page": {
+   "size": 5,
+   "totalElements": 5,
+   "totalPages": 1,
+   "number": 0
+ }
+} 
+</pre>
+					</td>
+				</tr>	
+				<tr>
+					<td class="content-text">
+					<a id="payrate-rate" class="anchor" name="payrate-rate"></a>
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/{name}</p>
+					<h4>Retrieve a specific leave balance for an employee</h4>
+					<p>Returns details of a particular leave balance of an employee.</p>
+					<p>&nbsp;</p>
+					<table class="table table-bordered">
+						<tr class="header">
+							<th colspan="4">Parameters</th>
+						</tr>
+						<tr>
+							<td class="col-lg-2"><strong>Name</strong></td>
+							<td class="col-lg-1"><strong>Required</strong></td>
+							<td class="col-lg-2"><strong>Type</strong></td>
+							<td class="col-lg-7"><strong>Description</strong></td>
+						</tr>															
+						<tr>
+							<td>employeeId</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>Unique ID to identify an employee within an organisation</td>
+						</tr>						
+						<tr>
+							<td>name</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>The name used to identify the leave balance type.</td>
+						</tr>
+					</table>
+					</td>
+					<td class="content-example content-example-border">
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/{name}</p>
+					<h4>Response Example</h4>
+<pre>
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "secure2.ipayroll.co.nz/api/v1/employees/12345/leaves/ACC%20Leave"
+    },
+    {
+      "rel": "employee",
+      "href": "secure2.ipayroll.co.nz/api/v1/employees/12345"
+    }
+  ],
+  "employeeId": "12345",
+  "entitled": 0,
+  "accrued": 0,
+  "taken": 8,
+  "balance": -8,
+  "leaveBalanceType": {
+    "leaveType": "ACC First Week",
+    "name": "ACC Leave",
+    "unit": "hours"
+  }
+}
+</pre>
+					</td>
+				</tr>	
+<!-- Payrates | END -->				
 
 </table>	
 		
@@ -1900,6 +2109,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<li><a href="#resources-employee">Employees</a></li>
 							<li><a href="#resources-payrate">Pay Rates</a></li>
 							<li><a href="#resources-timesheet">Timesheets</a></li>
+							<li><a href="#resources-leave">Leave Balances</a></li>
 						</ul>					
 					</li>
 				</ul>
