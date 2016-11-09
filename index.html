@@ -19,7 +19,7 @@
 </head>
 <body>
 
-<div class="container-fluid"> 
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-lg-10 col-lg-offset-2 col-md-10 col-md-offset-2">
 
@@ -1955,12 +1955,18 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<h4>Response Example</h4>
 <pre>
 {
+ "links": [
+   {
+     "rel": "self",
+     "href": "http://secure2.ipayroll.co.nz/api/v1/employees/12345/leaves/balances"
+   }
+ ],
  "content": [
  {
   "links": [
     {
       "rel": "self",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/12345/leaves/ACC%20Leave"
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/12345/leaves/balances/ACC%20Leave"
     },
     {
       "rel": "employee",
@@ -1979,12 +1985,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
   }
 },
    ...
- ],
- "links": [
-   {
-     "rel": "self",
-     "href": "http://secure2.ipayroll.co.nz/api/v1/employees/12345/leaves"
-   }
  ],
  "page": {
    "size": 5,
@@ -2035,7 +2035,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
   "links": [
     {
       "rel": "self",
-      "href": "secure2.ipayroll.co.nz/api/v1/employees/12345/leaves/ACC%20Leave"
+      "href": "secure2.ipayroll.co.nz/api/v1/employees/12345/leaves/balances/ACC%20Leave"
     },
     {
       "rel": "employee",
