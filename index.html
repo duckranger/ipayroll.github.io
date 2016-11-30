@@ -65,13 +65,13 @@
 					<td class="content-text">
 						<p>The iPayroll API supports the following actions:</p>
 						<ul>
-							<li>List employees</li>
+							<li>Get employees</li>
 							<li>Create employees</li>
 							<li>Get pay rates for an employee</li>
 							<li>Get payslips (Coming soon)</li>
 							<li>Get leave balances for an employee</li>
 							<li>Get timesheets associated with the latest payroll</li>							
-							<li>List cost centres</li>
+							<li>Get cost centres</li>
 							<li>Create cost centres</li>
 						</ul>
 					</td>
@@ -451,7 +451,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<td class="content-text">
 					<a id="costcentre-all" class="anchor" name="costcentre-all"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/costcentres</p>
-					<h4>List All Cost Centres</h4>
+					<h4>Retrieve All Cost Centres</h4>
 					<p>Returns all the cost centres of an organisation.</p>
 					</td>
 					<td class="content-example content-example-border">
@@ -821,7 +821,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<td class="content-text">
 					<a id="employees-all" class="anchor" name="employees-all"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees</p>
-					<h4>List All Employees</h4>
+					<h4>Retrieve All Employees</h4>
 					<p>Returns all the active employees of an organisation</p>
 					</td>
 					<td class="content-example content-example-border">
@@ -1507,7 +1507,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<td class="content-text">
 					<a id="timesheets-all" class="anchor" name="timesheets-all"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets</p>
-					<h4>List all of timesheets in the latest payroll</h4>
+					<h4>Retrieve all of timesheets in the latest payroll</h4>
 					<p>Returns all timesheets associated with the latest payroll of an organisation.</p>
 					<p>&nbsp;</p>
 					</td>
@@ -1586,7 +1586,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<td class="content-text">
 					<a id="timesheets-payroll" class="anchor" name="timesheets-payroll"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets/{employeeId}/payrolls/{payrollNumber}</p>
-					<h4>List an employee's timesheets in the given payroll</h4>
+					<h4>Retrieve an employee's timesheets in the given payroll</h4>
 					<p>Returns employee's timesheets associated with the given payroll of an organisation.</p>
 					<p>&nbsp;</p>
 					<table class="table table-bordered">
@@ -2205,17 +2205,17 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 								<td>totalPayments</td>								
 								<td>Number</td>
-								<td>The amount of total payment</td>
+								<td>Total payment amount</td>
 							</tr>														
 							<tr>
 								<td>overpayment</td>								
 								<td>Number</td>
-								<td>The amount of over payment</td>
+								<td>Over payment amount</td>
 							</tr>
 							<tr>
 								<td>taxCredit</td>								
 								<td>Number</td>
-								<td>The amount of tax credit</td>
+								<td>Tax credit amount</td>
 							</tr>
 							<tr>
 								<td>yearToDateTotals</td>								
@@ -2230,7 +2230,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 								<td>nettPay</td>								
 								<td>Number</td>
-								<td>Number of nett pay</td>
+								<td>Nett pay amount</td>
 							</tr>
 							<tr>
 								<td>payslipMessage</td>								
@@ -2475,8 +2475,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<td class="content-text">
 					<a id="payslip-all" class="anchor" name="payslip-all"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/payslips</p>
-					<h4>Retrieve all of organisation's payslips in the latest payroll </h4>
-					<p>Returns details of all payslips associated with the organisation.</p>
+					<h4>Retrieve all of payslips in the latest payroll </h4>
+					<p>Returns details of all payslips.</p>
 					<p>&nbsp;</p>					
 					</td>
 					<td class="content-example content-example-border">
@@ -2802,8 +2802,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<td class="content-text">
 					<a id="payslip-payroll-all" class="anchor" name="payslip-payroll-all"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/payslips/{payrollNumber}</p>
-					<h4>Retrieve all of organisation's payslips in the given payroll </h4>
-					<p>Returns details of all payslips associated with the organisation for the given payroll.</p>
+					<h4>Retrieve all of payslips in the given payroll </h4>
+					<p>Returns details of all payslips associated with the given payroll.</p>
 					<p>&nbsp;</p>
 					<table class="table table-bordered">
 						<tr class="header">
