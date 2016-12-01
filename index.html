@@ -1586,8 +1586,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<td class="content-text">
 					<a id="timesheets-payroll" class="anchor" name="timesheets-payroll"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/timesheets/{employeeId}/payrolls/{payrollNumber}</p>
-					<h4>Retrieve an employee's timesheets in the given payroll</h4>
-					<p>Returns employee's timesheets associated with the given payroll of an organisation.</p>
+					<h4>Retrieve an employee's timesheet in the given payroll</h4>
+					<p>Returns employee's timesheet associated with the given payroll of an organisation.</p>
 					<p>&nbsp;</p>
 					<table class="table table-bordered">
 						<tr class="header">
@@ -2292,9 +2292,9 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								<td>Details of deductions included in the payslip</td>
 							</tr>							
 							<tr class="panel-collapse collapse deductions bg-level2" role="tabpanel">
-								<td>amount</td>								
-								<td>Number</td>
-								<td>Deduction amount</td>
+								<td>description</td>
+								<td>String</td>
+								<td>Deduction description</td>
 							</tr>
 							<tr class="panel-collapse collapse deductions bg-level2" role="tabpanel">
 								<td>quantity</td>
@@ -2302,11 +2302,10 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								<td>Deduction quantity</td>
 							</tr>																			
 							<tr class="panel-collapse collapse deductions bg-level2" role="tabpanel">
-								<td>description</td>
-								<td>String</td>
-								<td>Deduction description</td>
+								<td>amount</td>								
+								<td>Number</td>
+								<td>Deduction amount</td>
 							</tr>
-
 							<tr class="panel-collapse collapse deductions bg-level2" role="tabpanel">
 								<td>notes</td>
 								<td>String</td>
@@ -2318,23 +2317,23 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								<td><a role="button" data-toggle="collapse" href=".otherBenefits" aria-expanded="true" aria-controls="otherBenefits">otherBenefits <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>						
 								<td>JSON Object</td>
 								<td>Details of other benefits included in the payslip</td>
+							</tr>
+
+							<tr class="panel-collapse collapse otherBenefits bg-level2" role="tabpanel">
+								<td>description</td>
+								<td>String</td>
+								<td>Other Benefits description</td>
 							</tr>							
+							<tr class="panel-collapse collapse otherBenefits bg-level2" role="tabpanel">
+								<td>quantity</td>
+								<td>Number</td>
+								<td>Other benefits quantity</td>
+							</tr>
 							<tr class="panel-collapse collapse otherBenefits bg-level2" role="tabpanel">
 								<td>amount</td>								
 								<td>Number</td>
 								<td>Other Benefits amount</td>
 							</tr>
-							<tr class="panel-collapse collapse otherBenefits bg-level2" role="tabpanel">
-								<td>quantity</td>
-								<td>Number</td>
-								<td>Other benefits quantity</td>
-							</tr>																			
-							<tr class="panel-collapse collapse otherBenefits bg-level2" role="tabpanel">
-								<td>description</td>
-								<td>String</td>
-								<td>Other Benefits description</td>
-							</tr>
-
 							<tr class="panel-collapse collapse otherBenefits bg-level2" role="tabpanel">
 								<td>notes</td>
 								<td>String</td>
@@ -2366,7 +2365,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr class="panel-collapse collapse pleaveBalances bg-level2" role="tabpanel">
 								<td>amount</td>
 								<td>Number</td>
-								<td><!-- yan what is this --></td>
+								<td>Leave balance amount</td>
 							</tr>
 							<!-- leaveBalances collapse end -->
 							<!-- timesheet collapse -->
@@ -2683,122 +2682,9 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 }
 </pre>
 					</td>
-				</tr>	
+				</tr>
 
 				<tr>
-					<td class="content-text">
-					<a id="payslip-employee-payroll" class="anchor" name="payslip-employee-payroll"></a>
-					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/payslips/{payrollNumber}/employees/{employeeId}</p>
-					<h4>Retrieve an employee's payslip in the current payroll </h4>
-					<p>Returns details of the payslip associated with an employee within a specified payroll.</p>
-					<p>&nbsp;</p>
-					<p>&nbsp;</p>
-					<table class="table table-bordered">
-						<tr class="header">
-							<th colspan="4">Parameters</th>
-						</tr>
-						<tr>
-							<td class="col-lg-2"><strong>Name</strong></td>
-							<td class="col-lg-1"><strong>Required</strong></td>
-							<td class="col-lg-2"><strong>Type</strong></td>
-							<td class="col-lg-7"><strong>Description</strong></td>
-						</tr>
-						<tr>
-							<td>payrollNumber</td>
-							<td>Yes</td>
-							<td>String</td>
-							<td>The running number of the payroll within the organisation</td>
-						</tr>																	
-						<tr>
-							<td>employeeId</td>
-							<td>Yes</td>
-							<td>String</td>
-							<td>Unique ID to identify an employee within an organisation</td>
-						</tr>												
-					</table>				
-					</td>
-					<td class="content-example content-example-border">
-						<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/payslips/{payrollNumber}/employees/{employeeId}</p>
-						<h4>Response Example</h4>
-<pre>
- {
-  "links": [
-    {
-      "rel": "self",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/payslips/0040/employees/101"
-    },
-    {
-      "rel": "employee",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/101"
-    }
-  ],
-  "totalPayments": -254.35,
-  "deductions": [
-    {
-      "amount": 30.24,
-      "quantity": 1,
-      "description": "PAYE (Tax Code M) to 26-109-719"
-    }
-  ],
-  "otherBenefits": [],
-  "yearToDateTotals": {
-    "Taxable Earnings": 2272.49,
-    "PAYE": 662.47
-  },
-  "leaveBalances": [
-    {
-      "balanceName": "Annual Leave",
-      "hours": 229,
-      "days": 28.5
-    }
-  ],
-  "timesheet": {
-    "links": [
-      {
-        "rel": "self",
-        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/101/payrolls/0040"
-      }
-    ],
-    "employeeId": "101",
-    "totalHours": -9.16,
-    "transactions": [
-      {
-        "timesheetTransactionId": 1130873,
-        "amount": -254.35,
-        "quantity": -9.16,
-        "rate": 27.7675,
-        "description": "SICK - Sick Leave (01-Nov-2016 to 02-Nov-2016)",
-        "costCentre": "new",
-        "leaveFrom": "01-Nov-2016",
-        "leaveTo": "02-Nov-2016",
-        "leaveDays": "-0.9200",
-        "payElement": "SICK"
-      }
-    ],
-    "paidToDate": "12-Nov-2016",
-    "paidFromDate": "04-Aug-2015"
-  },
-  "payments": [
-    {
-      "description": "Sick Leave (01-Nov-2016 to 02-Nov-2016) -0.92 days @ $27.7675",
-      "quantity": -9.16,
-      "amount": -254.35,
-      "notes": ""
-    }
-  ],
-  "kioskUserName": "testtracy@ipayroll.co.nz",
-  "nettPay": 0,
-  "payroll": {
-    "payrollNumber": "0040",
-    "payDate": "25-Nov-2016"
-  },
-  "payslipMessage": "My Best Wishes for Your Partners"
-}
-</pre>
-					</td>
-				</tr>	
-
-				<tr><!-- yan this probably needs to come before the /api/v1/payslips/{payrollNumber}/employees/{employeeId} call -->
 					<td class="content-text">
 					<a id="payslip-payroll-all" class="anchor" name="payslip-payroll-all"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/payslips/{payrollNumber}</p>
@@ -2919,7 +2805,122 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 } 
 </pre>
 					</td>
-				</tr>					
+				</tr>	
+
+				<tr>
+					<td class="content-text">
+					<a id="payslip-employee-payroll" class="anchor" name="payslip-employee-payroll"></a>
+					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/payslips/{payrollNumber}/employees/{employeeId}</p>
+					<h4>Retrieve an employee's payslip in the current payroll </h4>
+					<p>Returns details of the payslip associated with an employee within a specified payroll.</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<table class="table table-bordered">
+						<tr class="header">
+							<th colspan="4">Parameters</th>
+						</tr>
+						<tr>
+							<td class="col-lg-2"><strong>Name</strong></td>
+							<td class="col-lg-1"><strong>Required</strong></td>
+							<td class="col-lg-2"><strong>Type</strong></td>
+							<td class="col-lg-7"><strong>Description</strong></td>
+						</tr>
+						<tr>
+							<td>payrollNumber</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>The running number of the payroll within the organisation</td>
+						</tr>																	
+						<tr>
+							<td>employeeId</td>
+							<td>Yes</td>
+							<td>String</td>
+							<td>Unique ID to identify an employee within an organisation</td>
+						</tr>												
+					</table>				
+					</td>
+					<td class="content-example content-example-border">
+						<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/payslips/{payrollNumber}/employees/{employeeId}</p>
+						<h4>Response Example</h4>
+<pre>
+ {
+  "links": [
+    {
+      "rel": "self",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/payslips/0040/employees/101"
+    },
+    {
+      "rel": "employee",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/101"
+    }
+  ],
+  "totalPayments": -254.35,
+  "deductions": [
+    {
+      "amount": 30.24,
+      "quantity": 1,
+      "description": "PAYE (Tax Code M) to 26-109-719"
+    }
+  ],
+  "otherBenefits": [],
+  "yearToDateTotals": {
+    "Taxable Earnings": 2272.49,
+    "PAYE": 662.47
+  },
+  "leaveBalances": [
+    {
+      "balanceName": "Annual Leave",
+      "hours": 229,
+      "days": 28.5
+    }
+  ],
+  "timesheet": {
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/101/payrolls/0040"
+      }
+    ],
+    "employeeId": "101",
+    "totalHours": -9.16,
+    "transactions": [
+      {
+        "timesheetTransactionId": 1130873,
+        "amount": -254.35,
+        "quantity": -9.16,
+        "rate": 27.7675,
+        "description": "SICK - Sick Leave (01-Nov-2016 to 02-Nov-2016)",
+        "costCentre": "new",
+        "leaveFrom": "01-Nov-2016",
+        "leaveTo": "02-Nov-2016",
+        "leaveDays": "-0.9200",
+        "payElement": "SICK"
+      }
+    ],
+    "paidToDate": "12-Nov-2016",
+    "paidFromDate": "04-Aug-2015"
+  },
+  "payments": [
+    {
+      "description": "Sick Leave (01-Nov-2016 to 02-Nov-2016) -0.92 days @ $27.7675",
+      "quantity": -9.16,
+      "amount": -254.35,
+      "notes": ""
+    }
+  ],
+  "kioskUserName": "testtracy@ipayroll.co.nz",
+  "nettPay": 0,
+  "payroll": {
+    "payrollNumber": "0040",
+    "payDate": "25-Nov-2016"
+  },
+  "payslipMessage": "My Best Wishes for Your Partners"
+}
+</pre>
+					</td>
+				</tr>	
+
+								
 				
 <!-- Payslip | END -->
 
