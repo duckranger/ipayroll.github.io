@@ -10,3 +10,5 @@
 *.java
 *.class
 *.jsp
+
+.idea/
