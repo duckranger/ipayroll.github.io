@@ -398,6 +398,9 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 									<td>422</td> <td>UNPROCESSABLE_ENTITY</td> <td>Failed to process the request</td>
 								</tr>
 								<tr>
+									<td>423</td> <td>LOCKED</td> <td>User is authenticated but the resource is being accessed is locked</td>
+								</tr>
+								<tr>
 									<td>500</td> <td>INTERNAL_SERVER_ERROR</td> <td>Server error</td>
 								</tr>
 							</tbody>
@@ -419,7 +422,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 				<tr>
 					<td class="content-text">
 						<a id="resources-costcentre" class="anchor" name="resources-costcentre"></a><h3>Cost Centres</h3>	
-						<p>&nbsp;</p>	
+						<p>Cost Centres are disabled by default for an organization. Make sure to enable through the UI before making API calls related to cost centres. Any call to cost centres would return an error with HTTP code 423 if disabled.</p>	
 						<table class="table table-bordered">
 							<tr class="header">
 								<th colspan="3">Attributes</th>
@@ -1434,7 +1437,12 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								<td>paidToDate</td>
 								<td>Date</td>
 								<td>The end date of the timesheet transaction</td>
-							</tr>				
+							</tr>
+							<tr>
+								<td>message</td>
+								<td>String</td>
+								<td>A message to be appended to the employee payslip</td>
+							</tr>										
 						<tr>
 							<td><a role="button" data-toggle="collapse" href=".timesheet-transactions-intro" aria-expanded="true" aria-controls="timesheet-transactions">transactions <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
 							<td>JSON Object</td>
@@ -1474,11 +1482,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>leaveTo</td>
 							<td>Number</td>
 							<td>"To" date of leave (multiple date formats supported, dd/mm/yyyy preferred).</td>
-						</tr>						
-						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
-							<td>message</td>
-							<td>String</td>
-							<td>A message to be appended to the employee payslip</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro bg-level2" role="tabpanel">
 							<td>payElement</td>
@@ -1731,7 +1734,13 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>Yes</td>
 							<td>Date</td>
 							<td>The end date of the timesheet transaction</td>
-						</tr>				
+						</tr>	
+						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
+							<td>message</td>
+							<td>No</td>
+							<td>String</td>
+							<td>If supplied, the message will be appended to the person's payslip message</td>
+						</tr>							
 						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
 							<td>totalHours</td>
 							<td>No</td>
@@ -1779,13 +1788,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>No</td>
 							<td>Number</td>
 							<td>"To" date of leave (multiple date formats supported, dd/mm/yyyy preferred)</td>
-						</tr>						
-						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
-							<td>message</td>
-							<td>No</td>
-							<td>String</td>
-							<td>If supplied, the message will be appended to the person's payslip message</td>
-						</tr>						
+						</tr>		
 						<tr class="panel-collapse collapse timesheet-transactions bg-level3" role="tabpanel">
 							<td>payElement</td>
 							<td>No</td>
@@ -2253,6 +2256,11 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								<td>Date</td>
 								<td>The payroll's pay date</td>
 							</tr>
+							<tr class="panel-collapse collapse payroll bg-level2" role="tabpanel">
+								<td>message</td>
+								<td>String</td>
+								<td>The payroll's message</td>
+							</tr>
 							<!-- payroll collapse end -->
 
 
@@ -2398,7 +2406,12 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								<td>paidToDate</td>
 								<td>Date</td>
 								<td>Timesheet paid-to date</td>
-							</tr>				
+							</tr>
+							<tr class="panel-collapse collapse ptimesheet bg-level2" role="tabpanel">
+								<td>message</td>
+								<td>String</td>
+								<td>A message to be appended to the employee payslip</td>
+							</tr>					
 						<tr class="panel-collapse collapse ptimesheet bg-level2" role="tabpanel">
 							<td><a role="button" data-toggle="collapse" href=".timesheet-transactions-intro-payslip" aria-expanded="true" aria-controls="timesheet-transactions">transactions <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
 							<td>JSON Object</td>
@@ -2438,12 +2451,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>leaveTo</td>
 							<td>Number</td>
 							<td>"To" date of leave (multiple date formats supported, dd/mm/yyyy preferred).</td>
-						</tr>						
-						<tr class="panel-collapse collapse timesheet-transactions-intro-payslip bg-level2" role="tabpanel">
-							<td>message</td>
-							<td>String</td>
-							<td>A message to be appended to the employee payslip</td>
-						</tr>						
+						</tr>			
 						<tr class="panel-collapse collapse timesheet-transactions-intro-payslip bg-level2" role="tabpanel">
 							<td>payElement</td>
 							<td>String</td>
