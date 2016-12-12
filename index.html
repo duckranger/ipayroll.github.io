@@ -2240,6 +2240,11 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								<td>String</td>
 								<td>The payslip message attached to this payslip</td>
 							</tr>
+							<tr>
+								<td>abn</td>								
+								<td>String</td>
+								<td>The Australia Business Number</td>
+							</tr>
 							<!-- payroll collapse -->
 							<tr>
 								<td><a role="button" data-toggle="collapse" href=".payroll" aria-expanded="true" aria-controls="payroll">payroll <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>						
@@ -2303,6 +2308,11 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								<td>description</td>
 								<td>String</td>
 								<td>Deduction description</td>
+							</tr>
+							<tr class="panel-collapse collapse deductions bg-level2" role="tabpanel">
+								<td>charity</td>
+								<td>String</td>
+								<td>The charity name donate to. Charity is displayed only if the deduction is a donation</td>
 							</tr>
 							<tr class="panel-collapse collapse deductions bg-level2" role="tabpanel">
 								<td>quantity</td>
