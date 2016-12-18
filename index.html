@@ -1746,13 +1746,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>No</td>
 							<td>String</td>
 							<td>If supplied, the message will be appended to the person's payslip message</td>
-						</tr>							
-						<tr class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
-							<td>totalHours</td>
-							<td>No</td>
-							<td>Number</td>
-							<td>Total hours inside a timesheet</td>
-						</tr>					
+						</tr>						
 						<tr id="timesheet-transactions-group" class="panel-collapse collapse timesheets bg-level2" role="tabpanel">
 							<td><a role="button" data-toggle="collapse" href=".timesheet-transactions" aria-expanded="true" aria-controls="timesheet-transactions">transactions <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
 							<td>No</td>
@@ -1827,8 +1821,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 <pre>
 [
   {    
-    "employeeId": "123456",
-    "totalHours": 40,    
+    "employeeId": "123456",    
     "paidToDate": "12-Nov-2016",
     "paidFromDate": "04-Aug-2015",
     "transactions": [
