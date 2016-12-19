@@ -422,7 +422,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 				<tr>
 					<td class="content-text">
 						<a id="resources-costcentre" class="anchor" name="resources-costcentre"></a><h3>Cost Centres</h3>	
-						<p>Cost Centres are disabled by default for an organization. Make sure to enable through the UI before making API calls related to cost centres. Any call to cost centres would return an error with HTTP code 423 if disabled.</p>	
+						<p>Cost Centres are disabled by default for an organisation. Make sure to enable through the UI before making API calls related to cost centres. Any call to cost centres would return an error with HTTP code 423 if disabled.</p>	
 						<table class="table table-bordered">
 							<tr class="header">
 								<th colspan="3">Attributes</th>
@@ -2207,32 +2207,32 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 								<td>totalPayments</td>								
 								<td>Number</td>
-								<td>Total payments amount</td>
+								<td>Gross payment for the period</td>
 							</tr>														
 							<tr>
 								<td>overpayment</td>								
 								<td>Number</td>
-								<td>Overpayment amount</td>
+								<td>Indicates recovery of money in this payroll (might have been caused by overpayment in a previous payroll)</td>
 							</tr>
 							<tr>
 								<td>taxCredit</td>								
 								<td>Number</td>
-								<td>Tax credit amount</td>
+								<td>Tax credited for donations made</td>
 							</tr>
 							<tr>
-								<td>yearToDateTotals</td>								
+								<td>yearToDateTotals</td>
 								<td>Map</td>
-								<td>A map containing the year-to-date totals for the various elements (e.g. Taxable Earnings or PAYE).<br/>The <strong>(String)</strong> key in the map is total's name. The <strong>Number</strong> value is the amount.</td>
+								<td>A map containing year-to-date totals as value (Number) for various pay elements as key (String)</td>
 							</tr>
 							<tr>
 								<td>nettPay</td>								
 								<td>Number</td>
-								<td>Nett pay amount</td>
+								<td>Nett payment</td>
 							</tr>
 							<tr>
 								<td>payslipMessage</td>								
 								<td>String</td>
-								<td>The payslip message attached to this payslip</td>
+								<td>Organisation specific payslip message</td>
 							</tr>
 							<tr>
 								<td>abn</td>								
@@ -2241,24 +2241,24 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							</tr>
 							<!-- payroll collapse -->
 							<tr>
-								<td><a role="button" data-toggle="collapse" href=".payroll" aria-expanded="true" aria-controls="payroll">payroll <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>						
+								<td><a role="button" data-toggle="collapse" href=".payroll" aria-expanded="true" aria-controls="payroll">payroll <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>
 								<td>JSON Object</td>
-								<td>Contains the details of the payroll run that generated the payslip</td>
+								<td>Payroll that this payslip belongs to</td>
 							</tr>							
 							<tr class="panel-collapse collapse payroll bg-level2" role="tabpanel">
 								<td>payrollNumber</td>								
 								<td>String</td>
-								<td>The running number of the payroll within the organisation</td>
+								<td>Identifaction of the payroll</td>
 							</tr>
 							<tr class="panel-collapse collapse payroll bg-level2" role="tabpanel">
 								<td>payDate</td>
 								<td>Date</td>
-								<td>The payroll's pay date</td>
+								<td>The date that payment would be received</td>
 							</tr>
 							<tr class="panel-collapse collapse payroll bg-level2" role="tabpanel">
 								<td>message</td>
 								<td>String</td>
-								<td>The payroll's message</td>
+								<td>Message associated with the payroll (common for all payslips)</td>
 							</tr>
 							<!-- payroll collapse end -->
 
@@ -2272,23 +2272,23 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr class="panel-collapse collapse payments bg-level2" role="tabpanel">
 								<td>description</td>								
 								<td>String</td>
-								<td>Payment description</td>
+								<td>Description of the payment</td>
 							</tr>
 							<tr class="panel-collapse collapse payments bg-level2" role="tabpanel">
 								<td>quantity</td>
 								<td>Number</td>
-								<td>Payment quantity</td>
+								<td>Quantity</td>
 							</tr>																			
 							<tr class="panel-collapse collapse payments bg-level2" role="tabpanel">
 								<td>amount</td>
 								<td>Number</td>
-								<td>Payment amount</td>
+								<td>Amount</td>
 							</tr>
 
 							<tr class="panel-collapse collapse payments bg-level2" role="tabpanel">
 								<td>notes</td>
 								<td>String</td>
-								<td>Contents of the notes field attached to the payment</td>
+								<td>Notes associated with the payment</td>
 							</tr>
 							<!-- payments collapse end -->
 
@@ -2301,7 +2301,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr class="panel-collapse collapse deductions bg-level2" role="tabpanel">
 								<td>description</td>
 								<td>String</td>
-								<td>Deduction description</td>
+								<td>Description of the deduction</td>
 							</tr>
 							<tr class="panel-collapse collapse deductions bg-level2" role="tabpanel">
 								<td>charity</td>
@@ -2311,17 +2311,17 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr class="panel-collapse collapse deductions bg-level2" role="tabpanel">
 								<td>quantity</td>
 								<td>Number</td>
-								<td>Deduction quantity</td>
+								<td>Quantity</td>
 							</tr>																			
 							<tr class="panel-collapse collapse deductions bg-level2" role="tabpanel">
 								<td>amount</td>								
 								<td>Number</td>
-								<td>Deduction amount</td>
+								<td>Amount</td>
 							</tr>
 							<tr class="panel-collapse collapse deductions bg-level2" role="tabpanel">
 								<td>notes</td>
 								<td>String</td>
-								<td>Contents of the notes field attached to the deduction</td>
+								<td>Notes associated with the deduction</td>
 							</tr>
 							<!-- deductions collapse end -->
 							<!-- otherBenefits collapse -->
@@ -2334,29 +2334,29 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr class="panel-collapse collapse otherBenefits bg-level2" role="tabpanel">
 								<td>description</td>
 								<td>String</td>
-								<td>Other Benefits description</td>
+								<td>Description of the benefit</td>
 							</tr>							
 							<tr class="panel-collapse collapse otherBenefits bg-level2" role="tabpanel">
 								<td>quantity</td>
 								<td>Number</td>
-								<td>Other benefits quantity</td>
+								<td>Quantity</td>
 							</tr>
 							<tr class="panel-collapse collapse otherBenefits bg-level2" role="tabpanel">
 								<td>amount</td>								
 								<td>Number</td>
-								<td>Other Benefits amount</td>
+								<td>Amount</td>
 							</tr>
 							<tr class="panel-collapse collapse otherBenefits bg-level2" role="tabpanel">
 								<td>notes</td>
 								<td>String</td>
-								<td>Contents of the notes field attached to other benefits</td>
+								<td>Notes associated with the benefit</td>
 							</tr>
 							<!-- otherBenefits collapse end -->						
 							<!-- leaveBalances collapse -->
 							<tr>
 								<td><a role="button" data-toggle="collapse" href=".pleaveBalances" aria-expanded="true" aria-controls="pleaveBalances">leaveBalances <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>						
 								<td>JSON Object</td>
-								<td>Details of the employee leave balances (as current at payslip time)</td>
+								<td>Details of leave balances (as of payroll time)</td>
 							</tr>							
 							<tr class="panel-collapse collapse pleaveBalances bg-level2" role="tabpanel">
 								<td>balanceName</td>								
@@ -2366,18 +2366,18 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr class="panel-collapse collapse pleaveBalances bg-level2" role="tabpanel">
 								<td>hours</td>
 								<td>Number</td>
-								<td>Balance amount (hours)</td>
+								<td>Balance amount in hours</td>
 							</tr>																			
 							<tr class="panel-collapse collapse pleaveBalances bg-level2" role="tabpanel">
 								<td>days</td>
 								<td>Number</td>
-								<td>Balance amount (days)</td>
+								<td>Balance amount in days</td>
 							</tr>
 
 							<tr class="panel-collapse collapse pleaveBalances bg-level2" role="tabpanel">
 								<td>amount</td>
 								<td>Number</td>
-								<td>Leave balance amount</td>
+								<td>Balance amount in currency</td>
 							</tr>
 							<!-- leaveBalances collapse end -->
 							<!-- timesheet collapse -->
@@ -2394,7 +2394,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr class="panel-collapse collapse ptimesheet bg-level2" role="tabpanel">
 								<td>daysInPeriod</td>
 								<td>Number</td>
-								<td>Number of days the employee has worked within the period of the timsheet. May be omitted, as not applicable for all organisations</td>
+								<td>Number of days the employee has worked within the timesheet period (not applicable for all organisations)</td>
 							</tr>										
 							<tr class="panel-collapse collapse ptimesheet bg-level2" role="tabpanel">
 								<td>totalHours</td>
@@ -2414,7 +2414,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr class="panel-collapse collapse ptimesheet bg-level2" role="tabpanel">
 								<td>message</td>
 								<td>String</td>
-								<td>A message to be appended to the employee payslip</td>
+								<td>Message associated with the timesheet</td>
 							</tr>					
 						<tr class="panel-collapse collapse ptimesheet bg-level2" role="tabpanel">
 							<td><a role="button" data-toggle="collapse" href=".timesheet-transactions-intro-payslip" aria-expanded="true" aria-controls="timesheet-transactions">transactions <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></td>
@@ -2434,7 +2434,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<tr class="panel-collapse collapse timesheet-transactions-intro-payslip bg-level2" role="tabpanel">
 							<td>costCentre</td>
 							<td>String</td>
-							<td>The cost centre associated with the transaction when costing is enabled</td>
+							<td>The cost centre associated with the transaction (if costing is enabled)</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro-payslip bg-level2" role="tabpanel">
 							<td>description</td>
@@ -2444,17 +2444,17 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<tr class="panel-collapse collapse timesheet-transactions-intro-payslip bg-level2" role="tabpanel">
 							<td>leaveDays</td>
 							<td>String</td>
-							<td>For leave transactions where the balances are held in days. Contains number of days</td>
+							<td>Number of days on leave (for leave transactions where the balance is held in days)</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro-payslip bg-level2" role="tabpanel">
 							<td>leaveFrom</td>
 							<td>String</td>
-							<td>"From" date of leave (multiple date formats supported, dd/mm/yyyy preferred)</td>
+							<td>Leave period start date</td>
 						</tr>						
 						<tr class="panel-collapse collapse timesheet-transactions-intro-payslip bg-level2" role="tabpanel">
 							<td>leaveTo</td>
 							<td>Number</td>
-							<td>"To" date of leave (multiple date formats supported, dd/mm/yyyy preferred).</td>
+							<td>Leave period end date</td>
 						</tr>			
 						<tr class="panel-collapse collapse timesheet-transactions-intro-payslip bg-level2" role="tabpanel">
 							<td>payElement</td>
@@ -2487,7 +2487,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<a id="payslip-all" class="anchor" name="payslip-all"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/payslips</p>
 					<h4>Retrieve all payslips in the latest payroll </h4>
-					<p>Returns details of all payslips generated from the latest pay run.</p>
+					<p>Returns all payslips generated in the latest pay run.</p>
 					<p>&nbsp;</p>					
 					</td>
 					<td class="content-example content-example-border">
@@ -2593,7 +2593,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<a id="payslip-all-employee" class="anchor" name="payslip-all-employee"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/payslips/employees/{employeeId}</p>
 					<h4>Retrieve a single employee's payslip in the latest payroll </h4>
-					<p>Returns details of the employee payslip.</p>
+					<p>Returns payslip of the specified employee.</p>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
 					<table class="table table-bordered">
@@ -2610,7 +2610,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>employeeId</td>
 							<td>Yes</td>
 							<td>String</td>
-							<td>Unique ID to identify an employee within an organisation</td>
+							<td>Unique ID to identify an employee within the organisation</td>
 						</tr>												
 					</table>				
 					</td>
@@ -2688,7 +2688,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
     "payrollNumber": "0040",
     "payDate": "25-Nov-2016"
   },
-  "payslipMessage": "My Best Wishes for Your Partners"
+  "payslipMessage": "Best Wishes!"
 }
 </pre>
 					</td>
@@ -2698,8 +2698,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<td class="content-text">
 					<a id="payslip-payroll-all" class="anchor" name="payslip-payroll-all"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/payslips/{payrollNumber}</p>
-					<h4>Retrieve all payslips in a specified payroll </h4>
-					<p>Returns details of all payslips associated with the specified payroll.</p>
+					<h4>Retrieve all payslips in a specific payroll </h4>
+					<p>Returns all payslips associated with the specified payroll.</p>
 					<p>&nbsp;</p>
 					<table class="table table-bordered">
 						<tr class="header">
@@ -2715,7 +2715,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>payrollNumber</td>
 							<td>Yes</td>
 							<td>String</td>
-							<td>The running number of the payroll within the organisation</td>
+							<td>Unique identifier of the payroll</td>
 						</tr>								
 					</table>								
 					</td>
@@ -2820,9 +2820,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<td class="content-text">
 					<a id="payslip-employee-payroll" class="anchor" name="payslip-employee-payroll"></a>
 					<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/payslips/{payrollNumber}/employees/{employeeId}</p>
-					<h4>Retrieve an employee's payslip in the current payroll </h4>
-					<p>Returns details of the payslip associated with an employee within a specified payroll.</p>
-					<p>&nbsp;</p>
+					<h4>Retrieve specific employee's payslip in a specific payroll </h4>
+					<p>Returns specified employee's payslip in the specified payroll.</p>
 					<p>&nbsp;</p>
 					<table class="table table-bordered">
 						<tr class="header">
@@ -2838,13 +2837,13 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<td>payrollNumber</td>
 							<td>Yes</td>
 							<td>String</td>
-							<td>The running number of the payroll within the organisation</td>
+							<td>Unique identifier of the payroll</td>
 						</tr>																	
 						<tr>
 							<td>employeeId</td>
 							<td>Yes</td>
 							<td>String</td>
-							<td>Unique ID to identify an employee within an organisation</td>
+							<td>Unique identifier of the employee</td>
 						</tr>												
 					</table>				
 					</td>
