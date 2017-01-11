@@ -17,7 +17,7 @@
 	.common-text-right{ text-align: right;}
 	.common-two-btn{ width: 100px;}
 
-/** Overriding MDL Styles **/
+/** Overriding MDL Styles **/ 
 	table{ border-collapse: separate!important; border-spacing: 0!important;}
 	.mdl-data-table{ border: none; border-bottom: solid 1px #DDD; width: 100%;}
 	.mdl-data-table td{ vertical-align: top; height: auto; border-top: solid 1px #DDD; border-bottom: none;}
@@ -78,8 +78,9 @@
 	.mdl-data-table.theme-table-small tbody tr{ height: auto;}
 	
 	.mdl-data-table tr td.theme-padding-sm{ padding-top: 5px; padding-bottom: 5px;}
-	
 	.mdl-data-table tr th{ font-size: 13px;}
+	
+	.table-responsive-vertical{ overflow-y: auto;}
 	
 	/** Border Styles **/
 	.theme-padding-top-grey{ border-top: solid 1px #EEE;}
@@ -172,8 +173,7 @@
 	.mdl-data-table tr.theme-level2 td:before { top: 0px; left: 48px;}	
   	.mdl-data-table tr.theme-level2 td{ padding-left: 56px;}
   	.mdl-data-table tr.theme-level2 td:first-of-type { padding-left: 56px;}	 
-  
-  	
+	
 	body{ font-size: 14px;}
 	h2{ font-size: 18px; line-height: 32px;}
 	h3{ font-size: 16px;}

@@ -295,6 +295,7 @@
 					<div class="theme-padding theme-padding-top-grey">
 						<h3>Date Formats</h3>
 						<p>Definition of letters used:</p>
+						<div class="table-responsive-vertical">
 						<table class="mdl-data-table">
 							<thead>
 								<tr>
@@ -321,7 +322,7 @@
 								</tr>
 							</tbody>
 						</table>						
-						
+						</div>
 						
 						
 						<p>When posting data, you may use any of the following formats:</p>
@@ -457,6 +458,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<div class="theme-padding theme-padding-top-grey">
 						<h3>Error handling</h3>
 						<p>When an error occurs, The iPayroll API returns an error response formatted as a JSON object. The HTTP status code of the response is set as well.</p>
+						<div class="table-responsive-vertical">
 						<table class="mdl-data-table">
 							<thead>
 								<tr>
@@ -508,6 +510,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 								</tr>
 							</tbody>
 						</table>
+						</div>
   					</div>
 				</div>
 				<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-tablet mdl-cell--hide-phone">
@@ -534,6 +537,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h3>Cost Centres</h3>
 							<p>Cost Centres are disabled by default for an organisation. Make sure to enable through the UI before making API calls related to cost centres. Any call to cost centres would return an error with HTTP code 423 if disabled.</p>
 							<h5>Attributes</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -559,7 +563,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Cost centre description</td>
 									</tr>
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-tablet mdl-cell--hide-phone">
@@ -618,6 +623,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<p>Create one or more cost centres in an organisation.</p>
 							
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -647,7 +653,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Cost centre description</td> 
 									</tr>
 								</tbody>
-							</table>										
+							</table>
+							</div>										
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-phone">
@@ -703,6 +710,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Retrieve A Cost Centre</h4>
 							<p>Returns a particular cost centre of the organisation, identified by cost centre id.</p>
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -720,7 +728,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique system generated id</td> 
 									</tr>
 								</tbody>
-							</table>										
+							</table>
+							</div>										
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-phone">
@@ -751,6 +760,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<div class="theme-padding theme-padding-top-grey">
 							<h3>Employees</h3>
 							<h5>Attributes</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -943,7 +953,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Country</td> 
 									</tr>						
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-tablet mdl-cell--hide-phone">
@@ -1033,6 +1044,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<h4>Create one or more employees</h4>
 						<p>Create one or more employees in an organisation. This cannot be used to update details of an existing employee.</p>
 						<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -1243,7 +1255,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Country</td> 
 									</tr>						
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
@@ -1311,6 +1324,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Retrieve an employee's details</h4>
 							<p>Returns an employee.</p>
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -1328,7 +1342,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
 									</tr>													
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
@@ -1378,6 +1393,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h3>Pay Rates</h3>
 							<p>Pay rates define the expected base rate that will be used in paying a Person. A divisor is used to identify whether the rate is an hourly or annual type, and holds the formula to convert the rate between hourly and annual as required.</p>
 							<h5>Attributes</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -1413,7 +1429,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Conversion of “rate” to an hourly rate using rules in divisor e.g. 52,000 / 2080 = $25</td> 
 									</tr>
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-tablet mdl-cell--hide-phone">
@@ -1428,6 +1445,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Retrieve all of an employee’s pay rates</h4>
 							<p>Returns details of all pay rates associated with an employee.</p>
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -1445,7 +1463,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
 									</tr>													
 								</tbody>																	
-							</table>	
+							</table>
+							</div>
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-tablet mdl-cell--hide-phone">
@@ -1498,6 +1517,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Retrieve a specific payrate for an employee</h4>
 							<p>Returns details of a particular payrate of an employee.</p>
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -1521,7 +1541,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Indicates the position of the rate on Personal Details</td> 
 									</tr>	
 								</tbody>																	
-							</table>	
+							</table>
+							</div>
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-tablet mdl-cell--hide-phone">
@@ -1553,6 +1574,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h3>Timesheets</h3>
 							<p>A timesheet is a collection of all payments and deductions for a person paid in a single pay.</p>
 							<h5>Attributes</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -1654,7 +1676,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Leave reason (only relevant for leave transactions)</td> 
 									</tr>
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-tablet mdl-cell--hide-phone">
@@ -1748,6 +1771,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Retrieve an employee's timesheet in the given payroll</h4>
 							<p>Returns employee's timesheet associated with the given payroll of an organisation.</p>	
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -1772,10 +1796,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 									</tr>	
 								</tbody>																	
 							</table>							
-							
-							
-							
-							
+							</div>
 						</div>
 					</div>
 					
@@ -1858,6 +1879,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Create one or more timesheets</h4>
 							<p>Create one or more timesheets in the current payroll of an organisation. If there's no open payroll found for the organisation, system will open a new payroll provided that all pre-conditiions for opening a payroll are met.</p>
 							<h5>Parameters</h5>
+								<div class="table-responsive-vertical">
 								<table class="mdl-data-table">
 									<thead>
 										<tr>
@@ -1973,7 +1995,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Leave reason (only relevant for leave transactions)</td> 
 										</tr>																		
 									</tbody>																	
-								</table>	
+								</table>
+								</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
@@ -2077,6 +2100,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Retrieve an employee's latest timesheet</h4>
 							<p>Returns the latest timesheet of an employee.</p>
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -2094,7 +2118,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
 									</tr>													
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
@@ -2152,6 +2177,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<div class="theme-padding theme-padding-top-grey">
 							<h3>Leave Balances</h3>
 							<h5>Attributes</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -2221,7 +2247,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The unit used for entitled, accrued, taken and balance. e.g. "days", "hours" and "$"</td> 
 									</tr>
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-tablet mdl-cell--hide-phone">
@@ -2237,6 +2264,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Retrieve all of an employee's leave balances</h4>
 							<p>Returns details of all leave balances associated with an employee.</p>
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -2254,7 +2282,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
 									</tr>													
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
@@ -2311,6 +2340,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Retrieve a specific leave balance for an employee</h4>
 							<p>Returns details of a particular leave balance of an employee.</p>
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -2334,7 +2364,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The name used to identify the leave balance type</td> 
 									</tr>	
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
@@ -2374,6 +2405,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<div class="theme-padding theme-padding-top-grey">
 							<h3>Payslips</h3>
 							<h5>Attributes</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -2652,7 +2684,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Leave reason (only relevant for leave transactions)</td> 
 										</tr>															
 								</tbody>																	
-							</table>	
+							</table>
+							</div>
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-tablet mdl-cell--hide-phone">
@@ -2772,6 +2805,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Retrieve a single employee's payslip in the latest payroll</h4>
 							<p>Returns payslip of the specified employee.</p>
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -2789,7 +2823,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
 									</tr>													
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
@@ -2879,6 +2914,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Retrieve all payslips in a specific payroll </h4>
 							<p>Returns all payslips associated with the specified payroll.</p>
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -2896,7 +2932,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique identifier of the payroll</td> 
 									</tr>													
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
@@ -3003,6 +3040,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Retrieve specific employee's payslip in a specific payroll </h4>
 							<p>Returns specified employee's payslip in the specified payroll.</p>
 							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
 								<thead>
 									<tr>
@@ -3026,7 +3064,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique identifier of the employee</td> 
 									</tr>													
 								</tbody>																	
-							</table>	
+							</table>
+							</div>	
 						</div>
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
