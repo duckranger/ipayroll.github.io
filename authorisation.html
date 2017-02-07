@@ -54,6 +54,7 @@
 				<a class="mdl-navigation__link" href="#authorisation-request">Request Tokens</a>
 				<a class="mdl-navigation__link" href="#authorisation-access">Access Token Expiry</a>
 				<a class="mdl-navigation__link" href="#authorisation-refresh">Refresh Token Expiry</a>
+				<a class="mdl-navigation__link" href="#authorisation-making-requests">Making Requests</a>
 			</nav>
 		</div> 
 		<div class="mdl-layout__drawer">
@@ -231,6 +232,20 @@ https://&lt;SERVER-DOMAIN&gt;&#47;oauth/authorize?response_type=code&client_id=&
 					
 					</div>	
 	<!-- Authorisation - Refresh | END -->
+        <!-- Authorisation - Request | START -->
+                                        <div id="authorisation-making-requests" class="mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet">
+                                                <div class="theme-padding theme-padding-top-grey">
+                                                	<h3>Making Requests</h3>
+	                                                <p>The access token should be passed on when making API method calls.</p>
+                                                	<p>One option is to use the standard HTTP authorization header:</p>
+	                                                <pre><b>Header: </b>Authorization <br><b>Value: </b>&lt;access_token&gt;</pre>
+        	                                        <p>The other option is to pass the access token as the value for request parameter <b>access_token</b>.</p>
+                                                </div>
+                                        </div>
+                                        <div class="mdl-cell mdl-cell--4-col theme-bg-secondary-grey mdl-cell--hide-tablet">
+
+                                        </div>
+        <!-- Authorisation - Request | END -->
 			</div>			
 <!-- Authorisation | END -->		
 		</main>
