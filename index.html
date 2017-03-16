@@ -1419,6 +1419,11 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If an organisation specific divisor is associated, this field would contain the name of it. If not, a global divisor's name, e.g. "per hour", "per annum", "pa (Govt: 14/365th's)" or "pa (Aust: 12/313th's)".</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">payScale</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Pay Scales are designed to allow pay rates to be set up under a code that can then be used for multiple people. Displayed if Pay Scales are used and a Pay Scale is selected for employee, e.g. K1P107.</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">annualRate</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Conversion of “rate” to an annualised rate using rules in divisor, e.g. 25 * 2080 = 52,000</td> 
