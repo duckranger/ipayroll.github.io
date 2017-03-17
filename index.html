@@ -66,6 +66,7 @@
 				<a class="mdl-navigation__link" href="#resources-payrates">Pay Rates</a>
 				<a class="mdl-navigation__link" href="#resources-timesheets">Timesheets</a>
 				<a class="mdl-navigation__link" href="#resources-leave">Leave Balances</a>
+				<a class="mdl-navigation__link" href="#resources-leave-requests">Leave Requests</a>
 				<a class="mdl-navigation__link" href="#resources-payslips">Payslips</a>
 			</nav>
 		</div> 
@@ -129,6 +130,7 @@
 							<li>Get pay rates for an employee</li>
 							<li>Get payslips</li>
 							<li>Get leave balances for an employee</li>
+							<li>Get leave requests</li>
 							<li>Get timesheets associated with the latest payroll</li>							
 							<li>Get cost centres</li>
 							<li>Create cost centres</li>
@@ -156,6 +158,7 @@
 							<li>Pay Rates</li>
 							<li>Costcentres</li>
 							<li>Leave Balances</li>
+							<li>Leave Requests</li>
 							<li>Payslips</li>
 						</ul>
 						<p>Your application will have to request access for the scopes it is interested in, and the user will have to grant that access.</p>						
@@ -2262,7 +2265,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</div>
 					</div>			
 		<!-- Resources - Leave Balances - Get All| START -->	
-					<div id="resources-employees" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+					<div id="resources-leave" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 
 						<div class="theme-padding theme-padding-top-grey">
 							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/balances</p>
@@ -2339,7 +2342,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					</div>			
 		<!-- Resources - Leave Balances - Get All | END --> 
 		<!-- Resources - Leave Balances - Get One | START -->	
-					<div id="resources-employees" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+					<div id="resources-leave" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 						<div class="theme-padding theme-padding-top-grey">
 							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/balances/{name}</p>
 							<h4>Retrieve a specific leave balance for an employee</h4>
@@ -2405,6 +2408,355 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					</div>			
 		<!-- Resources - Leave Balances - Get One | END --> 
 	<!-- Resources - Leave Balances | END -->
+	
+	
+	
+	
+	<!-- Resources - Leave Requests | START -->			
+					<div id="resources-leave-requests" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+						<div class="theme-padding theme-padding-top-grey">
+							<h3>Leave Requests</h3>
+							<h5>Attributes</h5>
+							<div class="table-responsive-vertical">
+							<table class="mdl-data-table">
+								<thead>
+									<tr>
+										<th class="mdl-data-table__cell--non-numeric">Name</th>
+										<th class="mdl-data-table__cell--non-numeric">Type</th>
+										<th class="mdl-data-table__cell--non-numeric">Description</th>
+									</tr>
+								</thead>
+								<tbody>				
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">requestId</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify a request</td> 
+									</tr>				
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">employeeId</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
+									</tr>				
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">hours</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Total number of hours of requested leave</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">days</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Total number of days of requested leave (applies if a leave balance is stored in days)</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">leaveFromDate</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Date</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">First day of leave</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">leaveToDate</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Date</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Last day of leave</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">reason</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Reason for leave</td> 
+									</tr>				
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">status</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">
+											Processing status of a leave request. The status can be one of the following:
+											<ul>
+												<li>Pending</li>
+												<li>Approved</li>
+												<li>Declined</li>
+												<li>Cancelled</li>												
+												<li>Closed</li>												
+											</ul>
+										</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">payElement</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Description of pay element that is used to process the request in a payroll</td> 
+									</tr>				
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric"><a id="leaveBalanceType" role="button" class="theme-dropdown-link theme-dropdown-collapsed">leaveBalanceType <i class="material-icons mdl-list__item-icon">arrow_drop_down</i><i class="material-icons mdl-list__item-icon" style="display:none;">arrow_drop_up</i></a></td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">JSON Object</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Leave Balance Type</td> 
+									</tr>
+									<tr class="leaveBalanceType-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">leaveType</td>						
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">
+											Leave Balance Type. The type can be one of the following: 
+											<ul>
+												<li>Annual</li>
+												<li>Sick</li>
+												<li>Lieu</li>
+												<li>ACC First Week</li>
+												<li>ACC Other Week</li>
+												<li>RDO</li>
+												<li>Holiday Pay</li>
+												<li>Other (including Unpaid)</li>
+												<li>Long Service</li>
+												<li>Alternative Holiday</li>
+											</ul>
+										</td> 
+									</tr>									
+									<tr class="leaveBalanceType-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">name</td>						
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The name used to identify the leave balance type. The name may be defined by the user or the system</td> 
+									</tr>									
+									<tr class="leaveBalanceType-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">unit</td>						
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The unit used for entitled, accrued, taken and balance. e.g. "days", "hours" and "$"</td> 
+									</tr>
+								</tbody>																	
+							</table>
+							</div>	
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-tablet mdl-cell--hide-phone">
+						<div class="theme-padding theme-padding-top-lightgrey">
+						
+						</div>
+					</div>			
+		<!-- Resources - Leave Requests - Get All| START -->	
+					<div id="resources-leave-requests" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+
+						<div class="theme-padding theme-padding-top-grey">
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/leaves/requests</p>
+							<h4>Retrieve All Leave Requests</h4>
+							<p>Returns details of all leave requests associated with an organisation.</p>
+							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
+							<table class="mdl-data-table">
+								<thead>
+									<tr>
+										<th class="mdl-data-table__cell--non-numeric">Name</th>
+										<th class="mdl-data-table__cell--non-numeric">Required</th>
+										<th class="mdl-data-table__cell--non-numeric">Type</th>
+										<th class="mdl-data-table__cell--non-numeric">Description</th>
+									</tr>
+								</thead>
+								<tbody>				
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">status</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">
+											Processing status of a leave request. The status can be one of the following:
+											<ul>
+												<li>Pending</li>
+												<li>Approved</li>
+												<li>Declined</li>
+												<li>Cancelled</li>												
+												<li>Closed</li>												
+											</ul>
+										</td> 
+									</tr>	
+
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">leaveBalanceType</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">
+											Name of a leave balance type, for example, "Annual Leave", "Sick Leave", "Alternative Holiday"
+											</ul>
+										</td> 
+									</tr>	
+									
+								</tbody>																	
+							</table>
+							</div>	
+							
+							<h5>Sample requests</h5>
+							<div class="table-responsive-vertical">
+								<p>GET /api/v1/leaves/requests?status=Pending&leaveBalanceType=Annual Leave</p>
+								<p>GET /api/v1/leaves/requests</p>
+								<p>GET /api/v1/leaves/requests?status=Approved</p>
+							</div>
+						</div>
+					</div>
+					
+					
+					
+					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
+						<div class="theme-padding theme-padding-top-lightgrey">
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/leaves/requests?status=Pending&leaveBalanceType=Annual Leave</p>
+							<h4>Response Example</h4>
+<pre>
+<!-- TODO inset example of response --> 
+</pre>	
+						</div>				
+					</div>			
+		<!-- Resources - Leave Requests - Get All | END --> 
+		
+		<!-- Resources - Leave Requests - Get One | START -->	
+					<div id="resources-request-one" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+						<div class="theme-padding theme-padding-top-grey">
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/leaves/requests/{requestId}</p>
+							<h4>Retrieve details of a leave request</h4>
+							<p>Returns a leave request.</p>
+							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
+							<table class="mdl-data-table">
+								<thead>
+									<tr>
+										<th class="mdl-data-table__cell--non-numeric">Name</th>
+										<th class="mdl-data-table__cell--non-numeric">Required</th>
+										<th class="mdl-data-table__cell--non-numeric">Type</th>
+										<th class="mdl-data-table__cell--non-numeric">Description</th>
+									</tr>
+								</thead>
+								<tbody>				
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">requestId</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify a leave request</td> 
+									</tr>													
+								</tbody>																	
+							</table>
+							</div>	
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
+						<div class="theme-padding theme-padding-top-lightgrey">
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/leaves/requests/{requestId}</p>
+							<h4>Response Example</h4>
+<pre>
+	<!-- TODO inset example of response --> 
+</pre>								
+						</div>				
+					</div>			
+	<!-- Resources - Leave Requests - Get One | END --> 
+	
+	<!-- Resources - Leave Requests - Get Current | START -->	
+					<div id="resources-request-current" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+						<div class="theme-padding theme-padding-top-grey">
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/leaves/requests/current</p>
+							<h4>Retrieve current leave request</h4>
+							<p>Returns details of current leave requests (with status ‘Pending’ or ‘Approved’) associated with an organisation.</p>
+							
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
+						<div class="theme-padding theme-padding-top-lightgrey">
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/leaves/requests/current</p>
+							<h4>Response Example</h4>
+<pre>
+	<!-- TODO inset example of response --> 
+</pre>								
+						</div>				
+					</div>			
+	<!-- Resources - Leave Requests - Get One | END --> 
+	
+	<!-- Resources - Leave Requests - Employee | START -->	
+					<div id="resources-request-employee" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+						<div class="theme-padding theme-padding-top-grey">
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/requests</p>
+							<h4>Retrieve all of an employee's leave request</h4>
+							<p>Returns details of all leave requests associated with an employee.</p>
+							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
+							<table class="mdl-data-table">
+								<thead>
+									<tr>
+										<th class="mdl-data-table__cell--non-numeric">Name</th>
+										<th class="mdl-data-table__cell--non-numeric">Required</th>
+										<th class="mdl-data-table__cell--non-numeric">Type</th>
+										<th class="mdl-data-table__cell--non-numeric">Description</th>
+									</tr>
+								</thead>
+								<tbody>				
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">employeeId</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">status</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">
+											Processing status of a leave request. The status can be one of the following:
+											<ul>
+												<li>Pending</li>
+												<li>Approved</li>
+												<li>Declined</li>
+												<li>Cancelled</li>												
+												<li>Closed</li>												
+											</ul>
+										</td> 
+									</tr>										
+								</tbody>																	
+							</table>
+							</div>	
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
+						<div class="theme-padding theme-padding-top-lightgrey">
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/requests</p>
+							<h4>Response Example</h4>
+<pre>
+	<!-- TODO inset example of response --> 
+</pre>								
+						</div>				
+					</div>			
+	<!-- Resources - Leave Requests - Employee | END --> 
+	
+	<!-- Resources - Leave Requests - EmployeeCurrent | START -->	
+					<div id="resources-request-employee" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+						<div class="theme-padding theme-padding-top-grey">
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/requests/current</p>
+							<h4>Retrieve current leave requests of an employee</h4>
+							<p>Returns details of current leave requests (with status ‘Pending’ or ‘Approved’) associated with an employee.</p>
+							<h5>Parameters</h5>
+							<div class="table-responsive-vertical">
+							<table class="mdl-data-table">
+								<thead>
+									<tr>
+										<th class="mdl-data-table__cell--non-numeric">Name</th>
+										<th class="mdl-data-table__cell--non-numeric">Required</th>
+										<th class="mdl-data-table__cell--non-numeric">Type</th>
+										<th class="mdl-data-table__cell--non-numeric">Description</th>
+									</tr>
+								</thead>
+								<tbody>				
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">employeeId</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
+									</tr>														
+								</tbody>																	
+							</table>
+							</div>	
+						</div>
+					</div>
+					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
+						<div class="theme-padding theme-padding-top-lightgrey">
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/requests/current</p>
+							<h4>Response Example</h4>
+<pre>
+	<!-- TODO inset example of response --> 
+</pre>								
+						</div>				
+					</div>			
+	<!-- Resources - Leave Requests - EmployeeCurrent | END --> 
+<!-- Resources - Leave Request | END -->
+	
+	
+	
+	
+	
+	
 	<!-- Resources - Payslips | START -->			
 					<div id="resources-payslips" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 						<div class="theme-padding theme-padding-top-grey">
