@@ -2576,7 +2576,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							
 							<h5>Sample requests</h5>
 							<div class="table-responsive-vertical">
-								<p>GET /api/v1/leaves/requests?status=Pending&leaveBalanceType=Annual Leave</p>
+								<p>GET /api/v1/leaves/requests?status=Pending&leaveBalanceType=Annual%20Leave</p>
 								<p>GET /api/v1/leaves/requests</p>
 								<p>GET /api/v1/leaves/requests?status=Approved</p>
 							</div>
@@ -2587,10 +2587,50 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
 						<div class="theme-padding theme-padding-top-lightgrey">
-							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/leaves/requests?status=Pending&leaveBalanceType=Annual Leave</p>
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/leaves/requests?status={status}&leaveBalanceType={leaveBalanceType}</p>
 							<h4>Response Example</h4>
 <pre>
-<!-- TODO inset example of response --> 
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/leaves/requests?status=Approved"&leaveBalanceType=Annual%20Leave
+    }
+  ],
+  "content": [
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/leaves/requests/255"
+        },
+        {
+          "rel": "employee",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1"
+        }
+      ],
+      "employeeId": "1",
+      "requestId": 255,
+      "hours": 32,
+      "leaveFromDate": "07-Mar-2017",
+      "leaveToDate": "10-Mar-2017",
+      "reason": "Annual Holidays Break",
+      "status": "Approved",
+      "payElement": "Annual Leave",
+      "leaveBalanceType": {
+        "leaveType": "Annual",
+        "name": "Annual Leave",
+        "unit": "hours"
+      }
+    }
+  ],
+  "page": {
+    "size": 20,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 0
+  }
+}
 </pre>	
 						</div>				
 					</div>			
@@ -2630,7 +2670,31 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/leaves/requests/{requestId}</p>
 							<h4>Response Example</h4>
 <pre>
-	<!-- TODO inset example of response --> 
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/leaves/requests/255"
+    },
+    {
+      "rel": "employee",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1"
+    }
+  ],
+  "employeeId": "1",
+  "requestId": 255,
+  "hours": 32,
+  "leaveFromDate": "02-Mar-2017",
+  "leaveToDate": "10-Mar-2017",
+  "reason": "Annual Holidays Break",
+  "status": "Approved",
+  "payElement": "Annual Leave",
+  "leaveBalanceType": {
+    "leaveType": "Annual",
+    "name": "Annual Leave",
+    "unit": "hours"
+  }
+}
 </pre>								
 						</div>				
 					</div>			
@@ -2650,7 +2714,73 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/leaves/requests/current</p>
 							<h4>Response Example</h4>
 <pre>
-	<!-- TODO inset example of response --> 
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1/leaves/requests/current
+    }
+  ],
+  "content": [
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/leaves/requests/254"
+        },
+        {
+          "rel": "employee",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1"
+        }
+      ],
+      "employeeId": "1",
+      "requestId": 254,
+      "hours": 12,
+      "days": 3,
+      "leaveFromDate": "09-Mar-2017",
+      "leaveToDate": "13-Mar-2017",
+      "reason": "Holidays",
+      "status": "Pending",
+      "payElement": "Alternative Holiday",
+      "leaveBalanceType": {
+        "leaveType": "Alternative Holiday",
+        "name": "Alternative Holiday",
+        "unit": "days"
+      }
+    },
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/leaves/requests/255"
+        },
+        {
+          "rel": "employee",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1"
+        }
+      ],
+      "employeeId": "2",
+      "requestId": 255,
+      "hours": 24,
+      "leaveFromDate": "01-Feb-2017",
+      "leaveToDate": "03-Feb-2017",
+      "reason": "Annual Holidays Break",
+      "status": "Approved",
+      "payElement": "Annual Leave",
+      "leaveBalanceType": {
+        "leaveType": "Annual",
+        "name": "Annual Leave",
+        "unit": "hours"
+      }
+    }
+  ],
+  "page": {
+    "size": 20,
+    "totalElements": 2,
+    "totalPages": 1,
+    "number": 0
+  }
+}
 </pre>								
 						</div>				
 					</div>			
@@ -2660,7 +2790,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					<div id="resources-request-employee" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 						<div class="theme-padding theme-padding-top-grey">
 							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/requests</p>
-							<h4>Retrieve all of an employee's leave request</h4>
+							<h4>Retrieve all of an employee's leave requests</h4>
 							<p>Returns details of all leave requests associated with an employee.</p>
 							<h5>Parameters</h5>
 							<div class="table-responsive-vertical">
@@ -2702,10 +2832,50 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					</div>
 					<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
 						<div class="theme-padding theme-padding-top-lightgrey">
-							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/requests</p>
+							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/requests/{status}</p>
 							<h4>Response Example</h4>
 <pre>
-	<!-- TODO inset example of response --> 
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1/leaves/requests?status=Pending
+    }
+  ],
+  "content": [
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/leaves/requests/254"
+        },
+        {
+          "rel": "employee",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1"
+        }
+      ],
+      "employeeId": "1",
+      "requestId": 254,
+      "hours": 12,
+      "days": 3,
+      "leaveFromDate": "09-Mar-2017",
+      "leaveToDate": "13-Mar-2017",
+      "reason": "Holidays",
+      "status": "Pending",
+      "payElement": "Alternative Holiday",
+      "leaveBalanceType": {
+        "leaveType": "Alternative Holiday",
+        "name": "Alternative Holiday",
+        "unit": "days"
+        }
+  ],
+  "page": {
+    "size": 20,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 0
+  }
+}
 </pre>								
 						</div>				
 					</div>			
@@ -2745,7 +2915,73 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employeeId}/leaves/requests/current</p>
 							<h4>Response Example</h4>
 <pre>
-	<!-- TODO inset example of response --> 
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1/leaves/requests/current"
+    }
+  ],
+  "content": [
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/leaves/requests/254"
+        },
+        {
+          "rel": "employee",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1"
+        }
+      ],
+      "employeeId": "1",
+      "requestId": 254,
+      "hours": 12,
+      "days": 3,
+      "leaveFromDate": "09-Mar-2017",
+      "leaveToDate": "13-Mar-2017",
+      "reason": "Holidays",
+      "status": "Pending",
+      "payElement": "Alternative Holiday",
+      "leaveBalanceType": {
+        "leaveType": "Alternative Holiday",
+        "name": "Alternative Holiday",
+        "unit": "days"
+      }
+    },
+    {
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/leaves/requests/255"
+        },
+        {
+          "rel": "employee",
+          "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1"
+        }
+      ],
+      "employeeId": "1",
+      "requestId": 255,
+      "hours": 32,
+      "leaveFromDate": "02-Mar-2017",
+      "leaveToDate": "10-Mar-2017",
+      "reason": "Annual Holidays Break",
+      "status": "Approved",
+      "payElement": "Annual Leave",
+      "leaveBalanceType": {
+        "leaveType": "Annual",
+        "name": "Annual Leave",
+        "unit": "hours"
+      }
+    }
+  ],
+  "page": {
+    "size": 20,
+    "totalElements": 2,
+    "totalPages": 1,
+    "number": 0
+  }
+}
 </pre>								
 						</div>				
 					</div>			
