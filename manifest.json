@@ -1,0 +1,39 @@
+{
+  "short_name": "iPayroll",
+  "name": "New Zealand's Premier Online Payroll Service",
+  "background_color": "#0095DB",
+  "theme_color": "#0095DB",
+  "icons": [
+    {
+      "src": "images/logo-57.png",
+      "type": "image/png",
+      "sizes": "57x57"
+    },
+    {
+      "src": "images/logo-72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "images/logo-114.png",
+      "type": "image/png",
+      "sizes": "114x114"
+    },
+    {
+      "src": "images/logo-144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "images/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },	
+    {
+      "src": "images/logo-200.png",
+      "type": "image/png",
+      "sizes": "200x200"
+    }		
+  ],
+  "start_url": "index.php"
+}
