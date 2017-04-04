@@ -1679,7 +1679,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 									<tr class="transactions-item theme-level2" style="display:none;">
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">rate</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The rate of the transaction</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The rate of the transaction. If a value is supplied, it will serve as an override to the calculated</td> 
 									</tr>
 									<tr class="transactions-item theme-level2" style="display:none;">
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">reason</td>								
@@ -1918,21 +1918,15 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 											<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
 											<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
-										</tr>									
+										</tr>
 										<tr class="timesheets-item theme-level2" style="display:none;">
-											<td data-label="Name" class="mdl-data-table__cell--non-numeric">paidFromDate</td>	
-											<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
+											<td data-label="Name" class="mdl-data-table__cell--non-numeric">paidToDate</td>
+											<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>
 											<td data-label="Type" class="mdl-data-table__cell--non-numeric">Date</td>
-											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The start date of the pay period</td> 
-										</tr>	
+											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The end date of the pay period</td>
+										</tr>
 										<tr class="timesheets-item theme-level2" style="display:none;">
-											<td data-label="Name" class="mdl-data-table__cell--non-numeric">paidToDate</td>	
-											<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
-											<td data-label="Type" class="mdl-data-table__cell--non-numeric">Date</td>
-											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The end date of the pay period</td> 
-										</tr>											
-										<tr class="timesheets-item theme-level2" style="display:none;">
-											<td data-label="Name" class="mdl-data-table__cell--non-numeric">message</td>	
+											<td data-label="Name" class="mdl-data-table__cell--non-numeric">message</td>
 											<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
 											<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If supplied, the message will be appended to the person's payslip message</td> 
@@ -1945,12 +1939,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 											<td data-label="Type" class="mdl-data-table__cell--non-numeric">Array</td>
 											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">List of timesheet transactions for the employee</td> 
 										</tr>									
-										<tr class="timesheets-transactions-item theme-level3" style="display:none;">
-											<td data-label="Name" class="mdl-data-table__cell--non-numeric">amount</td>	
-											<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
-											<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
-											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The amount of the transaction</td> 
-										</tr>									
+									
 										<tr class="timesheets-transactions-item theme-level3" style="display:none;">
 											<td data-label="Name" class="mdl-data-table__cell--non-numeric">costCentre</td>	
 											<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
@@ -1983,13 +1972,13 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										</tr>																	
 										<tr class="timesheets-transactions-item theme-level3" style="display:none;">
 											<td data-label="Name" class="mdl-data-table__cell--non-numeric">payElement</td>	
-											<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+											<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
 											<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Code for the relevant pay element of this transaction. Must be existing in the system</td> 
 										</tr>									
 										<tr class="timesheets-transactions-item theme-level3" style="display:none;">
 											<td data-label="Name" class="mdl-data-table__cell--non-numeric">quantity</td>	
-											<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+											<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
 											<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
 											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Quantity (can be days, or units, depends on the type of transaction)</td> 
 										</tr>									
@@ -1997,7 +1986,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 											<td data-label="Name" class="mdl-data-table__cell--non-numeric">rate</td>	
 											<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
 											<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
-											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The rate of the transaction</td> 
+											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The rate of the transaction. If a value is supplied, it will serve as an override to the calculated</td> 
 										</tr>									
 										<tr class="timesheets-transactions-item theme-level3" style="display:none;">
 											<td data-label="Name" class="mdl-data-table__cell--non-numeric">reason</td>	
@@ -2017,8 +2006,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 <pre>[
   {    
     "employeeId": "123456",    
-    "paidToDate": "12-Nov-2016",
-    "paidFromDate": "04-Aug-2015",
     "transactions": [
       {
         "links": [],
