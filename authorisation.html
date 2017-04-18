@@ -124,11 +124,10 @@ https://&lt;SERVER-DOMAIN&gt;&#47;oauth/authorize?response_type=code&client_id=&
 							<p>Once resource owner's permission is granted, the redirect URI of the application is called passing authorisation code as a parameter:</p>
 							<p>
 <pre>
-https://&lt;SERVER-DOMAIN&gt;&#47;oauth/authorize?response_type=code&client_id=&lt;CLIENT_ID>
-&scope=&lt;LIST_OF_SCOPES&gt;&redirect_uri=&lt;CALLBACK_URL&gt;&state=&lt;STATE&gt;
+https://&lt;CALLBACK_URL&gt;?code=&lt;AUTH_CODE&gt;&state=&lt;STATE&gt;
 </pre>
 							</p>
-							<p>The request would also contain state, with the value originally passed on when making the authorisation request.</p>
+							<p>The response would also contain state, with the value originally passed on when making the authorisation request.</p>
 							<p>As HTTP redirect is used for making the callback, the redirect URI does not have to be a globally accessible one.</p>
 						</div>
 					</div>
