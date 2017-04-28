@@ -782,6 +782,51 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric"><a id="address" role="button" class="theme-dropdown-link theme-dropdown-collapsed">address <i class="material-icons mdl-list__item-icon">arrow_drop_down</i><i class="material-icons mdl-list__item-icon" style="display:none;">arrow_drop_up</i></a></td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">JSON Object</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A JSON object representing the address.</td> 
+									</tr>	
+									<tr class="address-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">addressLine1</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Address line 1</td> 
+									</tr>								
+									<tr class="address-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">addressLine2</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Address line 2</td> 
+									</tr>									
+									<tr class="address-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">suburb</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Suburb</td> 
+									</tr>									
+									<tr class="address-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">state</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">State</td> 
+									</tr>									
+									<tr class="address-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">city</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">City</td> 
+									</tr>									
+									<tr class="address-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">postCode</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Post Code</td> 
+									</tr>									
+									<tr class="address-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">country</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Country</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">bankAccountNumber</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Bank Account Number for New Zealand organisations and BSB for Australian organisations</td> 
+									</tr>	
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">birthDate</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date of birth (multiple date formats supported, dd/mm/yyyy preferred)</td> 
@@ -795,6 +840,11 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">email</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Email address</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">finishDate</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date on which employee left the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td> 
 									</tr>								
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">firstNames</td>								
@@ -894,6 +944,34 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">paymentMethod</td>
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description"
+											class="mdl-data-table__cell--non-numeric allow-wrap">Employee's payment method. Codes supported:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Bank</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Cash</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Cheque</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">phone</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Phone number</td> 
@@ -902,62 +980,181 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">startDate</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date on which the employee joined the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td> 
-									</tr>								
-									<tr>
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">workState</td>								
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">State in which the employee works - only applicable to Australian organisations (refer address state for possible values)</td> 
-									</tr>								
+									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">surname</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Surname of the employee</td> 
-									</tr>								
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">taxCode</td>
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description"
+											class="mdl-data-table__cell--non-numeric allow-wrap">Employee's
+											tax code - only applicatble to New Zealand organisations. Codes supported:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">CAE</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">EDW</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">M</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">M_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ME</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ME_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ML</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ML_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ND</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">NSW</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">NONE</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">S</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">S_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">SB</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">SB_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">SH</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">SH_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ST</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ST_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">STC</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">WT</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+									
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">taxNumber</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">IRD Number for New Zealand organisations and TFN for Australian organisations</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">taxScale</td>
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description"
+											class="mdl-data-table__cell--non-numeric allow-wrap">Employee's
+											tax scale - only applicable to Australian organisations. Codes supported:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">1</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">2</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">3</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">4a</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">4b</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">5</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">6</td>
+													</tr><tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">H</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">W</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>									
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">title</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Job title</td> 
-									</tr>								
+									</tr>				
 									<tr>
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric"><a id="address" role="button" class="theme-dropdown-link theme-dropdown-collapsed">address <i class="material-icons mdl-list__item-icon">arrow_drop_down</i><i class="material-icons mdl-list__item-icon" style="display:none;">arrow_drop_up</i></a></td>								
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">JSON Object</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A JSON object representing the address.</td> 
-									</tr>	
-									<tr class="address-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">addressLine1</td>								
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">workState</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Address line 1</td> 
-									</tr>								
-									<tr class="address-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">addressLine2</td>								
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Address line 2</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">State in which the employee works - only applicable to Australian organisations (refer address state for possible values)</td> 
 									</tr>									
-									<tr class="address-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">suburb</td>								
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Suburb</td> 
-									</tr>									
-									<tr class="address-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">state</td>								
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">State</td> 
-									</tr>									
-									<tr class="address-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">city</td>								
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">City</td> 
-									</tr>									
-									<tr class="address-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">postCode</td>								
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Post Code</td> 
-									</tr>									
-									<tr class="address-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">country</td>								
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Country</td> 
-									</tr>						
 								</tbody>																	
 							</table>
 							</div>	
@@ -1068,6 +1265,60 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric"><a id="address2" role="button" class="theme-dropdown-link theme-dropdown-collapsed">address <i class="material-icons mdl-list__item-icon">arrow_drop_down</i><i class="material-icons mdl-list__item-icon" style="display:none;">arrow_drop_up</i></a></td>								
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">JSON Object</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A JSON object representing the address.</td> 
+									</tr>	
+									<tr class="address2-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">addressLine1</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Address line 1</td> 
+									</tr>								
+									<tr class="address2-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">addressLine2</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Address line 2</td> 
+									</tr>									
+									<tr class="address2-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">suburb</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Suburb</td> 
+									</tr>									
+									<tr class="address2-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">state</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">State</td> 
+									</tr>									
+									<tr class="address2-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">city</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">City</td> 
+									</tr>									
+									<tr class="address2-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">postCode</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Post Code</td> 
+									</tr>									
+									<tr class="address2-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">country</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Country</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">bankAccountNumber</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Bank Account Number for New Zealand organisations and BSB for Australian organisations</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">birthDate</td>	
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
@@ -1084,6 +1335,12 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Email address</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">finishDate</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>									
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date on which employee left the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td> 
 									</tr>								
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">firstNames</td>	
@@ -1092,17 +1349,13 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">All first names</td> 
 									</tr>
 									<tr>
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">surname</td>
-										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>								
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Surname of the employee</td> 
-									</tr>																	
-									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">fullTimeHoursWeek</td>	
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Describes the number of hours the person would work in a week for their position, if they were employed full time. Is used to help convert salary into hourly rate</td> 
-									</tr>								
+									</tr>	
+																								
+																
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">gender</td>		
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>						
@@ -1195,6 +1448,35 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">paymentMethod</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description"
+											class="mdl-data-table__cell--non-numeric allow-wrap">Employee's payment method. Codes supported:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Bank</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Cash</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Cheque</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">phone</td>
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
@@ -1205,61 +1487,181 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date on which the employee joined the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td> 
-									</tr>								
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">surname</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Surname of the employee</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">taxCode</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description"
+											class="mdl-data-table__cell--non-numeric allow-wrap">Employee's
+											tax code - only applicatble to New Zealand organisations. Codes supported:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">CAE</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">EDW</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">M</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">M_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ME</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ME_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ML</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ML_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ND</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">NSW</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">NONE</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">S</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">S_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">SB</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">SB_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">SH</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">SH_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ST</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">ST_SL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">STC</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">WT</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+									
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">taxNumber</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">IRD Number for New Zealand organisations and TFN for Australian organisations</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">taxScale</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description"
+											class="mdl-data-table__cell--non-numeric allow-wrap">Employee's
+											tax scale - only applicable to Australian organisations. Codes supported:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">1</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">2</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">3</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">4a</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">4b</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">5</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">6</td>
+													</tr><tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">H</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">W</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>										
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">workState</td>	
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">State in which the employee works - only applicable to Australian organisations (refer address state for possible values)</td> 
-									</tr>																						
-									<tr>
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric"><a id="address2" role="button" class="theme-dropdown-link theme-dropdown-collapsed">address <i class="material-icons mdl-list__item-icon">arrow_drop_down</i><i class="material-icons mdl-list__item-icon" style="display:none;">arrow_drop_up</i></a></td>								
-										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">JSON Object</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A JSON object representing the address.</td> 
-									</tr>	
-									<tr class="address2-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">addressLine1</td>
-										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Address line 1</td> 
-									</tr>								
-									<tr class="address2-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">addressLine2</td>	
-										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Address line 2</td> 
-									</tr>									
-									<tr class="address2-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">suburb</td>	
-										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Suburb</td> 
-									</tr>									
-									<tr class="address2-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">state</td>
-										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">State</td> 
-									</tr>									
-									<tr class="address2-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">city</td>	
-										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">City</td> 
-									</tr>									
-									<tr class="address2-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">postCode</td>	
-										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Post Code</td> 
-									</tr>									
-									<tr class="address2-item theme-level2" style="display:none;">
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">country</td>
-										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Country</td> 
-									</tr>						
+									</tr>					
 								</tbody>																	
 							</table>
 							</div>	
@@ -1282,6 +1684,9 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 	"email": "email@email.com",
 	"gender": "Female",
 	"payFrequency": "Fortnightly",
+	"paymentMethod": "Cash",	
+	"taxNumber": "00000000",
+	"taxCode": "ND",
 	"fullTimeHoursWeek": 33,
 	"organisation": 10000
   }
@@ -1300,9 +1705,12 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 	"startDate": "1-May-2014",
 	"email": "email@email.com",
 	"gender": "Female",
-	"payFrequency": "Fortnightly",
+	"payFrequency": "Fortnightly",	
 	"fullTimeHoursWeek": 33,
 	"organisation": 10000,
+	"paymentMethod": "Cash",
+	"taxNumber": "00000000",
+	"taxCode": "ND"
 	"links": [
 	  {
 		"rel": "self",
