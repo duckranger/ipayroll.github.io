@@ -934,11 +934,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 														<td data-label="Code" class="mdl-data-table__cell--non-numeric">42</td>
 														<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">4-Weekly (2)</td>										
 													</tr>
-													<tr>
-														<td data-label="Name" class="mdl-data-table__cell--non-numeric">FORTNIGHTLY_3</td>
-														<td data-label="Code" class="mdl-data-table__cell--non-numeric">F3</td>
-														<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Fortnightly (3)</td>										
-													</tr>
 												</tbody>	
 											</table>		
 										</td> 
@@ -1177,41 +1172,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Response Example</h4> 					
 <pre>
 {
-  "content": [
-	{
-	  "address": {
-		"addressLine1": "Apartment 212",
-		"addressLine2": "123 Main Street",
-		"city": "Wellington",
-		"country": "New Zealand",
-		"postCode": "6011",
-		"suburb": "CBD"
-	  },
-	  "birthDate": "1-Feb-1980",
-	  "defaultCostCentre": "Software",
-	  "email": "email@email.com",
-	  "employeeId": "1111",
-	  "firstNames": "Jackie",
-	  "fullTimeHoursWeek": 33,
-	  "gender": "Female",
-	  "links": [
-		{
-		  "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111",
-		  "rel": "self",
-		  "templated": true
-		}
-	  ],
-	  "organisation": 10000,
-	  "paidToDate": "1-Aug-2016",
-	  "payFrequency": "Fortnightly",
-	  "phone": "021 123 4567",
-	  "startDate": "1-May-2014",
-	  "surname": "Smith",
-	  "title": "Mrs"
-	},
-   ...
-  ],    
-  "links": [
+"links": [
    {
 	 "rel": "first",
 	 "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=0&size=20"
@@ -1228,6 +1189,44 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 	 "rel": "last",
 	 "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=9&size=20"
    }
+  ],
+  "content": [
+	{	
+	  "links": [
+			{
+		  	"href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111",
+		  	"rel": "self",
+	  		"templated": true
+		}
+	  ],
+	  "surname": "Smith",
+	  "firstNames": "Jackie",
+	  "employeeId": "1111",
+	  "address": {
+		"addressLine1": "Apartment 212",
+		"addressLine2": "123 Main Street",
+		"city": "Wellington",
+		"country": "New Zealand",
+		"postCode": "6011",
+		"suburb": "CBD"
+	  },
+	  "startDate": "1-May-2014",
+	  "birthDate": "1-Feb-1980",
+	  "paidToDate": "1-Aug-2016",
+	  "defaultCostCentre": "Software",
+	  "email": "email@email.com",
+	  "phone": "021 123 4567",
+	  "title": "Mrs"
+	  "gender": "Female",
+	  "payFrequency": "Fortnightly",
+	  "fullTimeHoursWeek": 33,
+	  "organisation": 10000,
+	  "paymentMethod": "Bank",
+	  "bankAccountNumber": "01-2345-6789012-00",
+	  "taxNumber": "00-000-000",
+	  "taxCode": "M"
+	},
+   ...
   ],
   "page": {
 	"size": 20,
@@ -1684,8 +1683,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 	"email": "email@email.com",
 	"gender": "Female",
 	"payFrequency": "Fortnightly",
-	"paymentMethod": "Cash",	
-	"taxNumber": "00000000",
+	"paymentMethod": "Cash",
 	"taxCode": "ND",
 	"fullTimeHoursWeek": 33,
 	"organisation": 10000
@@ -1696,22 +1694,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<h4>Response Example</h4>
 <pre>
 [
-  {    
-	"firstNames": "Jackie",
-	  "employeeId": "1111",
-	"address": {
-	  "country": "New Zealand"      
-	},
-	"startDate": "1-May-2014",
-	"email": "email@email.com",
-	"gender": "Female",
-	"payFrequency": "Fortnightly",	
-	"fullTimeHoursWeek": 33,
-	"organisation": 10000,
-	"paymentMethod": "Cash",
-	"taxNumber": "00000000",
-	"taxCode": "ND"
-	"links": [
+  { 
+  "links": [
 	  {
 		"rel": "self",
 		"href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111"
@@ -1724,7 +1708,22 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 		"rel": "timesheet",
 		"href": "http://secure2.ipayroll.co.nz/api/v1/timesheets/1111"
 	  }
-	]
+	],
+	"surname": "iPayroll",   
+	"firstNames": "Jackie",
+	"employeeId": "1111",
+	"address": {
+	  "country": "New Zealand"      
+	},
+	"startDate": "1-May-2014",
+	"email": "email@email.com",
+	"gender": "Female",
+	"payFrequency": "Fortnightly",	
+	"fullTimeHoursWeek": 33,
+	"organisation": 10000,
+	"paymentMethod": "Cash",
+	"taxCode": "ND"
+	
   }
 ]
 </pre>
