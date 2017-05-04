@@ -1173,6 +1173,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 <pre>
 {
 "links": [
+
    {
 	 "rel": "first",
 	 "href": "http://secure2.ipayroll.co.nz/api/v1/employees?page=0&size=20"
@@ -1778,8 +1779,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
   "links": [
 	{
 	  "href": "http://secure2.ipayroll.co.nz/api/v1/employees/1111",
-	  "rel": "self",
-	  "templated": true
+	  "rel": "self"
 	}
   ],
   "organisation": 10000,
@@ -2319,7 +2319,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 											<td data-label="Name" class="mdl-data-table__cell--non-numeric">employeeId</td>	
 											<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
 											<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
+											<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation. The employee should already be added to the payroll before posting timesheets against.</td> 
 										</tr>
 										<tr class="timesheets-item theme-level2" style="display:none;">
 											<td data-label="Name" class="mdl-data-table__cell--non-numeric">paidToDate</td>
