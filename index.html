@@ -3768,7 +3768,8 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						<div class="theme-padding theme-padding-top-grey">
 							<h3>Pay Element</h3>
 							<p>A Pay Element defines the rules used to calculate transactions. Pay elements form the basis of transactions for Payments, Deductions and Leave. 
-							Each Jurisdiction (AU or NZ) has a separate folder for Standard Pay elements, because each one may be set up slightly differently and will have different accumulators</p>
+							Pay elements are divided into Standard Pay elements (shared across all organisations) and specific - which are defined for and by a specific organisation.
+</p>
 							<h5>Attributes</h5>
 							<div class="table-responsive-vertical">
 							<table class="mdl-data-table">
@@ -3783,191 +3784,191 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">code</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The code of the pay element</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Element code. This is unique for standard pay elements and unique within an organisation for the specific ones.</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">description</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The description of the pay element</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Free-form description of the pay element</td>
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">displayValue</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The on screen value for the Pay element</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The on screen value for the Pay element. This is the same as code for most pay elements</td>
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">calculationRule</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Every Pay Element has a calculation rule. Different rules apply to different types of pay element</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Code for the calculation rule used with the pay element. Different rules apply to different types of pay element</td>
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">group</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The pay element group</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The pay element group. Possible values are Payment, Deduction and Leave</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">type</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The type of the pay element</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Pay element type within its group</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">multiplier</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The multiplier for the rate</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The multiplier used in rate calculations</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">expired</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The availability of the pay element</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether this pay element is active or inactive (expired)</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">accLevyLiable</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is ACC levy liable, the value will be true otherwise false. Only for New Zealand</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">New Zealand only.<br/>True if the pay element is ACC levy liable</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">superableEarning</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is Superable Earning type, the value will be true otherwise false</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">True if the pay element is Superable Earning type</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">holidayPayLiable</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is holiday pay liable, the value will be true otherwise false</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">New Zealand only.<br/>True if the pay element is holiday pay liable</td> 
 									</tr><tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">notKiwiSaverLiable</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is not kiwi saver liable, the value will be true otherwise false. Only for New Zealand</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">New Zealand only.<br/>True if the pay element is not kiwi saver liable</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">payrollTaxLiable</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is payroll tax liable, the value will be true otherwise false. Only for Australia</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Australia only.<br/>True if the pay element is payroll tax liable</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">rdoLiable</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is rdo liable, the value will be true otherwise false. Only for Australia</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Australia only.<br/>True if the pay element is rdo liable</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">lslLiable</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is ls liable, the value will be true otherwise false. Only for Australia</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Australia only.<br/>True if the pay element is ls liable</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">casLiable</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is cas liable, the value will be true otherwise false. Only for Australia</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Australia only.<br/>True if the pay element is cas liable</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">reducing</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is reducing, the value will be true otherwise false</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">True if the pay element is reducing</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">payableOnFinalPay</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is payable on final pay, the value will be true otherwise false</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">True if the pay element is payable on final pay</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">itemisedOnPaymentSummary</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is itemised on payment summary, the value will be true otherwise false. Only for Australia</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Australia only.<br/>True if the pay element is itemised on payment summary</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">allowPartialDeduction</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element allow partitial deduction, the value will be true</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">True if the pay element allows partitial deduction</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">consolidateTransactions</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element applies consolidate transactions, the value will be true</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">True if the pay element applies consolidate transactions</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">payeeReference</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The reference of the payee</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Payee Reference</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">payeeCode</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The code of the payee</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Payee code</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">bankAccountNumber</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The bank account of the deduction by the pay element. Only for New Zealand</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">New Zealand only<br/>Bank account of the deduction by the pay element</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">bsbAccountNumber</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The bsb account number of the deduction by the pay element. Only for Australia</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Australia only<br/>The bsb account number of the deduction by the pay element</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">reduceSuperable</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element applies reduce superable, the value will be true</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">True if the pay element reduces superable</td> 
 									</tr>									
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">priority</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The value of the pay element priority</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Pay element priority</td> 
 									</tr>									
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">costCentresRule</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The rule of the pay element to get costcentre</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The rule applied to discern the pay element's cost centre</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">paymentMethod</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The name of the pay element payment method</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Payment method</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">payeeParticulars</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The particulars of the payee</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Payee particulars</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">doneeAddress</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The address of the donee</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Donee address</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">doneeName</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The name of the donee</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Donee name</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">unusedLeavePayment</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is unused leave payment, the value will be true</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">True if the pay element is an unused leave payment</td> 
 									</tr>									
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">employmentTerminationPayment</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is employment termination payment, the value will be true. Only for Australia</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Australia only<br/>True if the pay element is an employment termination payment</td> 
 									</tr>																								
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">employmentTerminationPaymentNoLumpD</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is employment termination payment with no LumpD, the value will be true. Only for Australia</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Australia only<br/>True if the pay element is an employment termination payment with no LumpD</td> 
 									</tr>																									
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">availableForLeaveRequest</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is available for leave request, the value will be true</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">True if the pay element is available for leave request</td> 
 									</tr>	
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">leaveTaxType</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The tax type of the leave</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Tax type of the leave</td> 
 									</tr>	
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">paymentGroup</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The payment group of the pay element</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Payment group of the pay element</td> 
 									</tr>									
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">calculationAccumulator</td>								
@@ -3987,7 +3988,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">derivedFrom</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is defined by orgnisation, the value will be "organisation". Otherwise, the value is "system"</td> 
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">If the pay element is defined by the organisation, the value will be "organisation". Otherwise, the value is "system"</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">customField</td>								
