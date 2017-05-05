@@ -842,6 +842,11 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Email address</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">employerSubsidy</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employer contribution to kiwisaver - only applicable to New Zealand organisations. Must be between 0 and 20</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">finishDate</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date on which employee left the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td> 
@@ -860,6 +865,11 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">gender</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Male or Female</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">kiwiSaverRate</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employee's KiwiSaver rate - only applicable to New Zealand organisations. Must be 0, 3, 4 or 8</td> 
 									</tr>								
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">organisation</td>								
@@ -1139,7 +1149,65 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 												</tbody>
 											</table>
 										</td>
-									</tr>									
+									</tr>	
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">terminationReason</td>
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description"
+											class="mdl-data-table__cell--non-numeric allow-wrap">Employee's
+											termination reason. Required for Australian organisations if employee has a finish date. Codes supported:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">REDUNDANCY</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">RESIGNATION</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">RESIGNATION_PRESSING_NECESSITY</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">DISMISSAL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">DISMISSAL_SERIOUS_WILFUL_MISCONDUCT</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">DEATH</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">EARLY_RETIREMENT</td>
+													</tr><tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">INVALIDITY</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">RETIREMENT</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">END_OF_CONTRACT</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+									
+																	
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">title</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
@@ -1225,7 +1293,9 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 	  "paymentMethod": "Bank",
 	  "bankAccountNumber": "01-2345-6789012-00",
 	  "taxNumber": "049-091-85",
-	  "taxCode": "M"
+	  "taxCode": "M",
+	  "kiwiSaverRate": 0,
+      "employerSubsidy": 0
 	},
    ...
   ],
@@ -1337,6 +1407,12 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Email address</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">employerSubsidy</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employer contribution to kiwisaver - only applicable to New Zealand organisations. Must be between 0 and 20</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">finishDate</td>
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>									
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
@@ -1361,7 +1437,13 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>						
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Male or Female</td> 
-									</tr>								
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">kiwiSaverRate</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employee's KiwiSaver rate - only applicable to New Zealand organisations. Must be 0, 3, 4 or 8</td> 
+									</tr>									
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">organisation</td>
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>								
@@ -1646,6 +1728,63 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 													<tr>
 														<td data-label="Code"
 															class="mdl-data-table__cell--non-numeric">W</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">terminationReason</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description"
+											class="mdl-data-table__cell--non-numeric allow-wrap">Employee's
+											termination reason. Required for Australian organisations if employee has a finish date. Codes supported:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">REDUNDANCY</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">RESIGNATION</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">RESIGNATION_PRESSING_NECESSITY</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">DISMISSAL</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">DISMISSAL_SERIOUS_WILFUL_MISCONDUCT</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">DEATH</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">EARLY_RETIREMENT</td>
+													</tr><tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">INVALIDITY</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">RETIREMENT</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">END_OF_CONTRACT</td>
 													</tr>
 												</tbody>
 											</table>
