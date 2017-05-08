@@ -832,6 +832,52 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date of birth (multiple date formats supported, dd/mm/yyyy preferred)</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">deathBenefitFirstName</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">First name of death benefit recipient when termination reason is DEATH. Only applicable to Australian organisations</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">deathBenefitRecipient</td>
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description"
+											class="mdl-data-table__cell--non-numeric allow-wrap">Death benefit recipient type. Codes supported:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+														<th class="mdl-data-table__cell--non-numeric">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">DEPENDENT</td>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Dependent</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">NON_DEPENDENT</td>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Non Dependent</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">TRUSTEE</td>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Trustee</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">deathBenefitSurname</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Surname of death benefit recipient when termination reason is DEATH. Only applicable to Australian organisations</td> 
+									</tr>
+									
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">defaultCostCentre</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Default cost centre for the employee - value expected is one of the cost centre codes defined for the organisation</td> 
@@ -1393,6 +1439,54 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date of birth (multiple date formats supported, dd/mm/yyyy preferred)</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">deathBenefitFirstName</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">First name of death benefit recipient when termination reason is DEATH. Only applicable to Australian organisations</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">deathBenefitRecipient</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description"
+											class="mdl-data-table__cell--non-numeric allow-wrap">Death benefit recipient type. Codes and description are supported:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+														<th class="mdl-data-table__cell--non-numeric">Description</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">DEPENDENT</td>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Dependent</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">NON_DEPENDENT</td>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Non Dependent</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">TRUSTEE</td>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Trustee</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">deathBenefitSurname</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Surname of death benefit recipient when termination reason is DEATH. Only applicable to Australian organisations</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">defaultCostCentre</td>	
