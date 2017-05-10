@@ -4071,6 +4071,40 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The percentage of accrual</td> 
 									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric"><a id="payelementleaveBalanceType" role="button" class="theme-dropdown-link theme-dropdown-collapsed">leaveBalanceType <i class="material-icons mdl-list__item-icon">arrow_drop_down</i><i class="material-icons mdl-list__item-icon" style="display:none;">arrow_drop_up</i></a></td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">JSON Object</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Leave Balance Type</td> 
+									</tr>
+									<tr class="payelementleaveBalanceType-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">leaveType</td>						
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">
+											Leave Balance Type. The type can be one of the following: 
+											<ul>
+												<li>Annual</li>
+												<li>Sick</li>
+												<li>Lieu</li>
+												<li>ACC First Week</li>
+												<li>ACC Other Week</li>
+												<li>RDO</li>
+												<li>Holiday Pay</li>
+												<li>Other (including Unpaid)</li>
+												<li>Long Service</li>
+												<li>Alternative Holiday</li>
+											</ul>
+										</td> 
+									</tr>									
+									<tr class="payelementleaveBalanceType-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">name</td>						
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The name used to identify the leave balance type. The name may be defined by the user or the system</td> 
+									</tr>									
+									<tr class="payelementleaveBalanceType-item theme-level2" style="display:none;">
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">unit</td>						
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The unit used for entitled, accrued, taken and balance. e.g. "days", "hours" and "$"</td> 
+									</tr>
 								</tbody>																	
 							</table>
 							</div>	
