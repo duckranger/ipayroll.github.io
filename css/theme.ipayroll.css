@@ -7,6 +7,7 @@
 	a{ color: #027db8; text-decoration: none;}
 	ul{ padding-left: 16px;}
 	ol{ padding-left: 16px;}
+
 	
 /** Common Styles **/
 	.allow-wrap{ white-space: normal;}
@@ -79,6 +80,7 @@
 	
 	.mdl-data-table tr td.theme-padding-sm{ padding-top: 5px; padding-bottom: 5px;}
 	.mdl-data-table tr th{ font-size: 13px;}
+	.mdl-data-table ul{ font-size: 13px;}
 	
 	.table-responsive-vertical{ overflow-y: auto;}
 	
