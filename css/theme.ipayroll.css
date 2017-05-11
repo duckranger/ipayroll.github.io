@@ -5,8 +5,8 @@
 	h4 { color: #666; font-size: 20px; margin: 0;}
 	h5 { color: #666; font-size: 16px; margin-bottom: 10px;}
 	a{ color: #027db8; text-decoration: none;}
-	ul{ padding-left: 16px; font-size: 13px;}
-	ol{ padding-left: 16px; font-size: 13px;}
+	ul{ padding-left: 16px;}
+	ol{ padding-left: 16px;}
 
 	
 /** Common Styles **/
@@ -80,6 +80,7 @@
 	
 	.mdl-data-table tr td.theme-padding-sm{ padding-top: 5px; padding-bottom: 5px;}
 	.mdl-data-table tr th{ font-size: 13px;}
+	.mdl-data-table ul{ font-size: 13px;}
 	
 	.table-responsive-vertical{ overflow-y: auto;}
 	
