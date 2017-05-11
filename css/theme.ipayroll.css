@@ -5,8 +5,9 @@
 	h4 { color: #666; font-size: 20px; margin: 0;}
 	h5 { color: #666; font-size: 16px; margin-bottom: 10px;}
 	a{ color: #027db8; text-decoration: none;}
-	ul{ padding-left: 16px;}
-	ol{ padding-left: 16px;}
+	ul{ padding-left: 16px; font-size: 13px;}
+	ol{ padding-left: 16px; font-size: 13px;}
+
 	
 /** Common Styles **/
 	.allow-wrap{ white-space: normal;}
