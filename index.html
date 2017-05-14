@@ -840,7 +840,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">deathBenefitRecipient</td>
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description"
-											class="mdl-data-table__cell--non-numeric allow-wrap">Death benefit recipient type. Codes supported:
+											class="mdl-data-table__cell--non-numeric allow-wrap">Death benefit recipient type. Codes and descriptions supported:
 											<table class="mdl-data-table theme-table-small">
 												<thead>
 													<tr>
@@ -893,6 +893,21 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employer contribution to kiwisaver - only applicable to New Zealand organisations. Must be between 0 and 20</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">esctRate</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employer's esct Rate - only applicable to New Zealand organisations. Value must be 10.5, 17.5, 30, 33.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">existingKiwiSaverMember</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not an employee is an existing KiwiSaver member - only applicable to New Zealand organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">dependentChildren</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Integer</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Number of dependent children the employee has - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">finishDate</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date on which employee left the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td> 
@@ -913,9 +928,35 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Male or Female</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">helpDebt</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee has Higher Education Loan Program Debt - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">kiwiSaverOptOutDate</td>				
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date employee opted out of KiwiSaver - only applicable to New Zealand organisations.</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">kiwiSaverRate</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employee's KiwiSaver rate - only applicable to New Zealand organisations. Must be 0, 3, 4 or 8</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">hasSpouse</td>									
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee has a spouse - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">incomeLessThanRelevantAmount</td>									
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the combined weekly income of payee and payee's spouse, or the payee's income as a sole parent,
+																														is less than the relevant amount in table A - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">medicareLevyVariationDeclaration</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not an employee has filled a Medicare levy variation declaration - only applicable to Australian organisations</td> 
 									</tr>								
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">organisation</td>								
@@ -1023,19 +1064,90 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										</td>
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">payrollTaxExempt</td>				
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee is payroll tax exempt - only applicable to Australian organisations</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">phone</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Phone number</td> 
-									</tr>								
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">sfssDebt</td>										
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee has Student Financial Supplement Scheme Debt - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">specialEarnerLevy</td>					
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A special earner levy rate to be applied to the employee - only applicable for New Zealand organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">specialExtraPayRate</td>	
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A special extra pay rate to be applied to the employee - only applicable for New Zealand organisations. Codes accepted:
+										<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+														<th class="mdl-data-table__cell--non-numeric">Rate</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">None</td>
+															<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">10.50%</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Low</td>
+															<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">17.50%</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">High</td>
+															<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">30.00%</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Top</td>
+															<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">33.00%</td>
+													</tr>
+												</tbody>
+											</table>
+										
+										</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">specialStudentLoan</td>					
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A special student loan rate to be applied to the employee - only applicable for New Zealand organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">specialTax</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A special tax rate to be applied to the employee</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">surname</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Surname of the employee</td> 
+									</tr>															
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">startDate</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date on which the employee joined the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td> 
 									</tr>
 									<tr>
-										<td data-label="Name" class="mdl-data-table__cell--non-numeric">surname</td>								
-										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Surname of the employee</td> 
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">surchargeIncrease</td>				
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Increase the amounts withheld to cover Medicare levy surcharge - only applicable to Australian organisations. Ammounts accepted: 0,1,1.25 and 1.5.</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">taxCode</td>
@@ -1138,7 +1250,6 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 											</table>
 										</td>
 									</tr>
-									
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">taxNumber</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
@@ -1507,6 +1618,24 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employer contribution to kiwisaver - only applicable to New Zealand organisations. Must be between 0 and 20</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">esctRate</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employer's esct Rate - only applicable to New Zealand organisations. Value must be 10.5, 17.5, 30, 33.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">dependentChildren</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>												
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Integer</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Number of dependent children the employee has - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">existingKiwiSaverMember</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>									
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not an employee is an existing KiwiSaver member - only applicable to New Zealand organisations.</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">finishDate</td>
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>									
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
@@ -1533,10 +1662,54 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Male or Female</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">incomeLessThanRelevantAmount</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>											
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the combined weekly income of payee and payee's spouse, or the payee's income as a sole parent,
+																														is less than the relevant amount in table A - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">hasSpouse</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>											
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee has a spouse - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">helpDebt</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>											
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee has Higher Education Loan Program Debt - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">kiwiSaverOptOutDate</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date employee opted out of KiwiSaver - only applicable to New Zealand organisations.</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">kiwiSaverRate</td>
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employee's KiwiSaver rate - only applicable to New Zealand organisations. Must be 0, 3, 4 or 8</td> 
+									</tr>									
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">hasSpouse</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>																
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee has a spouse - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">incomeLessThanRelevantAmount</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>																
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the combined weekly income of payee and payee's spouse, or the payee's income as a sole parent,
+																														is less than the relevant amount in table A - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">medicareLevyVariationDeclaration</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>											
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not an employee has filled a Medicare levy variation declaration - only applicable to Australian organisations</td> 
 									</tr>									
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">organisation</td>
@@ -1648,17 +1821,97 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										</td>
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">payrollTaxExempt</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee is payroll tax exempt - only applicable to Australian organisations</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">phone</td>
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Phone number</td> 
-									</tr>								
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">sfssDebt</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>											
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Boolean</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee has Student Financial Supplement Scheme Debt - only applicable to Australian organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">specialEarnerLevy</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>					
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A special earner levy rate to be applied to the employee - only applicable for New Zealand organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">specialExtraPayRate</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>					
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A special extra pay rate to be applied to the employee - only applicable for New Zealand organisations. Codes accepted:
+										<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+														<th class="mdl-data-table__cell--non-numeric">Rate</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">None</td>
+															<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">10.50%</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Low</td>
+															<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">17.50%</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">High</td>
+															<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">30.00%</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Top</td>
+															<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">33.00%</td>
+													</tr>
+												</tbody>
+											</table>
+										
+										</td> 
+									</tr>
+									
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">specialStudentLoan</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A special student loan rate to be applied to the employee - only applicable for New Zealand organisations.</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">specialTax</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">A special tax rate to be applied to the employee</td> 
+									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">startDate</td>	
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date on which the employee joined the organisation (multiple date formats supported, dd/mm/yyyy preferred)</td> 
 									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">surchargeIncrease</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Increase the amounts withheld to cover Medicare levy surcharge - only applicable to Australian organisations. Ammounts accepted: 0,1,1.25 and 1.5.</td> 
+									</tr>
+									
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">surname</td>
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>								
@@ -1914,6 +2167,9 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 	"payFrequency": "Fortnightly",
 	"paymentMethod": "Cash",
 	"taxCode": "ND",
+	"kiwiSaverRate": 3,
+    "employerSubsidy": 3,
+    "esctRate": 10.5,
 	"fullTimeHoursWeek": 33,
 	"organisation": 10000
   }
@@ -1951,7 +2207,10 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 	"fullTimeHoursWeek": 33,
 	"organisation": 10000,
 	"paymentMethod": "Cash",
-	"taxCode": "ND"
+	"taxCode": "ND",
+	"kiwiSaverRate": 3,
+    "employerSubsidy": 3,
+    "esctRate": 10.5,
 	
   }
 ]
