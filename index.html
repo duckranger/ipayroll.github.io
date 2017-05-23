@@ -832,6 +832,11 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date of birth (multiple date formats supported, dd/mm/yyyy preferred)</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">contractorsAbn</td>				
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contractors Australian Business number. Required when proprietor status is company/contractor. Only applicable to Australian organisations</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">deathBenefitFirstName</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">First name of death benefit recipient when termination reason is DEATH. Only applicable to Australian organisations</td> 
@@ -1069,9 +1074,68 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee is payroll tax exempt - only applicable to Australian organisations</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">proprietorStatus</td>				
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee is a proprietor for New Zealand organisations and employee type for Australian organisations. Codes accepted for New Zealand organisations:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Yes</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">No (employee)</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">n/a (company/contractor)</td>
+													</tr>
+												</tbody>
+											</table>
+											
+											<br/>Codes accepted for Australian organisations:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Company/Contractor</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Employee</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Labour Hire</td>
+													</tr>
+												</tbody>
+											</table>
+										
+										
+										
+										
+										</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">phone</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Phone number</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">preferredName</td>								
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employee's preferred name</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">sfssDebt</td>										
@@ -1552,6 +1616,12 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date of birth (multiple date formats supported, dd/mm/yyyy preferred)</td> 
 									</tr>
 									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">contractorsAbn</td>	
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contractors Australian Business number. Required when proprietor status is company/contractor. Only applicable to Australian organisations</td> 
+									</tr>
+									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">deathBenefitFirstName</td>
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
@@ -1831,6 +1901,12 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Phone number</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">preferredName</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employee's preferred name</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">sfssDebt</td>
