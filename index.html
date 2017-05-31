@@ -1758,7 +1758,7 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">kiwiSaverRate</td>
-										<td data-label="Required" class="mdl-data-table__cell--non-numeric"Yes</td>								
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>								
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employee's KiwiSaver rate - only applicable to New Zealand organisations. Must be 0, 3, 4 or 8</td> 
 									</tr>									
@@ -1907,6 +1907,61 @@ http://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>							
 										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
 										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Employee's preferred name</td> 
+									</tr>
+									<tr>
+										<td data-label="Name" class="mdl-data-table__cell--non-numeric">proprietorStatus</td>
+										<td data-label="Required" class="mdl-data-table__cell--non-numeric">No</td>						
+										<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+										<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Whether or not the employee is a proprietor for New Zealand organisations and employee type for Australian organisations. Codes accepted for New Zealand organisations:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Yes</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">No (employee)</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">n/a (company/contractor)</td>
+													</tr>
+												</tbody>
+											</table>
+											
+											<br/>Codes accepted for Australian organisations:
+											<table class="mdl-data-table theme-table-small">
+												<thead>
+													<tr>
+														<th class="mdl-data-table__cell--non-numeric">Code</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Company/Contractor</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Employee</td>
+													</tr>
+													<tr>
+														<td data-label="Code"
+															class="mdl-data-table__cell--non-numeric">Labour Hire</td>
+													</tr>
+												</tbody>
+											</table>
+										
+										
+										
+										
+										</td> 
 									</tr>
 									<tr>
 										<td data-label="Name" class="mdl-data-table__cell--non-numeric">sfssDebt</td>
