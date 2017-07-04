@@ -2179,6 +2179,48 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						</div>				
 					</div>			
 		<!-- Resources - Timesheets - Get One | END -->
+		<!-- Resources - Timesheets - delete One | END -->
+		<div id="resources-employees" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+			<div class="theme-padding theme-padding-top-grey">
+				<p class="lead"><span class="badge bg-delete">DELETE</span>&nbsp;/api/v1/timesheets/{employeeId}/transactions/{timesheetTransactionId}</p>
+			 	<h4>Delete a timesheet transaction in the current payroll of an organisation</h4>
+			 	<p>The current payroll must be open.</p>
+				<h5>Parameters</h5>
+				<div class="table-responsive-vertical">
+				<table class="mdl-data-table">
+					<thead>
+						<tr>
+							<th class="mdl-data-table__cell--non-numeric">Name</th>
+							<th class="mdl-data-table__cell--non-numeric">Required</th>
+							<th class="mdl-data-table__cell--non-numeric">Type</th>
+							<th class="mdl-data-table__cell--non-numeric">Description</th>
+						</tr>
+					</thead>
+					<tbody>				
+						<tr>
+							<td data-label="Name" class="mdl-data-table__cell--non-numeric">employeeId</td>	
+							<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
+							<td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+							<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify an employee within an organisation</td> 
+						</tr>
+						<tr>
+							<td data-label="Name" class="mdl-data-table__cell--non-numeric">timesheetTransactionId</td>	
+							<td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>							
+							<td data-label="Type" class="mdl-data-table__cell--non-numeric">Long</td>
+							<td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Unique ID to identify a timesheet transaction</td> 
+						</tr>													
+					</tbody>																	
+				</table>
+				</div>	
+			</div>
+		</div>
+		<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey">
+			<div class="theme-padding theme-padding-top-lightgrey">
+				<p class="lead"><span class="badge bg-delete">DELETE</span>&nbsp;/api/v1/timesheets/{employeeId}/transactions/{timesheetTransactionId}</p>
+				<pre>Empty response.</pre>
+			</div>				
+		</div>			
+		<!-- Resources - Timesheets - Delete One | END -->
 	<!-- Resources - Timesheets | END -->
 	<!-- Resources - Leave Balances | START -->			
 					<div id="resources-leave" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
