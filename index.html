@@ -4282,8 +4282,9 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 				<div id="resources-custom-fields" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 				  <div class="theme-padding theme-padding-top-grey">
 				    <h3>Custom Fields</h3>
-				    <p>A custom field retains the extra values attached to an employee which is not in regular use by all organisations</p>
-				    <p>The fields in the response dynamically change depending upon the category of of the custom field</p> 
+				    <p>A custom field conains extra details relating to an employee. These details are not part of the core iPayroll application, and may not be in regular use by all organisations
+						<br/>iPayroll offers some special, pre-configured custom fields such as Contact, Contract, Position, Renumeration and Leave.</p>
+				    <p>The fields in the response change dynamically depending upon the category of of the custom field.</p> 
 				    <h5>Attributes</h5>
 				    <div class="table-responsive-vertical">
 						<table class="mdl-data-table">
@@ -4303,7 +4304,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 							<tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">categoryName</td>                
 						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The category name of the custom field. Some of these are Contact, Contract, Position Renumeration or Leave.</td> 
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The category name of the custom field.</td> 
 						    </tr>
 						    <tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">customFieldId</td>                
@@ -4376,7 +4377,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
   "links": [
     {
       "rel": "self",
-      "href": "http://localhost:8080/ipayroll/api/v1/employees/2/customfields"
+      "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields"
     }
   ],
   "content": [
@@ -4389,7 +4390,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
       "links": [
         {
           "rel": "self",
-          "href": "http://localhost:8080/ipayroll/api/v1/employees/2/customfields/1649"
+          "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1649"
         }
       ]
     },
@@ -4402,7 +4403,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
       "links": [
         {
           "rel": "self",
-          "href": "http://localhost:8080/ipayroll/api/v1/employees/2/customfields/1650"
+          "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1650"
         }
       ]
     }
@@ -4424,7 +4425,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 				<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 				  <div class="theme-padding theme-padding-top-grey">
 				    <p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employee id}/customfields/{category id}</p>
-				    <h4>Retrieve All Custom Fields Of One Category For An Employee</h4>
+				    <h4>Retrieve All Custom Fields of a Single Category for an Employee</h4>
 				    <p>Returns all the custom fields including values of the specified category id for an employee.</p>            
 				 
 				
@@ -4441,10 +4442,10 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 				      </thead>
 				      <tbody>    
 				        <tr>
-				          <td data-label="Name" class="mdl-data-table__cell--non-numeric">category</td>                
+				          <td data-label="Name" class="mdl-data-table__cell--non-numeric">category id</td>                
 				          <td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>
 				          <td data-label="Type" class="mdl-data-table__cell--non-numeric">Long</td> 
-				          <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The id of the custom field category.</td> 
+				          <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The id of the category for which to retrieve the custom fields values.</td> 
 				        </tr>
 				      </tbody>
 				    </table>
@@ -4460,7 +4461,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
   "links": [
     {
       "rel": "self",
-      "href": "http://localhost:8080/ipayroll/api/v1/employees/2/customfields/1650"
+      "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1650"
     }
   ],
   "content": [
@@ -4473,7 +4474,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
       "links": [
         {
           "rel": "self",
-          "href": "http://localhost:8080/ipayroll/api/v1/employees/2/customfields/1650/35998"
+          "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1650/35998"
         }
       ]
     }
@@ -4540,7 +4541,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
   "links": [
     {
       "rel": "self",
-      "href": "http://localhost:8080/ipayroll/api/v1/employees/2/customfields/1650/35998"
+      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1650/35998"
     }
   ]
 }
