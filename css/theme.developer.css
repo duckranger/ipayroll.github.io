@@ -26,6 +26,8 @@ a.anchor-inpage { display: block; position: relative; top: -80px; visibility: hi
 
 .bg-post{ background-color: #F18800;}
 .bg-get{  background-color: #039be5;}
+.bg-delete{  background-color: #D65A53;}
+
 .bg-level3{ background-color: #f9f9f9;}
 .bg-level2{ background-color: #f4ffff;}
 
