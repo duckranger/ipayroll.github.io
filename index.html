@@ -4314,42 +4314,102 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						    <tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">name</td>                
 						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Name of the custom field</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Name of the custom field.</td>
 						    </tr>
 						    <tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">date</td>                
 						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">Date</td>
-						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date the custom field was added</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date the custom field was added.</td>
 						    </tr>
 						    <tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">description</td>                
 						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Description of the custom field (if blank this will default to the name)</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Description of the custom field (if blank this will default to the name).</td>
 						    </tr>
 						    <tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">contactDetails</td>                
 						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Contact's full name, email address and phone number</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Contact's full name.</td>
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">relationship</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Relationship of contact.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">phoneNumber</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Phone number of contact.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">email</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Email address of contact.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">Address</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Address of contact.</td> 
 						    </tr>
 						    <tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">contractHours</td>                
 						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
-						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contract only.<br/>Hours for the contract</td> 
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contract only.<br/>Hours for the contract.</td> 
 						    </tr>
 						    <tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">periodDays</td>                
 						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
-						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contract only.<br/>The period in days for the contract</td> 
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contract only.<br/>The period in days for the contract.</td> 
 						    </tr>
 						    <tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">contractEnd</td>                
 						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contract only.<br/>Contract end date</td> 
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contract only.<br/>Contract end date.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">fte</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Full Time Equivalent for the position.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">hayPoints</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">Integer</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Hay points for the position.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">hayProfile</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Hay profile for the position.</td>  
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">finish</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Date String for the finishing date of the position.</td>
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">start</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Date String for the finishing date of the position.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">reportsFrom</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>List String of the people who report to the position (if none does not display).</td>
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">reportsTo</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Who the position reports to.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">renumerationType</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Remuneration only.<br/>The type of renumeration.</td> 
 						    </tr>
 						    <tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">annualBenefit</td>                
 						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Remuneration only.<br/>The formatted annual benefit</td> 
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Remuneration only.<br/>The formatted annual benefit.</td> 
 						    </tr>
 						  </tbody>                                  
 						</table>
@@ -4387,6 +4447,12 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
       "customFieldId": 35997,
       "name": "JANITOR",
       "description": "Cleaning Person",
+      "hayPoints": 2,
+      "haysProfile": 23,
+      "fte": 2,
+      "finish": "10-May-2017",
+      "start": "03-May-2017",
+      "reportsTo": "MANAGER"
       "links": [
         {
           "rel": "self",
@@ -4541,7 +4607,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
   "links": [
     {
       "rel": "self",
-      "href": "http://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1650/35998"
+      "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1650/35998"
     }
   ]
 }
