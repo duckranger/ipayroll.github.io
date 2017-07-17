@@ -72,6 +72,7 @@
 				<a class="mdl-navigation__link" href="#resources-leave-requests">Leave Requests</a>
 				<a class="mdl-navigation__link" href="#resources-payslips">Payslips</a>
 				<a class="mdl-navigation__link" href="#resources-pay-elements">Pay Elements</a>
+				<a class="mdl-navigation__link" href="#resources-custom-fields">Custom Fields</a>
 			</nav>
 		</div> 
 		<div class="mdl-layout__drawer">
@@ -132,6 +133,7 @@
 							<li>Get employees</li>
 							<li>Create employees</li>
 							<li>Get pay rates for an employee</li>
+							<li>Get custom fields for an employee</li>
 							<li>Get payslips</li>
 							<li>Get leave balances for an employee</li>
 							<li>Get leave requests</li>
@@ -161,6 +163,7 @@
 							<li>Employees</li>
 							<li>Timesheets</li>
 							<li>Pay Rates</li>
+							<li>Custom Fields</li>
 							<li>Costcentres</li>
 							<li>Leave Balances</li>
 							<li>Leave Requests</li>
@@ -4275,7 +4278,347 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 					</div>		
 		<!-- Resources - Pay Elements - Get One | END -->			
 	<!-- Resources - Pay Elements | END -->
+			<!-- Resources - Custom Fields | START -->
+				<div id="resources-custom-fields" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+				  <div class="theme-padding theme-padding-top-grey">
+				    <h3>Custom Fields</h3>
+				    <p>A custom field conains extra details relating to an employee. These details are not part of the core iPayroll application, and may not be in regular use by all organisations.
+						<br/>iPayroll offers some special, pre-configured custom fields such as Contact, Contract, Position, Renumeration and Leave.</p>
+				    <p>The fields in the response change dynamically depending upon the category of of the custom field.</p> 
+				    <h5>Attributes</h5>
+				    <div class="table-responsive-vertical">
+						<table class="mdl-data-table">
+						  <thead>
+						    <tr>
+						      <th class="mdl-data-table__cell--non-numeric">Name</th>
+						      <th class="mdl-data-table__cell--non-numeric">Type</th>
+						      <th class="mdl-data-table__cell--non-numeric">Description</th>
+						    </tr>
+						  </thead>
+						  <tbody>        
+						    <tr>
+						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">category</td>                
+						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">Long</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The category id of the custom field.</td> 
+						    </tr>
+							<tr>
+						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">categoryName</td>                
+						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The category name of the custom field.</td> 
+						    </tr>
+						    <tr>
+						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">customFieldId</td>                
+						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">Long</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The id for this custom field</td>
+						    </tr>
+						    <tr>
+						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">name</td>                
+						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Name of the custom field.</td>
+						    </tr>
+						    <tr>
+						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">date</td>                
+						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">Date</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date the custom field was added to the employee.</td>
+						    </tr>
+						    <tr>
+						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">description</td>                
+						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Description of the custom field (if blank this will default to the name).</td>
+						    </tr>
+						    <tr>
+						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">contactDetails</td>                
+						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Contact's full name.</td>
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">relationship</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Relationship of contact to the employee.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">phoneNumber</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Phone number of contact.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">email</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Email address of contact.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">Address</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Address of contact.</td> 
+						    </tr>
+						    <tr>
+						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">contractHours</td>                
+						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contract only.<br/>Hours for the contract.</td> 
+						    </tr>
+						    <tr>
+						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">periodDays</td>                
+						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contract only.<br/>The period in days for the contract.</td> 
+						    </tr>
+						    <tr>
+						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">contractEnd</td>                
+						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contract only.<br/>Contract end date.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">fte</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Full Time Equivalent for the position.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">hayPoints</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">Integer</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Hay points for the position.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">hayProfile</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">Number</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Hay profile for the position.</td>  
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">finish</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Date String for the position's finish date.</td>
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">start</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Date String for the position's start date.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">reportsFrom</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>List of people reporting to the position (will not display if none exist).</td>
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">reportsTo</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Who the position reports to.</td> 
+                </tr>
+                <tr>
+                  <td data-label="Name" class="mdl-data-table__cell--non-numeric">renumerationType</td>                
+                  <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Remuneration only.<br/>The type of renumeration.</td> 
+						    </tr>
+						    <tr>
+						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">annualBenefit</td>                
+						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Remuneration only.<br/>The formatted annual benefit.</td> 
+						    </tr>
+						  </tbody>                                  
+						</table>
 
+				    </div>  
+				  </div>
+				</div>
+				<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-tablet mdl-cell--hide-phone">
+
+				</div>
+				<!-- Resources - Custom Fields - Get All | START --> 
+				<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+				  <div class="theme-padding theme-padding-top-grey">
+				    <p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employee id}/customfields</p>
+				    <h4>Retrieve All Custom Fields For Employee</h4>
+				    <p>Returns all the custom fields including values for an employee.</p>            
+				  </div>
+				</div>
+				<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-phone">
+				  <div class="theme-padding theme-padding-top-lightgrey">
+				    <p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employee id}/customfields</p>
+				    <h4>Response Example</h4>
+				<pre>
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields"
+    }
+  ],
+  "content": [
+    {
+      "category": 1649,
+      "categoryName": "Position",
+      "customFieldId": 35997,
+      "name": "TUTOR",
+      "description": "Class Tutor",
+      "hayPoints": 2,
+      "haysProfile": 23,
+      "fte": 2,
+      "finish": "10-May-2017",
+      "start": "03-May-2016",
+      "reportsTo": "MANAGER"
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1649"
+        }
+      ]
+    },
+    {
+      "category": 1650,
+      "categoryName": "Qualification",
+      "customFieldId": 35998,
+      "name": "BACHELORS",
+      "description": "Degree",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1650"
+        }
+      ]
+    }
+  ],
+  "page": {
+    "size": 20,
+    "totalElements": 2,
+    "totalPages": 1,
+    "number": 0
+  }
+}
+
+				</pre>        
+				  </div>
+				</div>
+
+				<!-- Resources - Custom Fields - Get All | END -->   
+				<!-- Resources - Custom Fields - Get All Categories | START --> 
+				<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+				  <div class="theme-padding theme-padding-top-grey">
+				    <p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employee id}/customfields/{category id}</p>
+				    <h4>Retrieve All Custom Fields of a Single Category for an Employee</h4>
+				    <p>Returns all the custom fields including values of the specified category id for an employee.</p>            
+				 
+				
+				  <h5>Parameters</h5>
+				    <div class="table-responsive-vertical">
+				    <table class="mdl-data-table">
+				      <thead>
+				        <tr>
+				          <th class="mdl-data-table__cell--non-numeric">Name</th>
+				          <th class="mdl-data-table__cell--non-numeric">Required</th>
+				          <th class="mdl-data-table__cell--non-numeric">Type</th>
+				          <th class="mdl-data-table__cell--non-numeric">Description</th>
+				        </tr>
+				      </thead>
+				      <tbody>    
+				        <tr>
+				          <td data-label="Name" class="mdl-data-table__cell--non-numeric">category id</td>                
+				          <td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>
+				          <td data-label="Type" class="mdl-data-table__cell--non-numeric">Long</td> 
+				          <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The id of the category for which to retrieve the custom fields values.</td> 
+				        </tr>
+				      </tbody>
+				    </table>
+				    </div>   
+				  </div>
+				</div>
+				<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-phone">
+				  <div class="theme-padding theme-padding-top-lightgrey">
+				    <p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employee id}/customfields/{category id}</p>
+				    <h4>Response Example</h4>
+				<pre>
+{
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1650"
+    }
+  ],
+  "content": [
+    {
+      "category": 1650,
+      "categoryName": "Qualification",
+      "customFieldId": 35998,
+      "name": "BACHELORS",
+      "description": "Degree",
+      "links": [
+        {
+          "rel": "self",
+          "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1650/35998"
+        }
+      ]
+    }
+  ],
+  "page": {
+    "size": 20,
+    "totalElements": 1,
+    "totalPages": 1,
+    "number": 0
+  }
+}
+
+				</pre>        
+				  </div>
+				</div>
+
+				<!-- Resources - Custom Fields - Get All Categories | END -->       
+				<!-- Resources - Custom Fields - Get One | START --> 
+				<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+				  <div class="theme-padding theme-padding-top-grey">
+				    <p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employee id}/customfields/{category id}/{id}</p>
+				    <h4>Retrieve A Custom Field</h4>
+				    <p>Returns a specific custom field from the employee based on its id number and category.</p>
+				    <h5>Parameters</h5>
+				    <div class="table-responsive-vertical">
+				    <table class="mdl-data-table">
+				      <thead>
+				        <tr>
+				          <th class="mdl-data-table__cell--non-numeric">Name</th>
+				          <th class="mdl-data-table__cell--non-numeric">Required</th>
+				          <th class="mdl-data-table__cell--non-numeric">Type</th>
+				          <th class="mdl-data-table__cell--non-numeric">Description</th>
+				        </tr>
+				      </thead>
+				      <tbody>    
+				        <tr>
+				          <td data-label="Name" class="mdl-data-table__cell--non-numeric">category</td>                
+				          <td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>
+				          <td data-label="Type" class="mdl-data-table__cell--non-numeric">Long</td> 
+				          <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The id of the custom field category.</td> 
+				        </tr>
+								<tr>
+				          <td data-label="Name" class="mdl-data-table__cell--non-numeric">id</td>                
+				          <td data-label="Required" class="mdl-data-table__cell--non-numeric">Yes</td>
+				          <td data-label="Type" class="mdl-data-table__cell--non-numeric">Long</td> 
+				          <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">The id of the custom field.</td> 
+				        </tr>
+				      </tbody>
+				    </table>
+				    </div>                    
+				  </div>
+				</div>
+				<div class="mdl-cell mdl-cell--6-col theme-bg-secondary-grey mdl-cell--hide-phone">
+				  <div class="theme-padding theme-padding-top-lightgrey">
+				    <p class="lead"><span class="badge bg-get">GET</span>&nbsp;/api/v1/employees/{employee id}/customfields/{category id}/{id}</p>
+				    <h4>Response Example</h4>
+				<pre>
+{
+  "category": 1650,
+  "categoryName": "Qualification",
+  "customFieldId": 35998,
+  "name": "BACHELORS",
+  "description": "Degree",
+  "links": [
+    {
+      "rel": "self",
+      "href": "https://secure2.ipayroll.co.nz/api/v1/employees/2/customfields/1650/35998"
+    }
+  ]
+}
+				</pre>    
+				  </div>
+				</div>
+
+				<!-- Resources - Custom Fields - Get One | END -->
+				</div>
+
+			<!-- Resources - Custom Fields | END -->
 	
 	
 	
