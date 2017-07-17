@@ -4282,7 +4282,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 				<div id="resources-custom-fields" class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
 				  <div class="theme-padding theme-padding-top-grey">
 				    <h3>Custom Fields</h3>
-				    <p>A custom field conains extra details relating to an employee. These details are not part of the core iPayroll application, and may not be in regular use by all organisations
+				    <p>A custom field conains extra details relating to an employee. These details are not part of the core iPayroll application, and may not be in regular use by all organisations.
 						<br/>iPayroll offers some special, pre-configured custom fields such as Contact, Contract, Position, Renumeration and Leave.</p>
 				    <p>The fields in the response change dynamically depending upon the category of of the custom field.</p> 
 				    <h5>Attributes</h5>
@@ -4319,7 +4319,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
 						    <tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">date</td>                
 						      <td data-label="Type" class="mdl-data-table__cell--non-numeric">Date</td>
-						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date the custom field was added.</td>
+						      <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Date the custom field was added to the employee.</td>
 						    </tr>
 						    <tr>
 						      <td data-label="Name" class="mdl-data-table__cell--non-numeric">description</td>                
@@ -4334,7 +4334,7 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
                 <tr>
                   <td data-label="Name" class="mdl-data-table__cell--non-numeric">relationship</td>                
                   <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Relationship of contact.</td> 
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Contact Only.</br>Relationship of contact to the employee.</td> 
                 </tr>
                 <tr>
                   <td data-label="Name" class="mdl-data-table__cell--non-numeric">phoneNumber</td>                
@@ -4384,17 +4384,17 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
                 <tr>
                   <td data-label="Name" class="mdl-data-table__cell--non-numeric">finish</td>                
                   <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Date String for the finishing date of the position.</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Date String for the position's finish date.</td>
                 </tr>
                 <tr>
                   <td data-label="Name" class="mdl-data-table__cell--non-numeric">start</td>                
                   <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Date String for the finishing date of the position.</td> 
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>Date String for the position's start date.</td> 
                 </tr>
                 <tr>
                   <td data-label="Name" class="mdl-data-table__cell--non-numeric">reportsFrom</td>                
                   <td data-label="Type" class="mdl-data-table__cell--non-numeric">String</td>
-                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>List String of the people who report to the position (if none does not display).</td>
+                  <td data-label="Description" class="mdl-data-table__cell--non-numeric allow-wrap">Position only.<br/>List of people reporting to the position (will not display if none exist).</td>
                 </tr>
                 <tr>
                   <td data-label="Name" class="mdl-data-table__cell--non-numeric">reportsTo</td>                
@@ -4445,13 +4445,13 @@ https://sandbox.ipayroll.co.nz/api/v1/employees?size=5&page=2
       "category": 1649,
       "categoryName": "Position",
       "customFieldId": 35997,
-      "name": "JANITOR",
-      "description": "Cleaning Person",
+      "name": "TUTOR",
+      "description": "Class Tutor",
       "hayPoints": 2,
       "haysProfile": 23,
       "fte": 2,
       "finish": "10-May-2017",
-      "start": "03-May-2017",
+      "start": "03-May-2016",
       "reportsTo": "MANAGER"
       "links": [
         {
